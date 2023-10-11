@@ -3,21 +3,54 @@ const fs = require('fs');
 class ProductManager{
     constructor(){
         this.path='./products.json'
-    }
-}
+    }    
 /*
 addProduct debe:
     1-recibir un objeto
     2-asignarle un id autoincrementado
     3-guardarlo en el array del archivo. 
 */
-    addProduct();
-
+    async addProduct(title, description, price, thumbnail, code, stock){
+        try{
+            const productsJSON = await fs.promises.readFile(this.path, 'utf-8');
+            const products = JSON.parse(productsJSON);
+            const existingProduct = products.find((product) => product.code === code);
+            if (existingProduct){
+                return console.log(`Ya existe el producto con ${code} ingresado`);
+            }
+            const newProduct={
+                title,
+                description, 
+                price,            
+                thumbnail,
+                code,
+                stock,
+                id: this.#generateId() + 1,
+            };
+            products.push(newProduct);
+            await fs.promises.writeFile(this.path, JSON.stringify(products))
+            return newProduct;
+        }catch (error) {
+            return console.log(`Error al agregar el producto: ${error.message}`)
+        }
+    }
+    #generateId(){
+        const maxId = data.reduce((prev,current)=>(prev.y>current.y)?prev:current,1)
+        
+        return maxId +1;
+    }
 /*
-getProducts debe:
-    1-leer el archivo y devolver todos los productos existentes. 
+getProducts debe devolver todos los elementos que se encuentren dentro del arreglo del archivo json.
 */
-    getProducts();
+    async getProductById(idSearch){
+        if(fs.existsSync(this.path)){
+            const productsJSON = await fs.promises.readFile(this.path, 'utf-8');
+            return JSON.parse(productsJSON);
+        } else {
+            throw new Error(`Error al obtener el archivo: ${this.path} ${e.message}`);
+        }
+    }
+}
 
 /*
 getProductById debe:
