@@ -22,7 +22,11 @@ app.get('/products', async(req, res)=>{
 
 app.get('/products/:pid', async(req, res)=>{
     try {
-        
+        const products = await productManager.getProducts();
+        const {pid} = req.params;
+        const productFind = products.find (p=>p.id ===Number(pid));
+        if(!productFind) res.status(404).json({message: `Producto no encontrado con id ${pid}`});
+        else res.status(200).json(productFind);
     } catch (error) {
         res.status(500).json(error.message);
     }
