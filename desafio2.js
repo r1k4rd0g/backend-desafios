@@ -177,8 +177,8 @@ const test = async() =>{
     await productManager.addProduct(product4.title, product4.description, product4.price, product4.thumbnail, product4.code, product4.stock);
     console.log('Producto buscado por Id 2: ',await productManager.getProductById(2));
     console.log('Productos guardados: ',await productManager.getProducts());
-    console.log('Producto a eliminar: ', await productManager.deleteProduct(3));
-    console.log('Actualizamos precio producto 1: ', await productManager.updateProduct(1,{price: 97}));
+    //console.log('Producto a eliminar: ', await productManager.deleteProduct(3));
+    //console.log('Actualizamos precio producto 1: ', await productManager.updateProduct(1,{price: 97}));
     }
 
 test();

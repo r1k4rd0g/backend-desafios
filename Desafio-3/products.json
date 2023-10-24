@@ -1,0 +1,75 @@
+[
+  {
+    "title": "Agua_Jane",
+    "description": "Agua Jane, 1.2 L. Limpia, desinfecta y blanquea",
+    "price": 150,
+    "thumbnail": "https://discouy.vtexassets.com/arquivos/ids/1419680/AGUA-JANE-Antisplash-1-L-1.jpg?v=638296921167830000",
+    "code": "r7891z",
+    "stock": 10,
+    "id": 1
+  },
+  {
+    "title": "Arroz",
+    "description": "Arroz Saman Blanco, 1kg",
+    "price": 87,
+    "thumbnail": "https://geant.vtexassets.com/arquivos/ids/282097/523035.jpg?v=637656746433700000",
+    "code": "e51qf",
+    "stock": 22,
+    "id": 2
+  },
+  {
+    "title": "Choclo en Lata",
+    "description": "Choclo Amarillo Entero - Arcor 300g",
+    "price": 45,
+    "thumbnail": "https://prod-resize.tiendainglesa.com.uy/images/medium/P106237-1.jpg?20190729125546,Choclo-ARCOR-Amarillo-Cremoso-Lata-300gr-en-Tienda-Inglesa",
+    "code": "e61qd",
+    "stock": 22,
+    "id": 3
+  },
+  {
+    "title": "Choclo en Lata",
+    "description": "Choclo Amarillo Entero - Arcor 300g",
+    "price": 45,
+    "thumbnail": "https://prod-resize.tiendainglesa.com.uy/images/medium/P106237-1.jpg?20190729125546,Choclo-ARCOR-Amarillo-Cremoso-Lata-300gr-en-Tienda-Inglesa",
+    "code": "e61qd",
+    "stock": 22,
+    "id": 4
+  },
+  {
+    "title": "Choclo en Lata",
+    "description": "Choclo Amarillo Entero - Arcor 300g",
+    "price": 45,
+    "thumbnail": "https://prod-resize.tiendainglesa.com.uy/images/medium/P106237-1.jpg?20190729125546,Choclo-ARCOR-Amarillo-Cremoso-Lata-300gr-en-Tienda-Inglesa",
+    "code": "e61qd",
+    "stock": 22,
+    "id": 5
+  },
+  {
+    "title": "Choclo en Lata",
+    "description": "Choclo Amarillo Entero - Arcor 300g",
+    "price": 45,
+    "thumbnail": "https://prod-resize.tiendainglesa.com.uy/images/medium/P106237-1.jpg?20190729125546,Choclo-ARCOR-Amarillo-Cremoso-Lata-300gr-en-Tienda-Inglesa",
+    "code": "e61qd",
+    "stock": 22,
+    "id": 6
+  },
+  {
+    "title": "Choclo en Lata",
+    "description": "Choclo Amarillo Entero - Arcor 300g",
+    "price": 45,
+    "thumbnail": "https://prod-resize.tiendainglesa.com.uy/images/medium/P106237-1.jpg?20190729125546,Choclo-ARCOR-Amarillo-Cremoso-Lata-300gr-en-Tienda-Inglesa",
+    "code": "e61qd",
+    "stock": 22,
+    "id": 7
+  },
+  {
+    "title": "Choclo en Lata",
+    "description": "Choclo Amarillo Entero - Arcor 300g",
+    "price": 45,
+    "thumbnail": "https://prod-resize.tiendainglesa.com.uy/images/medium/P106237-1.jpg?20190729125546,Choclo-ARCOR-Amarillo-Cremoso-Lata-300gr-en-Tienda-Inglesa",
+    "code": "e61qd",
+    "stock": 22,
+    "id": 8
+  }
+
+]
