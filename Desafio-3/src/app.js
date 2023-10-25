@@ -9,10 +9,12 @@ app.get('/products', async(req, res)=>{
     try {
         const products = await productManager.getProducts();
         const {limit} = req.query;
-        const filterProducts = products.filter((product, index)=>index < parseInt(limit));
-        if(!limit || isNaN(parseInt(limit))|| parseInt(limit) <=0){
+        const filterProducts = products.slice(0,limit)
+        if(!limit || parseInt(limit) <=0){
             res.status(200).json(products);
         } else {
+            const limitCount = parseInt(limit);
+            const filterProducts = products.slice(0, limitCount);
             res.status(200).json(filterProducts);
         }
     } catch (error) {

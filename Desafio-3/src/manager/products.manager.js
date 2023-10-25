@@ -39,13 +39,13 @@ async addProduct(title, description, price, thumbnail, code, stock){
     try{
         const newProduct={
             title,
-            description, 
-            price,            
+            description,
+            price,
             thumbnail,
             code: code.toString(),
             stock,
             id: this.#generateId(products),
-        };            
+        };
         this.products.push(newProduct);
         //console.log('productos antes de guardar:', this.products); - utilizaba para buscar un error
         await this.#saveProducts(this.products);
