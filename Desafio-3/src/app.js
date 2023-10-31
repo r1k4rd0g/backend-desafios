@@ -9,7 +9,7 @@ app.get('/products', async(req, res)=>{
     try {
         const products = await productManager.getProducts();
         const {limit} = req.query;
-        if(!limit || isNaN(limit) || parseInt(limit) <=0){
+        if(!limit === undefined || isNaN(limit) || parseInt(limit) <=0){
             res.status(200).json(products);
         } else {
             const filterProducts = products.slice(0, limit);
@@ -25,8 +25,11 @@ app.get('/products/:pid', async(req, res)=>{
         const products = await productManager.getProducts();
         const {pid} = req.params;
         const productFind = products.find (p=>p.id ===Number(pid));
-        if(!productFind) res.status(404).json({message: `Producto no encontrado con id ${pid}`});
-        else res.status(200).json(productFind);
+        if(productFind){
+            res.status(200).json(productFind);
+        }else{
+            res.status(404).json({message: `Producto no encontrado con id ${pid}`});
+        }
     } catch (error) {
         res.status(500).json(error.message);
     }
