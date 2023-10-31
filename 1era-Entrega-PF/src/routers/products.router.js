@@ -22,7 +22,7 @@ router.get('/', async(req, res)=>{
 })
 
 router.get('/:pid', async(req, res)=>{
-    console.log('solicitud recibida en /api/products/:pid');
+    //console.log('solicitud recibida en /api/products/:pid');
     try {
         const products = await productManager.getProducts();
         const {pid} = req.params;
