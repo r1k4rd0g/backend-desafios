@@ -27,10 +27,7 @@ export class ProductManager{
             throw new Error (`Error al buscar el producto con ${idSearch}`);
         };
     };
-async addProduct(title, description, price, thumbnail, code, stock){
-    if(typeof title !== 'string' || typeof description !== 'string' || typeof price !== 'number' || typeof thumbnail !== 'string' || typeof code !== 'string' || typeof stock !== 'number'){
-        throw new Error('Invalid input parameters');
-    }
+async addProduct(title, description, code, price, stock, category, thumbnail){
     const products = await this.getProducts();
     const existingProduct = products.find((product) => product.code === code);
     if (existingProduct){
@@ -40,10 +37,12 @@ async addProduct(title, description, price, thumbnail, code, stock){
         const newProduct={
             title,
             description,
+            code,
             price,
-            thumbnail,
-            code: code.toString(),
             stock,
+            category,
+            thumbnail,
+            status: true,
             id: this.#generateId(products),
         };
         this.products.push(newProduct);

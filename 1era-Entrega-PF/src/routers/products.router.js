@@ -2,6 +2,7 @@ import { Router } from 'express';
 const router = Router();
 
 import { ProductManager } from '../managers/products.manager.js';
+import { productValidator } from '../middlewares/productsValidator.js';
 const productManager = new ProductManager('./data/products.json');
 
 
@@ -28,6 +29,15 @@ router.get('/:pid', async(req, res)=>{
         const productFind = products.find (p=>p.id ===Number(pid));
         if(!productFind) res.status(404).json({message: `Producto no encontrado con id ${pid}`});
         else res.status(200).json(productFind);
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+})
+
+router.post('/', productValidator, async(req, res)=>{
+    try {
+        const newProduct = await productManager.addProduct(req.body);
+        res.status(200).json(newProduct);
     } catch (error) {
         res.status(500).json(error.message);
     }
