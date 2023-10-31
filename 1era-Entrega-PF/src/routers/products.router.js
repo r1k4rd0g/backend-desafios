@@ -20,11 +20,12 @@ router.get('/', async(req, res)=>{
     }
 })
 
-router.get('/id', async(req, res)=>{
+router.get('/:pid', async(req, res)=>{
+    console.log('solicitud recibida en /api/products/:pid');
     try {
         const products = await productManager.getProducts();
-        const {id} = req.params;
-        const productFind = products.find (p=>p.id ===Number(id));
+        const {pid} = req.params;
+        const productFind = products.find (p=>p.id ===Number(pid));
         if(!productFind) res.status(404).json({message: `Producto no encontrado con id ${pid}`});
         else res.status(200).json(productFind);
     } catch (error) {
