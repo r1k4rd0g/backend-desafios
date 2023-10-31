@@ -42,5 +42,23 @@ router.post('/', productValidator, async(req, res)=>{
         res.status(500).json(error.message);
     }
 })
-
+router.put('/:pid', async(req, res)=>{
+    try {
+        const {pid} = req.params;
+        const updateValues = req.body;
+        const productUpdate = await productManager.updateProduct(Number(pid), updateValues);
+        res.status(200).json(productUpdate);
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+})
+router.delete('/:pid', async(req, res)=>{
+    try {
+        const {pid} =req.params;
+        const deletedProduct = await productManager.deleteProduct(Number(pid));
+        res.status(200).json(deletedProduct)
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+})
 export default router;

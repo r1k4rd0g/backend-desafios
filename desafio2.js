@@ -85,7 +85,7 @@ async updateProduct(idSearch, updateValues){
             delete updateProduct.id;
         }
         products[productFind] = updateProduct;
-        await this.#saveProducts(products);            
+        await this.#saveProducts(products);
         return updateProduct;
     } catch (error) {
         throw new Error (`Error al actualizar con el producto con Id ${idSearch}`);

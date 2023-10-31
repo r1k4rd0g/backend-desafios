@@ -27,7 +27,7 @@ export class ProductManager{
             throw new Error (`Error al buscar el producto con ${idSearch}`);
         };
     };
-async addProduct(title, description, code, price, stock, category, thumbnail){
+    async addProduct({title, description, code, price, stock, category, thumbnail}) {
     const products = await this.getProducts();
     const existingProduct = products.find((product) => product.code === code);
     if (existingProduct){
@@ -35,6 +35,8 @@ async addProduct(title, description, code, price, stock, category, thumbnail){
     }
     try{
         const newProduct={
+            status: true,
+            id: this.#generateId(products),
             title,
             description,
             code,
@@ -42,16 +44,45 @@ async addProduct(title, description, code, price, stock, category, thumbnail){
             stock,
             category,
             thumbnail,
-            status: true,
-            id: this.#generateId(products),
         };
         this.products.push(newProduct);
-        //console.log('productos antes de guardar:', this.products); - utilizaba para buscar un error
         await this.#saveProducts(this.products);
-        //console.log('productos después de guardar:', this.products); - utilizaba para buscar un error
         return newProduct;
     }catch (error) {
         throw new Error(`Error al agregar el producto: ${error.message}`)
+        }
+    }
+    async updateProduct(idSearch, updateValues){
+        try {
+            const productFind = await this.#findProductIndexById(idSearch);
+            if (productFind === -1){
+                throw new Error(`El Producto con ${idSearch} no existe.`);
+            }
+            const products = await this.getProducts();
+            const updateProduct ={
+                id:idSearch,
+                ...products[productFind],
+                ...updateValues
+            };
+            products[productFind] = updateProduct;
+            await this.#saveProducts(products);
+            return updateProduct;
+        } catch (error) {
+            throw new Error (`Error al actualizar con el producto con Id ${idSearch}`);
+        }
+    };
+    async deleteProduct(idSearch){
+        try {
+            const productFind = await this.#findProductIndexById(idSearch);
+            if (productFind === -1){
+                throw new Error(`El Producto con Id ${idSearch} no existe.`);
+            }
+            const products = await this.getProducts();
+            const deletedProduct = products.splice(productFind, 1)[0];
+            await this.#saveProducts(products);
+            return deletedProduct;
+        } catch (error) {
+                throw new Error (`Error al eliminar el producto con Id ${idSearch}`);
         }
     }
     //**Enclosing Classes *//
@@ -60,7 +91,7 @@ async addProduct(title, description, code, price, stock, category, thumbnail){
     if (!products || products.length === 0){
         return 1;
     }
-    const maxId = products.reduce((max, product) => product.id > max ? product.id : max, 0);
+    const maxId = products.reduce((max, product) => product.id > max ? product.id : max, 0, products[0].id);
     return maxId + 1;
 }   ;
 async #findProductById(idSearch){

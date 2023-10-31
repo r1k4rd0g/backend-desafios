@@ -1,12 +1,16 @@
 export const productValidator = (req, res, next) =>{
-    const {title, description, code, price, stock, category } = req.body;
+    const {title, description, code, price, stock, category, thumbnail} = req.body;
     if(
-        typeof title !== 'string'|| req.body.title === undefined ||
-        typeof description !== 'string'|| req.body.description === undefined ||
-        typeof code !== 'string'|| req.body.code === undefined ||
-        typeof price !== 'number'|| req.body.price === undefined ||
-        typeof stock !== 'number'|| req.body.stock === undefined ||
-        typeof category !== 'string'|| req.body.category === undefined
-    ) res.status(404).json({msg: 'Invalid body'})
-    else next();
-}
+        typeof title !== 'string'||
+        typeof description !== 'string'||
+        typeof code !== 'string'||
+        typeof price !== 'number'||
+        typeof stock !== 'number'||
+        typeof category !== 'string'||
+        (thumbnail !== undefined && (!Array.isArray(thumbnail) || thumbnail.some(item => typeof item !== 'string')))
+    ){
+        res.status(400).json({msg: 'Falta una propiedad o hay un error de tipo de variable'});
+    } else {
+        next()
+    };
+};
