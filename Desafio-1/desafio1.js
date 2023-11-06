@@ -8,8 +8,8 @@ class ProductManager{
         }
         const product={
             title,
-            description, 
-            price, 
+            description,
+            price,
             thumbnail,
             code,
             stock,
@@ -27,7 +27,7 @@ class ProductManager{
 //cambio sugerido por tutor en las lineas siguientes, sobre el generateId:
     #generateId(){
         const maxId = data.reduce((prev,current)=>(prev.y>current.y)?prev:current,1)
-        
+
         return maxId +1;
     };// según codium puede ser mejorada, pero dejo así para que quede con la corrección del tutor. 
     getProducts(){
@@ -40,7 +40,7 @@ class ProductManager{
         } else{
             return `Product with id ${idSearch} not found`
         }
-        
+
     }
 }
 

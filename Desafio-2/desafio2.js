@@ -49,13 +49,13 @@ class ProductManager{
         try{
             const newProduct={
                 title,
-                description, 
-                price,            
+                description,
+                price,
                 thumbnail,
                 code: code.toString(),
                 stock,
                 id: this.#generateId(products),
-            };            
+            };
             this.products.push(newProduct);
             //console.log('productos antes de guardar:', this.products); - utilizaba para buscar un error
             await this.#saveProducts(this.products);
@@ -67,7 +67,7 @@ class ProductManager{
     }
 /* - updateProduct debe:
     1-recibir el ID del producto para actualizar
-    2-modificar el campo actualizado 
+    2-modificar el campo actualizado
     3-actualizar el producto
     4-no borrar el ID */
 async updateProduct(idSearch, updateValues){
@@ -146,16 +146,16 @@ const product1 ={
 
 const product2 ={
     title : 'Arroz',
-    description: 'Arroz Saman Blanco, 1kg', 
+    description: 'Arroz Saman Blanco, 1kg',
     price: 87,
     thumbnail: 'https://geant.vtexassets.com/arquivos/ids/282097/523035.jpg?v=637656746433700000',
     code: 'e51qf',
     stock: 22,
 };
-//product3 con mismo código para chequear que no se puede dar de alta a un producto con mismo código. 
+//product3 con mismo código para chequear que no se puede dar de alta a un producto con mismo código.
 const product3 ={
     title : 'Café',
-    description: 'Café Nescafé - Bracafé 170g', 
+    description: 'Café Nescafé - Bracafé 170g',
     price: 65,
     thumbnail: 'https://districomp.com.uy/files/tmp/compressed/normal/lqfienxv57rfktjjq239.jpg',
     code: 'e51qf',
@@ -164,7 +164,7 @@ const product3 ={
 //product4 creado para borrarlo con el deleteProduct()
 const product4 ={
     title : 'Choclo en Lata',
-    description: 'Choclo Amarillo Entero - Arcor 300g', 
+    description: 'Choclo Amarillo Entero - Arcor 300g',
     price: 45,
     thumbnail: 'https://prod-resize.tiendainglesa.com.uy/images/medium/P106237-1.jpg?20190729125546,Choclo-ARCOR-Amarillo-Cremoso-Lata-300gr-en-Tienda-Inglesa',
     code: 'e61qd',

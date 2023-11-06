@@ -1,2 +1,2 @@
-# backend-desafios
+# backend-desafíos
 Desafíos Backend para Coderhouse
