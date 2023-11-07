@@ -14,12 +14,12 @@ async function loadProducts(){
 const products = await loadProducts();
 
 router.get('/home', async (req, res)=>{
-    console.log('consola 1:', products);
+    //console.log('consola 1:', products);
     res.render('home' , {products: products})
 })
 
 router.get('/realtimeproducts', (req, res)=>{
-    res.render('realTimeProducts')
+    res.render('realTimeProducts', {products: products});
 })
 
 
