@@ -6,6 +6,8 @@ import { Server } from 'socket.io';
 import viewRouter from './routers/views.router.js';
 import productsRouter from './routers/products.router.js';
 import cartsRouter from './routers/carts.router.js';
+import { ProductManager } from './managers/products.manager.js';
+const productManager = new ProductManager(__dirname + './data/products.json')
 
 const app = express();
 app.use(express.static('data'));
@@ -25,6 +27,11 @@ app.use('/api/carts', cartsRouter);
 app.use('/', viewRouter);
 
 const PORT = 8080;
-const httpServer = app.listen(PORT, ()=> console.log(`Server ok en el puerto ${PORT}`));
+const httpServer = app.listen(PORT, ()=> console.log(`🚀 Server ok en el puerto ${PORT}`));
 
-const SocketServer = new Server(httpServer);
+const socketServer = new Server(httpServer);
+
+socketServer.on('connection', async (socket)=>{
+    console.log('🟢 ¡New Connection', socket.id);
+    socketServer.emit('products', await productManager.getProducts());
+})

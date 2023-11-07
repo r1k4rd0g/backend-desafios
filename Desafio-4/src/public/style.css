@@ -1,4 +1,31 @@
+.body{
+    background-color:rgb(223, 215, 202)
+}
 .h1Home{
     text-align: center;
     color: blue;
+    background-color: #696969;
+}
+.containerList{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    width: 500px;
+    background-color: rgb(169, 169, 169);
+    text-align: left;
+    text-rendering: auto;
+    border-radius: 10%;
+    border-color: #696969;
+}
+.imgProduct{
+    max-width: 20%;
+    margin-top: 2px;
+}
+.divPrincipal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
 }

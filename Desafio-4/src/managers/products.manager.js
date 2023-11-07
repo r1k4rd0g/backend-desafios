@@ -11,7 +11,7 @@ export class ProductManager{
             const productsJSON= await fs.promises.readFile(this.path, 'utf-8')
             const productsJavaScript = JSON.parse(productsJSON);
             return productsJavaScript;
-            }else return [];
+            }else {return []};
         } catch (error) {
             throw new Error (`Error al leer el archivo: ${error.message}`);
         }

@@ -1,8 +1,24 @@
-<h1>Lista de productos con Websockets</h1>
-<!--acá que se muestre la lista de productos más los que se agregarán. Tiene que trabajar con Socket y actualizar sola .-->
+<h1 class="h1Home">Lista de productos actualizados, utilizando Websockets</h1>
+<div class="divPrincipal">
+    <div class = "containerList" id="containerList">
+            <ul>
+                {{#each products}}
+                    <li>
+                        <strong>Titulo: </strong>{{this.title}}<br>
+                        <strong>PricePrice: </strong>{{this.price}}<br>
+                        <strong>Description: </strong>{{this.description}}<br>
+                        <strong>Category: </strong>{{this.category}}<br>
+                        <img class="imgProduct" src="{{this.thumbnail}}" alt = "{{this.title}}">
+                    </li>
+                {{/each}}
+            </ul>
+    </div>
+    <!--acá se muestre la lista que contiene todos los productos hasta el momento. sería el json.-->
+</div><!--acá que se muestre la lista de productos más los que se agregarán. Tiene que trabajar con Socket y actualizar sola .-->
 
 
 
 
 
 <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+<script src="index.js" charset="utf-8"></script>
