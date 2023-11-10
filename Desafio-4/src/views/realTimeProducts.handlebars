@@ -2,23 +2,27 @@
     <h1 class="h1Home">Lista de productos actualizados, utilizando Websockets</h1>
     <div class="divForm">
         <h2 class="titLista">Formulario para cargar productos:</h2>
-        <form action="/submit" method="post" class="Form">
-            <div class="Form">
+        <form method="post" class="Form">
+            <div class="Form" id="form">
                 <label for="Title"><strong>Titulo: </strong></label>
                 <input type="text" id="title" name="title"><br>
                 <label for="Price"><strong>Price: </strong></label>
                 <input type="number" id="price" name="price"><br>
+                <label for="Code"><strong>Code: </strong></label>
+                <input type="text" id="code" name="code"><br>
                 <label for="Description"><strong>Description: </strong></label>
                 <input type="text" id="description" name="description"><br>
                 <label for="Category"><strong>Category: </strong></label>
                 <input type="text" id="category" name="category"><br>
+                <label for="Stock"><strong>Stock: </strong></label>
+                <input type="number" id="stock" name="stock"><br>
                 <button type="submit" id="cargar">Cargar</button>
             </div>
         </form>
     </div>
         <div class="divForm">
         <h2 class="titLista">Formulario para eliminar productos:</h2>
-        <form action="/submit" method="post" class="Form">
+        <form method="post" class="Form">
             <div class="Form">
                 <label for="Id"><strong>Id: </strong></label>
                 <input type="number" id="idProduct" name="idProduct"><br>

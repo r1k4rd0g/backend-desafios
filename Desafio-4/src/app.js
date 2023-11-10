@@ -33,5 +33,12 @@ const socketServer = new Server(httpServer);
 
 socketServer.on('connection', async (socket)=>{
     console.log('🟢 ¡New Connection', socket.id);
-    socketServer.emit('products', await productManager.getProducts());
+    //socketServer.emit('products', await productManager.getProducts());
+    /*socketServer.on('newProduct', async(newProduct)=>{
+        await productManager.addProduct(newProduct);
+        console.log('console 2', newProduct)
+        socketServer.emit('products', await productManager.getProducts())
+    });*/
 })
+
+export default socketServer

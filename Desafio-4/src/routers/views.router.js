@@ -1,6 +1,10 @@
 import {Router} from 'express';
 const router = Router();
 import fs from 'fs';
+import { ProductManager } from '../managers/products.manager.js';
+import { productValidator } from '../middlewares/productsValidator.js';
+const productManager = new ProductManager('./data/products.json');
+import socketServer from '../app.js';
 
 async function loadProducts(){
     try {
@@ -18,9 +22,24 @@ router.get('/home', async (req, res)=>{
     res.render('home' , {products: products})
 })
 
-router.get('/realtimeproducts', (req, res)=>{
+router.get('/realtimeproducts', async (req, res)=>{
     res.render('realTimeProducts', {products: products});
 })
 
+router.post('/realtimeproducts',async (req, res)=>{
+    try {
+        const {newProduct} = req.body
+        console.log('console 2:', {newProduct});
+        await productManager.addProduct(newProduct);
+        socketServer.emit('products', await productManager.getProducts())
+        res.status(200).json(newProduct);
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+
+})
+router.delete('/realtimeproducts', async(req, res)=>{
+
+})
 
 export default router;
