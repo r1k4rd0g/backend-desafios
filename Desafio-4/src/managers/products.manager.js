@@ -29,6 +29,7 @@ export class ProductManager{
     };
     async addProduct({title, description, code, price, stock, category, thumbnail}) {
     const products = await this.getProducts();
+    console.log('console 3', products);
     const existingProduct = products.find((product) => product.code === code);
     if (existingProduct){
         throw new Error(`Ya existe el producto con ${code} ingresado`);

@@ -2,22 +2,20 @@
     <h1 class="h1Home">Lista de productos actualizados, utilizando Websockets</h1>
     <div class="divForm">
         <h2 class="titLista">Formulario para cargar productos:</h2>
-        <form method="post" class="Form">
-            <div class="Form" id="form">
+        <form method="post" class="Form" id="add" action="/realtimeproducts">
                 <label for="Title"><strong>Titulo: </strong></label>
                 <input type="text" id="title" name="title"><br>
-                <label for="Price"><strong>Price: </strong></label>
-                <input type="number" id="price" name="price"><br>
-                <label for="Code"><strong>Code: </strong></label>
-                <input type="text" id="code" name="code"><br>
                 <label for="Description"><strong>Description: </strong></label>
                 <input type="text" id="description" name="description"><br>
-                <label for="Category"><strong>Category: </strong></label>
-                <input type="text" id="category" name="category"><br>
+                <label for="Code"><strong>Code: </strong></label>
+                <input type="text" id="code" name="code"><br>
+                <label for="Price"><strong>Price: </strong></label>
+                <input type="number" id="price" name="price"><br>
                 <label for="Stock"><strong>Stock: </strong></label>
                 <input type="number" id="stock" name="stock"><br>
+                <label for="Category"><strong>Category: </strong></label>
+                <input type="text" id="category" name="category"><br>
                 <button type="submit" id="cargar">Cargar</button>
-            </div>
         </form>
     </div>
         <div class="divForm">
@@ -33,16 +31,6 @@
     <h2 class="titLista">Lista actualizada post formulario:</h2>
     <div class="divPrincipal">
         <div class = "containerList" id="containerList">
-                <ul>
-                    {{#each products}}
-                        <li>
-                            <strong>Titulo: </strong>{{this.title}}<br>
-                            <strong>PricePrice: </strong>{{this.price}}<br>
-                            <strong>Description: </strong>{{this.description}}<br>
-                            <strong>Category: </strong>{{this.category}}<br>
-                        </li>
-                    {{/each}}
-                </ul>
         </div>
     <!--acá se muestre la lista que contiene todos los productos hasta el momento. sería el json.-->
     </div><!--acá que se muestre la lista de productos más los que se agregarán. Tiene que trabajar con Socket y actualizar sola .-->

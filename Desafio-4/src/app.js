@@ -6,8 +6,7 @@ import { Server } from 'socket.io';
 import viewRouter from './routers/views.router.js';
 import productsRouter from './routers/products.router.js';
 import cartsRouter from './routers/carts.router.js';
-import { ProductManager } from './managers/products.manager.js';
-const productManager = new ProductManager(__dirname + './data/products.json')
+
 
 const app = express();
 app.use(express.static('data'));
@@ -33,12 +32,6 @@ const socketServer = new Server(httpServer);
 
 socketServer.on('connection', async (socket)=>{
     console.log('🟢 ¡New Connection', socket.id);
-    //socketServer.emit('products', await productManager.getProducts());
-    /*socketServer.on('newProduct', async(newProduct)=>{
-        await productManager.addProduct(newProduct);
-        console.log('console 2', newProduct)
-        socketServer.emit('products', await productManager.getProducts())
-    });*/
 })
 
 export default socketServer

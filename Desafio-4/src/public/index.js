@@ -1,53 +1,43 @@
 const socket = io();
-const form =document.getElementById('form');
-const inputPrice = document.getElementById('price');
-const inputTitle = document.getElementById('title');
-const inputDescription = document.getElementById('description');
-const inputCode = document.getElementById('code');
-const inputCategory = document.getElementById('category');
-const inputIdProduct = document.getElementById('idProduct');
-const inputStock = document.getElementById('stock');
+
+const productsList =  document.getElementById('containerList')
+const add =document.getElementById('add');
+const price = document.getElementById('price');
+const title = document.getElementById('title');
+const description = document.getElementById('description');
+const code = document.getElementById('code');
+const category = document.getElementById('category');
+const idProduct = document.getElementById('idProduct');
+const stock = document.getElementById('stock');
 const btnCargar = document.getElementById('cargar');
 const btnEliminar = document.getElementById('eliminar');
 
-newProduct = {inputPrice, inputTitle, inputCode, inputDescription, inputCategory, inputStock};
 
-
-
-/*form.onsubmit =(e) =>{
-    e.preventDefault();
-    const price = inputPrice.value;
-    const title = inputTitle.value;
-    const description = inputDescription.value;
-    const code = inputCode.value;
-    const category = inputCategory.value;
-    const stock = inputStock.value;
-    const newProduct = {price, title, description, code, category, stock};
-    socket.emit('nuevoProducto', newProduct);
-}*/
-
-
-/*btnCargar.addEventListener('click', ()=>{
-    socket.emit('newProduct', {
-        price : inputPrice.value,
-        title : inputTitle.value,
-        code : inputCode.value,
-        description : inputDescription.value,
-        category : inputCategory.value,
-        stock: inputStock.value,
-    });
-    console.log('console 3', newProduct)
-    //limpiamos el formulario:
+socket.on('products', (products)=>{
+    console.log(JSON.stringify(products))
+    let infoProducts = '';
+    productsList.innerHTML = `<ul>`;
+    products.forEach(p=>{
+        console.log(JSON.stringify(p))
+        infoProducts += `<li>
+        <strong>Titulo: </strong>${p.title}<br>
+        <strong>PricePrice: </strong>${p.price}<br>
+        <strong>Description: </strong>${p.description}}<br>
+        <strong>Category: </strong>${p.category}<br>
+        </li>`
+    })
+    productsList.innerHTML = infoProducts
+    console.log(productsList);
+    products.innerHTML = '</ul>';
     cleanForm();
-});
-
+})
 
 function cleanForm(){
-    inputPrice.value = '';
-    inputTitle.value = '';
-    inputCode.value = '';
-    inputDescription.value = '';
-    inputCategory.value= '';
-    inputStock.value = '';
+    price.value = '';
+    title.value = '';
+    code.value = '';
+    description.value = '';
+    category.value= '';
+    stock.value = '';
 };
-*/
+

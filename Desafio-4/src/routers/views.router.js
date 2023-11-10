@@ -15,24 +15,28 @@ async function loadProducts(){
         throw new Error (`Error al cargar los productos: ${error.message}`);
     }
 }
-const products = await loadProducts();
 
 router.get('/home', async (req, res)=>{
     //console.log('consola 1:', products);
-    res.render('home' , {products: products})
+    const products = await loadProducts();
+    res.render('home' , {products: products}) // este product viene de linea 18, cargado desde el json, por medio de la funcion loadProducts. Este es hundlebars.
 })
 
 router.get('/realtimeproducts', async (req, res)=>{
-    res.render('realTimeProducts', {products: products});
+    const products = await loadProducts();
+    res.render('realtimeproducts', {products: products});
 })
 
 router.post('/realtimeproducts',async (req, res)=>{
     try {
-        const {newProduct} = req.body
-        console.log('console 2:', {newProduct});
+        const {title, description, code, price, stock, category} = req.body;
+        console.log('console 2:', title, description, code, price, stock, category);
+        const newProduct = {title, description, code, price, stock, category}
         await productManager.addProduct(newProduct);
-        socketServer.emit('products', await productManager.getProducts())
-        res.status(200).json(newProduct);
+        const products = await productManager.getProducts()
+        console.log("products", products);
+        socketServer.emit('products', products);
+        res.render('realTimeProducts', {products: products})
     } catch (error) {
         res.status(500).json(error.message);
     }
