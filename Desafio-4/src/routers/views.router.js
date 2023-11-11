@@ -29,20 +29,18 @@ router.get('/realtimeproducts', async (req, res)=>{
 
 router.post('/realtimeproducts',async (req, res)=>{
     try {
+        //console.log(' consola 2 req.body:', req.body);
         const {title, description, code, price, stock, category} = req.body;
-        console.log('console 2:', title, description, code, price, stock, category);
+       // console.log('console 3:', title, description, code, price, stock, category);
         const newProduct = {title, description, code, price, stock, category}
         await productManager.addProduct(newProduct);
         const products = await productManager.getProducts()
-        console.log("products", products);
+        console.log("consola 4 products:", products);
         socketServer.emit('products', products);
-        res.render('realTimeProducts', {products: products})
+        //res.render('realTimeProducts', {products: products})
     } catch (error) {
         res.status(500).json(error.message);
     }
-
-})
-router.delete('/realtimeproducts', async(req, res)=>{
 
 })
 

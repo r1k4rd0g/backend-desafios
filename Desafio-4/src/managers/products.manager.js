@@ -10,6 +10,7 @@ export class ProductManager{
             if(fs.existsSync(this.path)){
             const productsJSON= await fs.promises.readFile(this.path, 'utf-8')
             const productsJavaScript = JSON.parse(productsJSON);
+            //console.log('products desde el getProducts:', productsJavaScript)
             return productsJavaScript;
             }else {return []};
         } catch (error) {
@@ -27,14 +28,18 @@ export class ProductManager{
             throw new Error (`Error al buscar el producto con ${idSearch}`);
         };
     };
+    //función addProduct, modificada para agregar al archivo lo que viene del front y no sobre escribir todo el archivo:
     async addProduct({title, description, code, price, stock, category, thumbnail}) {
+    //cargamos los productos actuales:
     const products = await this.getProducts();
-    console.log('console 3', products);
+    //console.log('console manager 1:', products);
     const existingProduct = products.find((product) => product.code === code);
+    //verificamos si ya existe un producto con el mismo código:
     if (existingProduct){
         throw new Error(`Ya existe el producto con ${code} ingresado`);
     }
     try{
+        //si no existe, creamos el producto nuevo:
         const newProduct={
             status: true,
             id: this.#generateId(products),
@@ -46,8 +51,11 @@ export class ProductManager{
             category,
             thumbnail,
         };
-        this.products.push(newProduct);
-        await this.#saveProducts(this.products);
+        //modificamos la siguiente linea, para poder agregar el nuevo producto a los existentes:
+        /*this.products.push(newProduct);---> quedando comiteada para que no se ejecute, a continuación agregamos la que sustituye:*/
+        const allProducts = [...products, newProduct]; // esta integra el nuevo producto a los existentes
+        //modificamos para que en ves de "guardar" el this.products, lo haga con el allProducts:
+        await this.#saveProducts(allProducts);
         return newProduct;
     }catch (error) {
         throw new Error(`Error al agregar el producto: ${error.message}`)
@@ -101,6 +109,7 @@ async #findProductById(idSearch){
     }
 async #findProductIndexById(idSearch){
     const products = await this.getProducts();
+    //console.log('console de findindexbyid:', products);
     return products.findIndex((product) => product.id === idSearch);
     }
 async #saveProducts(products){

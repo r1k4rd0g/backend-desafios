@@ -1,7 +1,7 @@
 const socket = io();
 
 const productsList =  document.getElementById('containerList')
-const add =document.getElementById('add');
+const add = document.getElementById('add');
 const price = document.getElementById('price');
 const title = document.getElementById('title');
 const description = document.getElementById('description');
@@ -21,14 +21,15 @@ socket.on('products', (products)=>{
         console.log(JSON.stringify(p))
         infoProducts += `<li>
         <strong>Titulo: </strong>${p.title}<br>
-        <strong>PricePrice: </strong>${p.price}<br>
-        <strong>Description: </strong>${p.description}}<br>
+        <strong>Price: </strong>${p.price}<br>
+        <strong>Description: </strong>${p.description}<br>
         <strong>Category: </strong>${p.category}<br>
         </li>`
     })
+    infoProducts += `</ul>`;
     productsList.innerHTML = infoProducts
     console.log(productsList);
-    products.innerHTML = '</ul>';
+    //products.innerHTML = '</ul>';
     cleanForm();
 })
 
@@ -41,3 +42,10 @@ function cleanForm(){
     stock.value = '';
 };
 
+btnEliminar.addEventListener('click', ()=>{
+    const action = document.getElementById('eliminarForm').getAttribute('data-action');
+    if(action === 'delete'){
+        const idToDelete = parseInt(idProduct.value, 10);
+        socket.emit('deleteProduct', {idProduct : idToDelete});
+    }
+})

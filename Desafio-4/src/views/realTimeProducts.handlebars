@@ -20,12 +20,10 @@
     </div>
         <div class="divForm">
         <h2 class="titLista">Formulario para eliminar productos:</h2>
-        <form method="post" class="Form">
-            <div class="Form">
+        <form method="post" class="Form" action="/realtimeproducts" id="eliminarForm" data-action="delete">
                 <label for="Id"><strong>Id: </strong></label>
-                <input type="number" id="idProduct" name="idProduct"><br>
-                <button type="submit" id="eliminar">Eliminar</button>
-            </div>
+                <input type="number" id="idProduct" name="idProduct" required><br>
+                <button type="button" id="eliminar">Eliminar</button>
         </form>
     </div>
     <h2 class="titLista">Lista actualizada post formulario:</h2>
