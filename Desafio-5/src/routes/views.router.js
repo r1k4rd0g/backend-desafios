@@ -1,9 +1,9 @@
 import {Router} from 'express';
 const router = Router();
 import fs from 'fs';
-import { ProductManager } from '../managers/products.manager.js';
+import { ProductDaoFS } from '../daos/filesystem/products.dao.js';
 import { productValidator } from '../middlewares/productsValidator.js';
-const productManager = new ProductManager('./data/products.json');
+const productDaoFS = new ProductDaoFS('../data/products.json');
 import socketServer from '../app.js';
 
 async function loadProducts(){
@@ -33,8 +33,8 @@ router.post('/realtimeproducts',async (req, res)=>{
         const {title, description, code, price, stock, category} = req.body;
        // console.log('console 3:', title, description, code, price, stock, category);
         const newProduct = {title, description, code, price, stock, category}
-        await productManager.addProduct(newProduct);
-        const products = await productManager.getProducts()
+        await productDaoFS.addProduct(newProduct);
+        const products = await productDaoFS.getProducts()
         console.log("consola 4 products:", products);
         socketServer.emit('products', products);
         //res.render('realTimeProducts', {products: products})

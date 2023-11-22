@@ -1,14 +1,14 @@
 import { Router } from 'express';
 const router = Router();
 
-import { ProductManager } from '../managers/products.manager.js';
+import { ProductDaoFS } from '../daos/filesystem/products.dao.js';
 import { productValidator } from '../middlewares/productsValidator.js';
-const productManager = new ProductManager('./data/products.json');
+const productDaoFS = new ProductDaoFS('./data/products.json');
 
 
 router.get('/', async(req, res)=>{
     try {
-        const products = await productManager.getProducts();
+        const products = await productDaoFS.getProducts();
         const {limit} = req.query;
         if(!limit || isNaN(limit) || parseInt(limit) <=0){
             res.status(200).json(products);
@@ -24,7 +24,7 @@ router.get('/', async(req, res)=>{
 router.get('/:pid', async(req, res)=>{
     //console.log('solicitud recibida en /api/products/:pid');
     try {
-        const products = await productManager.getProducts();
+        const products = await productDaoFS.getProducts();
         const {pid} = req.params;
         const productFind = products.find (p=>p.id ===Number(pid));
         if(!productFind) res.status(404).json({message: `Producto no encontrado con id ${pid}`});
@@ -36,7 +36,7 @@ router.get('/:pid', async(req, res)=>{
 
 router.post('/', productValidator, async(req, res)=>{
     try {
-        const newProduct = await productManager.addProduct(req.body);
+        const newProduct = await productDaoFS.addProduct(req.body);
         res.status(200).json(newProduct);
     } catch (error) {
         res.status(500).json(error.message);
@@ -46,7 +46,7 @@ router.put('/:pid', async(req, res)=>{
     try {
         const {pid} = req.params;
         const updateValues = req.body;
-        const productUpdate = await productManager.updateProduct(Number(pid), updateValues);
+        const productUpdate = await productDaoFS.updateProduct(Number(pid), updateValues);
         res.status(200).json(productUpdate);
     } catch (error) {
         res.status(500).json(error.message);
@@ -55,7 +55,7 @@ router.put('/:pid', async(req, res)=>{
 router.delete('/:pid', async(req, res)=>{
     try {
         const {pid} =req.params;
-        const deletedProduct = await productManager.deleteProduct(Number(pid));
+        const deletedProduct = await productDaoFS.deleteProduct(Number(pid));
         res.status(200).json(deletedProduct)
     } catch (error) {
         res.status(500).json(error.message);
