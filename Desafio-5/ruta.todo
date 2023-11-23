@@ -1,0 +1,227 @@
+{
+  "todotree": {
+    "tree": [
+      {
+        "key": 1700704426364,
+        "children": [
+          {
+            "key": 1700704523982,
+            "children": [],
+            "todo": {
+              "content": "Carts.dao.js",
+              "id": 1700704523982,
+              "level": "warning",
+              "done": false,
+              "start": 1700704523982
+            }
+          },
+          {
+            "key": 1700704556896,
+            "children": [],
+            "todo": {
+              "content": "Vista de handlebars para los chats",
+              "id": 1700704556896,
+              "level": "default",
+              "done": false,
+              "start": 1700704556896
+            }
+          },
+          {
+            "key": 1700704569205,
+            "children": [],
+            "todo": {
+              "content": "Vista de handlebars para el carrito",
+              "id": 1700704569205,
+              "level": "default",
+              "done": false,
+              "start": 1700704569205
+            }
+          },
+          {
+            "key": 1700704680319,
+            "children": [
+              {
+                "key": 1700704690997,
+                "children": [],
+                "todo": {
+                  "content": "product.service.js",
+                  "id": 1700704690997,
+                  "level": "default",
+                  "done": false,
+                  "start": 1700704690997
+                }
+              },
+              {
+                "key": 1700704706573,
+                "children": [],
+                "todo": {
+                  "content": "cart.service.js",
+                  "id": 1700704706573,
+                  "level": "default",
+                  "done": false,
+                  "start": 1700704706573
+                }
+              },
+              {
+                "key": 1700704714312,
+                "children": [],
+                "todo": {
+                  "content": "chat.service.js",
+                  "id": 1700704714312,
+                  "level": "default",
+                  "done": false,
+                  "start": 1700704714312
+                }
+              }
+            ],
+            "todo": {
+              "content": "Archivos services:",
+              "id": 1700704680319,
+              "level": "default",
+              "done": false,
+              "start": 1700704680319
+            }
+          },
+          {
+            "key": 1700704901810,
+            "children": [
+              {
+                "key": 1700704914445,
+                "children": [],
+                "todo": {
+                  "content": "product.controller.js",
+                  "id": 1700704914445,
+                  "level": "default",
+                  "done": false,
+                  "start": 1700704914445
+                }
+              },
+              {
+                "key": 1700704927639,
+                "children": [],
+                "todo": {
+                  "content": "cart.controller.js",
+                  "id": 1700704927639,
+                  "level": "default",
+                  "done": false,
+                  "start": 1700704927639
+                }
+              },
+              {
+                "key": 1700704929361,
+                "children": [],
+                "todo": {
+                  "content": "chat.controller.js",
+                  "id": 1700704929361,
+                  "level": "default",
+                  "done": false,
+                  "start": 1700704929361
+                }
+              }
+            ],
+            "todo": {
+              "content": "Archivos controllers",
+              "id": 1700704901810,
+              "level": "default",
+              "done": false,
+              "start": 1700704901810
+            }
+          },
+          {
+            "key": 1700704947016,
+            "children": [
+              {
+                "key": 1700704956528,
+                "children": [],
+                "todo": {
+                  "content": "product.router.js",
+                  "id": 1700704956528,
+                  "level": "default",
+                  "done": false,
+                  "start": 1700704956528
+                }
+              },
+              {
+                "key": 1700704957221,
+                "children": [],
+                "todo": {
+                  "content": "cart.router.js",
+                  "id": 1700704957221,
+                  "level": "default",
+                  "done": false,
+                  "start": 1700704957221
+                }
+              },
+              {
+                "key": 1700704957811,
+                "children": [],
+                "todo": {
+                  "content": "chat.router.js",
+                  "id": 1700704957811,
+                  "level": "default",
+                  "done": false,
+                  "start": 1700704957811
+                }
+              },
+              {
+                "key": 1700704986637,
+                "children": [],
+                "todo": {
+                  "content": "view.router.js",
+                  "id": 1700704986637,
+                  "level": "default",
+                  "done": false,
+                  "start": 1700704986637
+                }
+              }
+            ],
+            "todo": {
+              "content": "Rutas:",
+              "id": 1700704947016,
+              "level": "default",
+              "done": false,
+              "start": 1700704947016
+            }
+          }
+        ],
+        "todo": {
+          "content": "Faltan crear:",
+          "id": 1700704426364,
+          "level": "danger",
+          "done": false,
+          "start": 1700704426364
+        }
+      },
+      {
+        "key": 1700705001003,
+        "children": [],
+        "todo": {
+          "content": "Revisar el app.js",
+          "id": 1700705001003,
+          "level": "warning",
+          "done": false,
+          "start": 1700705001003
+        }
+      }
+    ],
+    "expandKeys": [
+      1700704426364,
+      1700704680319,
+      1700704901810,
+      1700704947016,
+      1700704957811
+    ],
+    "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
+    "add_mode": "bottom",
+    "virtual": true,
+    "showLine": true,
+    "restDays": [],
+    "playFontSize": 24,
+    "title": "ruta",
+    "autoSort": true,
+    "showEndTime": true,
+    "simpleMode": false,
+    "lang": "es",
+    "version": "1700705032650"
+  }
+}

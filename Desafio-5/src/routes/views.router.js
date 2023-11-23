@@ -3,12 +3,12 @@ const router = Router();
 import fs from 'fs';
 import { ProductDaoFS } from '../daos/filesystem/products.dao.js';
 import { productValidator } from '../middlewares/productsValidator.js';
-const productDaoFS = new ProductDaoFS('../data/products.json');
+const productDaoFS = new ProductDaoFS('../daos/filesystem/data/products.json');
 import socketServer from '../app.js';
 
 async function loadProducts(){
     try {
-        const productsData = await fs.promises.readFile('./data/products.json', 'utf-8');
+        const productsData = await fs.promises.readFile('../daos/filesystem/data/products.json', 'utf-8');
         const productsJSON = JSON.parse(productsData);
         return productsJSON;
     } catch (error) {
