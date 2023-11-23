@@ -2,7 +2,7 @@ import { Router } from 'express';
 const router = Router();
 
 import {CartsDaoFS} from '../daos/filesystem/carts.dao.js';
-const cartsDaoFS = new CartsDaoFS('./data/carts.json');
+const cartsDaoFS = new CartsDaoFS('../daos/filesystem/data/carts.json');
 
 router.post('/', async(req, res)=>{
     try {

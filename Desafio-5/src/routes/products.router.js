@@ -3,7 +3,7 @@ const router = Router();
 
 import { ProductDaoFS } from '../daos/filesystem/products.dao.js';
 import { productValidator } from '../middlewares/productsValidator.js';
-const productDaoFS = new ProductDaoFS('./data/products.json');
+const productDaoFS = new ProductDaoFS('../daos/filesystem/data/products.json');
 
 
 router.get('/', async(req, res)=>{
