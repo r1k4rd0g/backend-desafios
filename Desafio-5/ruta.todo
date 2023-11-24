@@ -5,84 +5,6 @@
         "key": 1700704426364,
         "children": [
           {
-            "key": 1700704523982,
-            "children": [],
-            "todo": {
-              "content": "Carts.dao.js",
-              "id": 1700704523982,
-              "level": "warning",
-              "done": false,
-              "start": 1700704523982
-            }
-          },
-          {
-            "key": 1700704556896,
-            "children": [],
-            "todo": {
-              "content": "Vista de handlebars para los chats",
-              "id": 1700704556896,
-              "level": "default",
-              "done": false,
-              "start": 1700704556896
-            }
-          },
-          {
-            "key": 1700704569205,
-            "children": [],
-            "todo": {
-              "content": "Vista de handlebars para el carrito",
-              "id": 1700704569205,
-              "level": "default",
-              "done": false,
-              "start": 1700704569205
-            }
-          },
-          {
-            "key": 1700704680319,
-            "children": [
-              {
-                "key": 1700704690997,
-                "children": [],
-                "todo": {
-                  "content": "product.service.js",
-                  "id": 1700704690997,
-                  "level": "default",
-                  "done": false,
-                  "start": 1700704690997
-                }
-              },
-              {
-                "key": 1700704706573,
-                "children": [],
-                "todo": {
-                  "content": "cart.service.js",
-                  "id": 1700704706573,
-                  "level": "default",
-                  "done": false,
-                  "start": 1700704706573
-                }
-              },
-              {
-                "key": 1700704714312,
-                "children": [],
-                "todo": {
-                  "content": "chat.service.js",
-                  "id": 1700704714312,
-                  "level": "default",
-                  "done": false,
-                  "start": 1700704714312
-                }
-              }
-            ],
-            "todo": {
-              "content": "Archivos services:",
-              "id": 1700704680319,
-              "level": "default",
-              "done": false,
-              "start": 1700704680319
-            }
-          },
-          {
             "key": 1700704901810,
             "children": [
               {
@@ -131,17 +53,6 @@
             "key": 1700704947016,
             "children": [
               {
-                "key": 1700704956528,
-                "children": [],
-                "todo": {
-                  "content": "product.router.js",
-                  "id": 1700704956528,
-                  "level": "default",
-                  "done": false,
-                  "start": 1700704956528
-                }
-              },
-              {
                 "key": 1700704957221,
                 "children": [],
                 "todo": {
@@ -173,6 +84,20 @@
                   "done": false,
                   "start": 1700704986637
                 }
+              },
+              {
+                "key": 1700704956528,
+                "children": [],
+                "todo": {
+                  "content": "product.router.js",
+                  "id": 1700704956528,
+                  "level": "default",
+                  "done": false,
+                  "start": 1700704956528,
+                  "focus": false,
+                  "end": 1700758180885,
+                  "tip": "me queda la duda planteada con el profe, si es necesario o no generar vistas por separado o todo lo realizamos por medio del view router\n"
+                }
               }
             ],
             "todo": {
@@ -181,6 +106,94 @@
               "level": "default",
               "done": false,
               "start": 1700704947016
+            }
+          },
+          {
+            "key": 1700704569205,
+            "children": [],
+            "todo": {
+              "content": "Vista de handlebars para el carrito",
+              "id": 1700704569205,
+              "level": "secondary",
+              "done": false,
+              "start": 1700704569205
+            }
+          },
+          {
+            "key": 1700704556896,
+            "children": [],
+            "todo": {
+              "content": "Vista de handlebars para los chats",
+              "id": 1700704556896,
+              "level": "secondary",
+              "done": false,
+              "start": 1700704556896
+            }
+          },
+          {
+            "key": 1700704523982,
+            "children": [],
+            "todo": {
+              "content": "Carts.dao.js",
+              "id": 1700704523982,
+              "level": "warning",
+              "done": true,
+              "start": 1700704523982,
+              "focus": false,
+              "end": 1700706327223
+            }
+          },
+          {
+            "key": 1700704680319,
+            "children": [
+              {
+                "key": 1700704714312,
+                "children": [],
+                "todo": {
+                  "content": "chat.service.js",
+                  "id": 1700704714312,
+                  "level": "default",
+                  "done": true,
+                  "start": 1700704714312,
+                  "focus": false,
+                  "end": 1700709362235
+                }
+              },
+              {
+                "key": 1700704706573,
+                "children": [],
+                "todo": {
+                  "content": "cart.service.js",
+                  "id": 1700704706573,
+                  "level": "default",
+                  "done": true,
+                  "start": 1700704706573,
+                  "focus": false,
+                  "end": 1700708974352
+                }
+              },
+              {
+                "key": 1700704690997,
+                "children": [],
+                "todo": {
+                  "content": "product.service.js",
+                  "id": 1700704690997,
+                  "level": "default",
+                  "done": true,
+                  "start": 1700704690997,
+                  "focus": false,
+                  "end": 1700708735668
+                }
+              }
+            ],
+            "todo": {
+              "content": "Archivos services:",
+              "id": 1700704680319,
+              "level": "default",
+              "done": true,
+              "start": 1700704680319,
+              "focus": false,
+              "end": 1700709364333
             }
           }
         ],
@@ -222,6 +235,6 @@
     "showEndTime": true,
     "simpleMode": false,
     "lang": "es",
-    "version": "1700705032650"
+    "version": "1700758287774"
   }
 }
