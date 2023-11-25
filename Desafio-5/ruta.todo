@@ -92,10 +92,10 @@
                   "content": "product.router.js",
                   "id": 1700704956528,
                   "level": "default",
-                  "done": false,
+                  "done": true,
                   "start": 1700704956528,
                   "focus": false,
-                  "end": 1700758180885,
+                  "end": 1700916778679,
                   "tip": "me queda la duda planteada con el profe, si es necesario o no generar vistas por separado o todo lo realizamos por medio del view router\n"
                 }
               }
@@ -235,6 +235,6 @@
     "showEndTime": true,
     "simpleMode": false,
     "lang": "es",
-    "version": "1700758287774"
+    "version": "1700916778784"
   }
 }
