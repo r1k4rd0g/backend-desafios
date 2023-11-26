@@ -8,17 +8,6 @@
             "key": 1700704901810,
             "children": [
               {
-                "key": 1700704914445,
-                "children": [],
-                "todo": {
-                  "content": "product.controller.js",
-                  "id": 1700704914445,
-                  "level": "default",
-                  "done": false,
-                  "start": 1700704914445
-                }
-              },
-              {
                 "key": 1700704927639,
                 "children": [],
                 "todo": {
@@ -38,6 +27,19 @@
                   "level": "default",
                   "done": false,
                   "start": 1700704929361
+                }
+              },
+              {
+                "key": 1700704914445,
+                "children": [],
+                "todo": {
+                  "content": "product.controller.js",
+                  "id": 1700704914445,
+                  "level": "default",
+                  "done": true,
+                  "start": 1700704914445,
+                  "focus": false,
+                  "end": 1700963734467
                 }
               }
             ],
@@ -235,6 +237,6 @@
     "showEndTime": true,
     "simpleMode": false,
     "lang": "es",
-    "version": "1700916778784"
+    "version": "1700963734542"
   }
 }

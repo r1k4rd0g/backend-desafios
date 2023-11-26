@@ -12,7 +12,7 @@ export const getAll = async()=>{
 export const getById = async(id)=>{
     try {
         const prodSearch = await productDao.getById(id);
-        if(prodSearch) return false, console.log(`producto buscado en products.service con id: ${id}, no encontrado`)
+        if(!prodSearch) return false, console.log(`producto buscado en products.service con id: ${id}, no encontrado`)
         else return prodSearch;
     } catch (error) {
         console.log(`error al crear el producto con obj ${obj}, msg ${error}, en products.service`);
@@ -21,7 +21,7 @@ export const getById = async(id)=>{
 export const create = async(obj)=>{
     try {
         const prodNew = await productDao.create(obj);
-        console.log('consola de products.services const create:',newProd);
+        console.log('consola de products.services const create:',prodNew);
         if(!prodNew) return false, console.log('producto no creado');
         else return prodNew
     } catch (error) {

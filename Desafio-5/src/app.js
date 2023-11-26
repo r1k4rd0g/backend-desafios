@@ -1,3 +1,4 @@
+import './daos/mongodb/connection.js'
 import express from 'express';
 import {__dirname} from './utils.js';
 import { errorHandler } from '../src/middlewares/errorHandler.js';
