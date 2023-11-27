@@ -8,6 +8,7 @@ export default class CartDaoMongoDB{
             return await CartModel.find({});
         } catch (error) {
             console.log('error al obtener todos los carts', error);
+            throw new Error ('error al obtener todos los carts', error);
         }
     }
     async getById(id){
@@ -15,6 +16,7 @@ export default class CartDaoMongoDB{
             return await CartModel.findById(id)
         } catch{
             console.log(`error al obtener el carrito de id: ${id}, msg: ${error}`);
+            throw new Error (`error al obtener el carrito de id: ${id}, msg: ${error}`);
         }
     }
     async create(obj){
@@ -22,6 +24,7 @@ export default class CartDaoMongoDB{
             return await CartModel.create(obj);
         } catch (error) {
             console.log(`error al crear el carrito con obj ${obj}, msg ${error}`);
+            throw new Error(`error al crear el carrito con obj ${obj}, msg ${error}`);
         }
     }
     async update(id, obj){
@@ -30,6 +33,7 @@ export default class CartDaoMongoDB{
                 {new: true},);
         } catch (error) {
             console.log(`error al actualizar el carrito de id: ${id}, con obj: ${obj} ,msg: ${error}`);
+            throw new Error(`error al actualizar el carrito de id: ${id}, con obj: ${obj} ,msg: ${error}`);
         }
     }
 
@@ -38,6 +42,7 @@ export default class CartDaoMongoDB{
             return await CartModel.findByIdAndDelete(id);
         } catch (error) {
             console.log(`error al eliminar el carrito con id ${id}, msg ${error}`);
+            throw new Error(`error al eliminar el carrito con id ${id}, msg ${error}`);
         }
     };
 }

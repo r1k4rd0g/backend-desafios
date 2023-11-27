@@ -7,6 +7,7 @@ export default class ProductDaoMongoDB{
             return await ProductModel.find({});
         } catch (error) {
             console.log('error al obtener todos los productos', error);
+            throw new Error ('error al obtener todos los productos', error)
         }
     }
 
@@ -15,6 +16,7 @@ export default class ProductDaoMongoDB{
             return await ProductModel.findById(id);
         } catch (error) {
             console.log(`error al obtener el producto de id: ${id}, msg: ${error}`);
+            throw new Error (`error al obtener el producto de id: ${id}, msg: ${error}`)
         }
     }
 
@@ -22,7 +24,8 @@ export default class ProductDaoMongoDB{
         try {
             return await ProductModel.create(obj);
         } catch(error) {
-        console.log(`error al crear el producto con obj ${obj}, msg ${error}`);
+            console.log(`error al crear el producto con obj ${obj}, msg ${error}`);
+            throw new Error (`error al crear el producto con obj ${obj}, msg ${error}`)
         }
     }
 
@@ -32,6 +35,7 @@ export default class ProductDaoMongoDB{
                 {new: true},);
         } catch (error) {
             console.log(`error al actualizar el producto de id: ${id}, con obj: ${obj} ,msg: ${error}`);
+            throw new Error (`error al actualizar el producto de id: ${id}, con obj: ${obj} ,msg: ${error}`)
         }
     }
 
@@ -40,6 +44,7 @@ export default class ProductDaoMongoDB{
             return await ProductModel.findByIdAndDelete(id);
         } catch (error) {
             console.log(`error al eliminar el producto con id ${id}, msg ${error}`);
+            throw new Error (`error al eliminar el producto con id ${id}, msg ${error}`)
         }
     }
 }

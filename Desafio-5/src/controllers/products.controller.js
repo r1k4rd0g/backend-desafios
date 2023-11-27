@@ -39,7 +39,7 @@ export const create = async(req, res, next)=>{
     try {
         const newProduct = await serviceProduct.create(req.body);
         if(!newProduct){
-            return res.status(404).json({message: 'error al crear producto'})
+            return res.status(500).json({message: 'error al crear producto'})
         } else {
             return res.status(200).json(newProduct);
         }
