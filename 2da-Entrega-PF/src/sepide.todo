@@ -1,0 +1,402 @@
+{
+  "todotree": {
+    "tree": [
+      {
+        "key": 1701307235101,
+        "children": [],
+        "todo": {
+          "content": "partir de una estructura como la del desafio-5",
+          "id": 1701307235101,
+          "level": "danger",
+          "done": false,
+          "start": 1701307235101
+        }
+      },
+      {
+        "key": 1701307253060,
+        "children": [
+          {
+            "key": 1701307284577,
+            "children": [],
+            "todo": {
+              "content": "limit - en caso de no recibir algo, el default es 10",
+              "id": 1701307284577,
+              "level": "default",
+              "done": false,
+              "start": 1701307284577
+            }
+          },
+          {
+            "key": 1701307290007,
+            "children": [],
+            "todo": {
+              "content": "page - permitirá buscar una pagina en específico, el defautl es 1",
+              "id": 1701307290007,
+              "level": "default",
+              "done": false,
+              "start": 1701307290007
+            }
+          },
+          {
+            "key": 1701307293859,
+            "children": [],
+            "todo": {
+              "content": "query - el tipo de filtro aplicar, defaul es busqueda general",
+              "id": 1701307293859,
+              "level": "default",
+              "done": false,
+              "start": 1701307293859,
+              "tip": "Se debe hace run getProductsByQuery(query) el mismo se debe pasar a cada instancia como si fuera el get by id. \n"
+            }
+          },
+          {
+            "key": 1701307298221,
+            "children": [],
+            "todo": {
+              "content": "sort - ordenamiento del precio asced/desce, defual es sin orden.",
+              "id": 1701307298221,
+              "level": "default",
+              "done": false,
+              "start": 1701307298221,
+              "tip": "Si recibe asc debe ordenar ascendente y si recibe desc, lo contrario."
+            }
+          }
+        ],
+        "todo": {
+          "content": "modificar el método get all products, para recibir por query params",
+          "id": 1701307253060,
+          "level": "warning",
+          "done": false,
+          "start": 1701307253060
+        }
+      },
+      {
+        "key": 1701307929499,
+        "children": [
+          {
+            "key": 1701307989038,
+            "children": [],
+            "todo": {
+              "content": "status: succes/error",
+              "id": 1701307989038,
+              "level": "default",
+              "done": false,
+              "start": 1701307989038
+            }
+          },
+          {
+            "key": 1701308010830,
+            "children": [],
+            "todo": {
+              "content": "payload: resultado de los productos solicitados",
+              "id": 1701308010830,
+              "level": "default",
+              "done": false,
+              "start": 1701308010830
+            }
+          },
+          {
+            "key": 1701308026844,
+            "children": [],
+            "todo": {
+              "content": "totalPages: total de paginas",
+              "id": 1701308026844,
+              "level": "default",
+              "done": false,
+              "start": 1701308026844
+            }
+          },
+          {
+            "key": 1701308035928,
+            "children": [],
+            "todo": {
+              "content": "prevPage - pagina anterior",
+              "id": 1701308035928,
+              "level": "default",
+              "done": false,
+              "start": 1701308035928
+            }
+          },
+          {
+            "key": 1701308051127,
+            "children": [],
+            "todo": {
+              "content": "nextPage - pagina siguiente",
+              "id": 1701308051127,
+              "level": "default",
+              "done": false,
+              "start": 1701308051127
+            }
+          },
+          {
+            "key": 1701308060538,
+            "children": [],
+            "todo": {
+              "content": "page: pagina actual",
+              "id": 1701308060538,
+              "level": "default",
+              "done": false,
+              "start": 1701308060538
+            }
+          },
+          {
+            "key": 1701308066527,
+            "children": [],
+            "todo": {
+              "content": "hasPrevPage : inidicador para saber si existe pagina previa",
+              "id": 1701308066527,
+              "level": "default",
+              "done": false,
+              "start": 1701308066527
+            }
+          },
+          {
+            "key": 1701308082914,
+            "children": [],
+            "todo": {
+              "content": "hasNextPage: indicador para saber si existe la pagina siguiente",
+              "id": 1701308082914,
+              "level": "default",
+              "done": false,
+              "start": 1701308082914
+            }
+          },
+          {
+            "key": 1701308102519,
+            "children": [],
+            "todo": {
+              "content": "prevLink: link directo a la pagina previa (null si hasPrevPage=false)",
+              "id": 1701308102519,
+              "level": "default",
+              "done": false,
+              "start": 1701308102519
+            }
+          },
+          {
+            "key": 1701308102969,
+            "children": [],
+            "todo": {
+              "content": "nextLink: link directo a la pagina siguiente (null si hasNextPage=false)",
+              "id": 1701308102969,
+              "level": "default",
+              "done": false,
+              "start": 1701308102969
+            }
+          },
+          {
+            "key": 1701308156474,
+            "children": [
+              {
+                "key": 1701308174064,
+                "children": [
+                  {
+                    "key": 1701308175234,
+                    "children": [],
+                    "todo": {
+                      "content": "se debe poder ordenar esos productos de manera ascendente o descentende por precio",
+                      "id": 1701308175234,
+                      "level": "default",
+                      "done": false,
+                      "start": 1701308175234
+                    }
+                  }
+                ],
+                "todo": {
+                  "content": "Categoria",
+                  "id": 1701308174064,
+                  "level": "default",
+                  "done": false,
+                  "start": 1701308174064
+                }
+              },
+              {
+                "key": 1701308176770,
+                "children": [
+                  {
+                    "key": 1701308304879,
+                    "children": [],
+                    "todo": {
+                      "content": "se debe poder ordenar esos productos de manera ascendente o descentende por precio",
+                      "id": 1701308304879,
+                      "level": "default",
+                      "done": false,
+                      "start": 1701308304879
+                    }
+                  }
+                ],
+                "todo": {
+                  "content": "Disponibilidad",
+                  "id": 1701308176770,
+                  "level": "default",
+                  "done": false,
+                  "start": 1701308176770
+                }
+              }
+            ],
+            "todo": {
+              "content": "se deberá poder buscar productos por:",
+              "id": 1701308156474,
+              "level": "default",
+              "done": false,
+              "start": 1701308156474
+            }
+          }
+        ],
+        "todo": {
+          "content": "metodo get,  un objeto con el formato: (nombre : y lo que pide que haga)",
+          "id": 1701307929499,
+          "level": "success",
+          "done": false,
+          "start": 1701307929499,
+          "tip": "respuesta personalizada como el getAllCtrlinea 83"
+        }
+      },
+      {
+        "key": 1701308435545,
+        "children": [
+          {
+            "key": 1701308462958,
+            "children": [],
+            "todo": {
+              "content": "DELETE, api/carts/:cid/products/:pid - debe eliminar del carrito el producto determinado por el id",
+              "id": 1701308462958,
+              "level": "default",
+              "done": false,
+              "start": 1701308462958
+            }
+          },
+          {
+            "key": 1701308463892,
+            "children": [],
+            "todo": {
+              "content": "PUT, api/carts/:cid - debe actualizar el carrito con un arreglo de productos con el formato especificado de arriba",
+              "id": 1701308463892,
+              "level": "default",
+              "done": false,
+              "start": 1701308463892
+            }
+          },
+          {
+            "key": 1701308465541,
+            "children": [],
+            "todo": {
+              "content": "PUT, api/carts/:cid/products/:pid  - debe actualizar solo la cantidad de  ejemplares del producto, por cualquier cantidad pasada por el req.body",
+              "id": 1701308465541,
+              "level": "default",
+              "done": false,
+              "start": 1701308465541
+            }
+          },
+          {
+            "key": 1701308467256,
+            "children": [],
+            "todo": {
+              "content": "DELETE, api/carts/:cid - debe eliminar todos los productos del carrito",
+              "id": 1701308467256,
+              "level": "default",
+              "done": false,
+              "start": 1701308467256
+            }
+          },
+          {
+            "key": 1701308478278,
+            "children": [],
+            "todo": {
+              "content": "",
+              "id": 1701308478278,
+              "level": "default",
+              "done": false,
+              "start": 1701308478278
+            }
+          }
+        ],
+        "todo": {
+          "content": "Agregar los Endpoints  al router de carts:",
+          "id": 1701308435545,
+          "level": "default",
+          "done": false,
+          "start": 1701308435545
+        }
+      },
+      {
+        "key": 1701308977472,
+        "children": [],
+        "todo": {
+          "content": "Crear otra vista en '/carts/:cid (cartId) para ver un carrito específico, con los productos de ese carrito",
+          "id": 1701308977472,
+          "level": "secondary",
+          "done": false,
+          "start": 1701308977472
+        }
+      },
+      {
+        "key": 1701308861851,
+        "children": [
+          {
+            "key": 1701308904994,
+            "children": [
+              {
+                "key": 1701308913773,
+                "children": [],
+                "todo": {
+                  "content": "llevar a una nueva vista con el producto seleccionado con su detalle completo y con un botón para agregar al carrito",
+                  "id": 1701308913773,
+                  "level": "default",
+                  "done": false,
+                  "start": 1701308913773
+                }
+              },
+              {
+                "key": 1701308948728,
+                "children": [],
+                "todo": {
+                  "content": "contar con el boton de \"agregar al carrito\" directamente, sin necesidad de abrir una pagina adicional",
+                  "id": 1701308948728,
+                  "level": "default",
+                  "done": false,
+                  "start": 1701308948728
+                }
+              }
+            ],
+            "todo": {
+              "content": "se puede hacer:",
+              "id": 1701308904994,
+              "level": "default",
+              "done": false,
+              "start": 1701308904994
+            }
+          }
+        ],
+        "todo": {
+          "content": "Crear vista del views '/products' para visualizar los productos con su respectiva paginación",
+          "id": 1701308861851,
+          "level": "secondary",
+          "done": false,
+          "start": 1701308861851
+        }
+      }
+    ],
+    "expandKeys": [
+      1701308156474,
+      1701308174064,
+      1701308176770,
+      1701308861851,
+      1701308904994,
+      1701307253060,
+      1701307929499,
+      1701308435545
+    ],
+    "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
+    "add_mode": "bottom",
+    "virtual": false,
+    "timelines": [],
+    "showLine": false,
+    "playFontSize": 24,
+    "title": "sepide",
+    "autoSort": false,
+    "showEndTime": false,
+    "simpleMode": false,
+    "lang": "es",
+    "version": "1701309051805"
+  }
+}

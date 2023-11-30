@@ -17,7 +17,7 @@ export const getAll =  async(req, res, next)=>{
             return res.status(200).json(filterProducts);
         }
     } catch (error) {
-        return next(error.message);
+        next(error.message);
     }
 }
 
@@ -31,20 +31,16 @@ export const getById = async(req, res, next)=>{
         if(!productFind) return res.status(404).json({message: `Producto no encontrado con id ${id}`});
         else return res.status(200).json(productFind);
     } catch (error) {
-        return next(error.message);
+        next(error.message);
     }
 }
 
 export const create = async(req, res, next)=>{
     try {
         const newProduct = await serviceProduct.create(req.body);
-        if(!newProduct){
-            return res.status(500).json({message: 'error al crear producto'})
-        } else {
-            return res.status(200).json(newProduct);
-        }
+            return res.status(201).json(newProduct);
     } catch (error) {
-        return next (error.message);
+        next (error.message);
     }
 }
 export const update = async(req, res, next)=>{
@@ -54,12 +50,12 @@ export const update = async(req, res, next)=>{
         //const productUpdate = await serviceProduct.update(Number(pid), updateValues);
         const productUpdate = await serviceProduct.update(id, updateValues);
         if(!productUpdate){
-            return res.status(404).json({messages: `error al actualizar el producto con id ${id}`})
+            return res.status(400).json({messages: `error al actualizar el producto con id ${id}`})
         }else {
             return res.status(200).json(productUpdate)
         };
     } catch (error) {
-        return next (error.message);
+        next (error.message);
     }
 }
 
@@ -68,10 +64,10 @@ export const remove = async(req, res, next)=>{
         const {id} = req.params;
         const deletedProduct = await serviceProduct.remove(id);
         if(!deletedProduct){
-            return res.status(404).json({messages: `error al eliminar el producto con id: ${id}`})
+            return res.status(400).json({messages: `error al eliminar el producto con id: ${id}`})
         } else {return res.status(200).json(deletedProduct);}
     } catch (error) {
-        return next (error.message);
+        next (error.message);
     }
 }
 
