@@ -1,0 +1,17 @@
+<div class="divPrincipal">
+    <h1 class="h1Home">Lista de productos cargados hasta el momento</h1>
+    <div class = "containerList" id="containerList">
+            <ul>
+                {{#each products}}
+                    <li>
+                        <strong>Titulo: </strong>{{this.title}}<br>
+                        <strong>PricePrice: </strong>{{this.price}}<br>
+                        <strong>Description: </strong>{{this.description}}<br>
+                        <strong>Category: </strong>{{this.category}}<br>
+                        <img class="imgProduct" src="{{this.thumbnail}}" alt = "{{this.title}}">
+                    </li>
+                {{/each}}
+            </ul>
+    </div>
+    <!--acá se muestre la lista que contiene todos los productos hasta el momento. sería el json.-->
+</div>
