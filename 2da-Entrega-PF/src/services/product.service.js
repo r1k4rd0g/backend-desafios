@@ -1,5 +1,29 @@
 import ProductDaoMongoDB from '../daos/mongodb/products.dao.js';
+import fs from 'fs';
+import { __dirname } from '../utils.js';
+
+
 const productDao = new ProductDaoMongoDB();
+const productsFile = JSON.parse(
+    fs.readFileSync(`${__dirname}/daos/filesystem/data/products.json`, 'utf-8')
+);
+
+// crea los productos desde el archivo .json:
+export const createFileProduct = async ()=>{
+    try {
+        const createdProducts = [];
+        for (const product of productsFile){
+            const newProduct = await productDao.create(product)
+            createdProducts.push(newProduct);
+        }
+        return {message: "productos del archivo cargados"}
+        createdProducts: createdProducts
+    } catch (error) {
+        throw new Error (error)
+    }
+}
+
+
 
 export const getAll = async()=>{
     try {

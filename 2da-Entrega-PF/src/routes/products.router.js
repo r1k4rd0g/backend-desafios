@@ -3,11 +3,14 @@ import * as controllerProducts from '../controllers/products.controller.js'
 import { productValidator } from '../middlewares/productsValidator.js';
 const router = Router();
 
-router.get('/', controllerProducts.getAll);
+router.get('/', controllerProducts.getAllCtr);
 
 router.get('/:id', controllerProducts.getById);
 
-router.post('/', productValidator, controllerProducts.create);
+router.post('/', controllerProducts.create);
+
+//crear los productos desde un file --->
+router.post('/file', controllerProducts.createFileProductCtr)
 
 router.put('/:id', controllerProducts.update);
 

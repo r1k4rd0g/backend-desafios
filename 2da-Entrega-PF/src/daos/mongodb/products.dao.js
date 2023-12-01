@@ -2,7 +2,7 @@ import {ProductModel} from './models/products.model.js';
 
 export default class ProductDaoMongoDB{
 
-    async getAll(){
+    async getAllCtr(){
         try {
             return await ProductModel.find({});
         } catch (error) {

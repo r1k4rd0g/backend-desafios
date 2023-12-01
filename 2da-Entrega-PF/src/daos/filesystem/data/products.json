@@ -1,41 +1,242 @@
 [
   {
-    "status": true,
-    "id": 1,
-    "title": "Agua_Jane",
-    "description": "Agua Jane, 1.2 L. Limpia, desinfecta y blanquea",
-    "code": "r7891z",
-    "price": 150,
-    "stock": 10,
-    "category": "Producto de Limpieza",
-    "thumbnail": [
-      "https://discouy.vtexassets.com/arquivos/ids/1419680/AGUA-JANE-Antisplash-1-L-1.jpg?v=638296921167830000"
+    "Title": "Reloj inteligente",
+    "Description": "Pantalla táctil, monitoreo actividad física.",
+    "Code": "abc123",
+    "Price": 80,
+    "Stock": 20,
+    "Category": "Tecnología",
+    "Thumbnail": [
+      "https://f.fcdn.app/imgs/3317cd/www.gstop.uy/gameuy/fea9/original/catalogo/63159_63159_1/2000-2000/reloj-inteligente-smartwatch-xion-series-8-reloj-inteligente-smartwatch-xion-series-8.jpg",
+      "https://f.fcdn.app/imgs/efd6f0/www.hastaterminarstock.com.uy/htsuy/a021/original/catalogo/5915_Rosa_1/1500-1500/reloj-inteligente-smartwatch-estilo-de-vida-y-fitness-iw1-rosa.jpg"
     ]
   },
   {
-    "status": true,
-    "id": 2,
-    "title": "Arroz",
-    "description": "Arroz Saman Blanco, 1kg",
-    "code": "e51qf",
-    "price": 87,
-    "stock": 22,
-    "category": "Alimentos",
-    "thumbnail": [
-      "https://geant.vtexassets.com/arquivos/ids/282097/523035.jpg?v=637656746433700000"
+    "Title": "Auriculares inalámbricos",
+    "Description": "Sonido premium, cancelación de ruido.",
+    "Code": "def456",
+    "Price": 100,
+    "Stock": 15,
+    "Category": "Electrónica",
+    "Thumbnail": [
+      "https://f.fcdn.app/imgs/81c7ee/www.leamau.uy/leamuy/06f4/original/catalogo/6228_6228_1/2000-2000/auriculares-inalambricos-thonet-vander-dauer-blanco-color-blanco-color-de-la-luz-nude-auriculares-inalambricos-thonet-vander-dauer-blanco-color-blanco-color-de-la-luz-nude.jpg",
+      "https://www.harmanaudio.com.mx/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwfacfc2ea/JBL_LIVE_460NC_Product%20Image_Detail_White.jpg?sw=626&sh=626&sm=fit&sfrm=png"
     ]
   },
   {
-    "status": true,
-    "id": 3,
-    "title": "Choclo en Lata",
-    "description": "Choclo Amarillo Entero - Arcor 300g",
-    "code": "e61qd",
-    "price": 45,
-    "stock": 22,
-    "category": "Alimentos",
-    "thumbnail": [
-      "https://prod-resize.tiendainglesa.com.uy/images/medium/P106237-1.jpg?20190729125546,Choclo-ARCOR-Amarillo-Cremoso-Lata-300gr-en-Tienda-Inglesa"
+    "Title": "Mochila resistente al agua",
+    "Description": "Compartimentos organizados, ideal viajes.",
+    "Code": "ghi789",
+    "Price": 60,
+    "Stock": 25,
+    "Category": "Viajes",
+    "Thumbnail": [
+      "https://f.fcdn.app/imgs/a303cf/universobinario.com/ubinuy/5255/original/catalogo/BHR4905GL-001_1/1500-1500/xiaomi-mochila-commuter-backpack-resistente-al-agua-001.jpg",
+      "https://f.fcdn.app/imgs/1b9592/universobinario.com/ubinuy/45e6/original/catalogo/BHR4905GL-001_2/1500-1500/xiaomi-mochila-commuter-backpack-resistente-al-agua-001.jpg"
+    ]
+  },
+  {
+    "Title": "Smartphone de última generación",
+    "Description": "Cámara potente, pantalla de alta resolución.",
+    "Code": "jkl012",
+    "Price": 700,
+    "Stock": 30,
+    "Category": "Tecnología",
+    "Thumbnail": [
+      "https://elcomercio.pe/resizer/gBvs176hjpsFUDgHfayRCeMn0us=/1200x900/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/U3EF77MZBNHT3KWU62HTYGHBAM.jpg",
+      "https://es.digitaltrends.com/wp-content/uploads/2019/04/galaxy-fold-hands-on-19.jpg?fit=1500%2C1000&p=1"
+    ]
+  },
+  {
+    "Title": "Teclado mecánico para gaming",
+    "Description": "Retroiluminación RGB, respuesta rápida.",
+    "Code": "mno345",
+    "Price": 120,
+    "Stock": 18,
+    "Category": "Gaming",
+    "Thumbnail": [
+      "https://patiosdecafayate.com.ar/wp-content/uploads/2023/08/mejor-teclado-mecanico-para-juegos-mejora-tu-experiencia-de-juego.jpg",
+      "https://www.profesionalreview.com/wp-content/uploads/2019/06/Razer-Huntsman-1.jpeg"
+    ]
+  },
+  {
+    "Title": "Lámpara inteligente",
+    "Description": "Controlable por voz, ajustes de intensidad.",
+    "Code": "pqr678",
+    "Price": 50,
+    "Stock": 22,
+    "Category": "Hogar",
+    "Thumbnail": [
+      "https://f.fcdn.app/imgs/49cb54/www.divino.com.uy/div/0a1b/original/catalogo/250676001_0/1500-1500/lampara-inteligente-vidrio-blanco-wiz.jpg",
+      "https://f.fcdn.app/imgs/b1ef56/www.divino.com.uy/div/a368/original/catalogo/250677001_1/1500-1500/lampara-inteligente-vidrio-blanco-wiz.jpg"
+    ]
+  },
+  {
+    "Title": "Cámara de acción",
+    "Description": "Resistente al agua, gran angular.",
+    "Code": "stu901",
+    "Price": 90,
+    "Stock": 17,
+    "Category": "Deportes",
+    "Thumbnail": [
+      "https://m.media-amazon.com/images/I/61S76G2WKRL._AC_UF894,1000_QL80_.jpg",
+      "https://m.media-amazon.com/images/I/61qbhzv4G7L._AC_UF1000,1000_QL80_.jpg"
+    ]
+  },
+  {
+    "Title": "Portátil ultraligero",
+    "Description": "Alta autonomía, diseño compacto.",
+    "Code": "vwx234",
+    "Price": 1100,
+    "Stock": 13,
+    "Category": "Tecnología",
+    "Thumbnail": [
+      "https://m.media-amazon.com/images/I/71LaIGItr+L._AC_UF894,1000_QL80_.jpg",
+      "https://m.media-amazon.com/images/I/71jmTIBv+8L._AC_UF894,1000_QL80_.jpg"
+    ]
+  },
+  {
+    "Title": "Altavoz Bluetooth",
+    "Description": "Sonido envolvente, conexión inalámbrica.",
+    "Code": "yza567",
+    "Price": 70,
+    "Stock": 21,
+    "Category": "Audio",
+    "Thumbnail": [
+      "https://m.media-amazon.com/images/I/71BpDsdD5ML.jpg",
+      "https://m.media-amazon.com/images/S/aplus-media-library-service-media/229430d7-c230-4d81-8133-1098b69ab408.__CR0,0,400,400_PT0_SX300_V1___.jpg"
+    ]
+  },
+  {
+    "Title": "Botella térmica",
+    "Description": "Mantiene temperatura, resistente.",
+    "Code": "bcd890",
+    "Price": 25,
+    "Stock": 28,
+    "Category": "Hogar",
+    "Thumbnail": [
+      "https://www.acerix.com.uy/imgs/productos/productos35_47923.jpg",
+      "https://www.acerix.com.uy/imgs/productos/productos35_47925.jpg"
+    ]
+  },
+  {
+    "Title": "Smart TV 4K",
+    "Description": "Pantalla de alta resolución, conectividad WiFi.",
+    "Code": "efg123",
+    "Price": 550,
+    "Stock": 12,
+    "Category": "Electrónica",
+    "Thumbnail": [
+      "https://d391ci4kxgasl8.cloudfront.net/fit-in/400x400/filters:fill(FFFFFF):quality(90):format(webp)/_img_productos/smart-tv-enxuta-ledenx-1265sdf4kl-foto1-2.jpg",
+      "https://m.media-amazon.com/images/I/51geRBItIqL.jpg"
+    ]
+  },
+  {
+    "Title": "Silla ergonómica",
+    "Description": "Ajustable, soporte lumbar.",
+    "Code": "hij456",
+    "Price": 120,
+    "Stock": 20,
+    "Category": "Hogar",
+    "Thumbnail": [
+      "https://ergonomics.cl/cdn/shop/products/SE100-BK-ERGONOMICS-21_2000x.jpg?v=1653313947",
+      "https://mobiocasion.com/img/c/2523.jpg"
+    ]
+  },
+  {
+    "Title": "Barra de sonido",
+    "Description": "Sonido envolvente, conectividad Bluetooth.",
+    "Code": "klm789",
+    "Price": 180,
+    "Stock": 15,
+    "Category": "Audio",
+    "Thumbnail": [
+      "https://example.com/barra-sonido1.jpg",
+      "https://example.com/barra-sonido2.jpg"
+    ]
+  },
+  {
+    "Title": "Reloj analógico de lujo",
+    "Description": "Diseño elegante, material resistente.",
+    "Code": "nop012",
+    "Price": 300,
+    "Stock": 10,
+    "Category": "Moda",
+    "Thumbnail": [
+      "https://http2.mlstatic.com/D_NQ_NP_975090-MLU31978964890_082019-O.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_756946-MLU31978964895_082019-O.webp"
+    ]
+  },
+  {
+    "Title": "Impresora multifunción",
+    "Description": "Impresión, escaneo y copiado, conectividad USB.",
+    "Code": "qrs345",
+    "Price": 150,
+    "Stock": 18,
+    "Category": "Oficina",
+    "Thumbnail": [
+      "https://prod-resize.tiendainglesa.com.uy/images/medium/P452745-1.jpg?20191125100000,Impresora-Multifuncional-EPSON-EcoTank-sin-Cartuchos-en-Tienda-Inglesa",
+      "https://ampimoperu.com/wp-content/uploads/2021/09/l3250_2.jpg"
+    ]
+  },
+  {
+    "Title": "Maletín ejecutivo",
+    "Description": "Espacio para portátil, organización interna.",
+    "Code": "tuv678",
+    "Price": 90,
+    "Stock": 25,
+    "Category": "Negocios",
+    "Thumbnail": [
+      "https://www.papeleriatop.com/144553-large_default/amazonbasics-sacoche-pour.jpg",
+      "https://madridperu.com/wp-content/uploads/2016/11/maleta-8.jpg"
+    ]
+  },
+  {
+    "Title": "Bicicleta de montaña",
+    "Description": "Sistema de cambios, amortiguación.",
+    "Code": "wxy901",
+    "Price": 350,
+    "Stock": 15,
+    "Category": "Deportes",
+    "Thumbnail": [
+      "https://www.sumitate.com.uy/img/articulos/2020/11/bicicleta_montana_merida_big_nine_200_2021_imagen1.jpg",
+      "https://cdn.deporvillage.com/cdn-cgi/image/f=auto,q=75,fit=contain,background=white/product/me-36909-c_001.jpg"
+    ]
+  },
+  {
+    "Title": "Secador de pelo profesional",
+    "Description": "Potente, tecnología iónica.",
+    "Code": "zab234",
+    "Price": 80,
+    "Stock": 30,
+    "Category": "Belleza",
+    "Thumbnail": [
+      "https://e00-telva.uecdn.es/assets/multimedia/imagenes/2021/02/18/16136586739993.png",
+      "https://topesdegama.com/app/uploads-topesdegama.com/2023/05/Cecotec-Bamba-Ionic-Care.jpg"
+    ]
+  },
+  {
+    "Title": "Robot aspirador",
+    "Description": "Autónomo, sensores de detección.",
+    "Code": "bcd567",
+    "Price": 250,
+    "Stock": 12,
+    "Category": "Hogar",
+    "Thumbnail": [
+      "https://office2000.com.uy/cache/office%202000/productos/1/59377_02-550x550.jpg",
+      "https://m.media-amazon.com/images/I/71xixezbVQL._AC_UF350,350_QL80_.jpg"
+    ]
+  },
+  {
+    "Title": "Cámara instantánea",
+    "Description": "Impresión de fotos instantáneas, diseño retro.",
+    "Code": "efg890",
+    "Price": 100,
+    "Stock": 20,
+    "Category": "Fotografía",
+    "Thumbnail": [
+      "https://http2.mlstatic.com/D_Q_NP_880423-MLU69745224702_062023-O.webp",
+      "https://buynow.com.ec/wp-content/uploads/2021/07/Camara-Fujifilm-Instax-mini-11-lila-purpura.png"
     ]
   }
 ]
