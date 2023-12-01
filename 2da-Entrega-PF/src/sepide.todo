@@ -24,8 +24,10 @@
               "content": "limit - en caso de no recibir algo, el default es 10",
               "id": 1701307284577,
               "level": "default",
-              "done": false,
-              "start": 1701307284577
+              "done": true,
+              "start": 1701307284577,
+              "focus": false,
+              "end": 1701474872156
             }
           },
           {
@@ -35,8 +37,10 @@
               "content": "page - permitirá buscar una pagina en específico, el defautl es 1",
               "id": 1701307290007,
               "level": "default",
-              "done": false,
-              "start": 1701307290007
+              "done": true,
+              "start": 1701307290007,
+              "focus": false,
+              "end": 1701474875231
             }
           },
           {
@@ -82,8 +86,10 @@
               "content": "status: succes/error",
               "id": 1701307989038,
               "level": "default",
-              "done": false,
-              "start": 1701307989038
+              "done": true,
+              "start": 1701307989038,
+              "focus": false,
+              "end": 1701474886971
             }
           },
           {
@@ -93,8 +99,10 @@
               "content": "payload: resultado de los productos solicitados",
               "id": 1701308010830,
               "level": "default",
-              "done": false,
-              "start": 1701308010830
+              "done": true,
+              "start": 1701308010830,
+              "focus": false,
+              "end": 1701474887917
             }
           },
           {
@@ -104,8 +112,10 @@
               "content": "totalPages: total de paginas",
               "id": 1701308026844,
               "level": "default",
-              "done": false,
-              "start": 1701308026844
+              "done": true,
+              "start": 1701308026844,
+              "focus": false,
+              "end": 1701474888821
             }
           },
           {
@@ -115,8 +125,10 @@
               "content": "prevPage - pagina anterior",
               "id": 1701308035928,
               "level": "default",
-              "done": false,
-              "start": 1701308035928
+              "done": true,
+              "start": 1701308035928,
+              "focus": false,
+              "end": 1701474890001
             }
           },
           {
@@ -126,8 +138,10 @@
               "content": "nextPage - pagina siguiente",
               "id": 1701308051127,
               "level": "default",
-              "done": false,
-              "start": 1701308051127
+              "done": true,
+              "start": 1701308051127,
+              "focus": false,
+              "end": 1701474891056
             }
           },
           {
@@ -137,8 +151,10 @@
               "content": "page: pagina actual",
               "id": 1701308060538,
               "level": "default",
-              "done": false,
-              "start": 1701308060538
+              "done": true,
+              "start": 1701308060538,
+              "focus": false,
+              "end": 1701474892074
             }
           },
           {
@@ -148,8 +164,10 @@
               "content": "hasPrevPage : inidicador para saber si existe pagina previa",
               "id": 1701308066527,
               "level": "default",
-              "done": false,
-              "start": 1701308066527
+              "done": true,
+              "start": 1701308066527,
+              "focus": false,
+              "end": 1701474892926
             }
           },
           {
@@ -159,8 +177,10 @@
               "content": "hasNextPage: indicador para saber si existe la pagina siguiente",
               "id": 1701308082914,
               "level": "default",
-              "done": false,
-              "start": 1701308082914
+              "done": true,
+              "start": 1701308082914,
+              "focus": false,
+              "end": 1701474893695
             }
           },
           {
@@ -170,8 +190,10 @@
               "content": "prevLink: link directo a la pagina previa (null si hasPrevPage=false)",
               "id": 1701308102519,
               "level": "default",
-              "done": false,
-              "start": 1701308102519
+              "done": true,
+              "start": 1701308102519,
+              "focus": false,
+              "end": 1701474894230
             }
           },
           {
@@ -181,8 +203,10 @@
               "content": "nextLink: link directo a la pagina siguiente (null si hasNextPage=false)",
               "id": 1701308102969,
               "level": "default",
-              "done": false,
-              "start": 1701308102969
+              "done": true,
+              "start": 1701308102969,
+              "focus": false,
+              "end": 1701474894831
             }
           },
           {
@@ -240,7 +264,9 @@
               "id": 1701308156474,
               "level": "default",
               "done": false,
-              "start": 1701308156474
+              "start": 1701308156474,
+              "focus": false,
+              "end": 1701474895310
             }
           }
         ],
@@ -399,6 +425,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1701313275894"
+    "version": "1701474916920"
   }
 }

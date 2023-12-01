@@ -25,11 +25,20 @@ export const createFileProduct = async ()=>{
 
 
 
-export const getAll = async()=>{
+export const getAll = async(pageNumber = 1, pageSize = 10, searchQuery = '', sortOrder= '')=>{
     try {
-        return await productDao.getAll()
+        //validación de pageNumber y pageSize y seteo default por si no es válido
+        if(isNaN(pageNumber) || pageNumber <1 ){
+            pageNumber = 1;
+        }
+        if(isNaN(pageSize)|| pageSize<1 ){
+            pageSize = 10;
+        }
+        const product = await productDao.getAll(pageNumber, pageSize);
+        return product
     } catch (error) {
         console.log('error al obtener todos los productos en products.service', error);
+        throw new Error ('error al obtener los productos')
     }
 }
 

@@ -10,21 +10,33 @@ export const getAllCtr =  async(req, res, next)=>{
         const {page, limit, query, sort} = req.query;
         const pageNumber = parseInt(page) || 1;
         const pageSize = parseInt(limit) || 10;
+        //console.log(typeof(pageSize))
         const searchQuery = query || '';
         const sortOrder = (sort === 'asc' || sort === 'desc') ? sort : '';
-        if(isNaN(pageNumber) || pageNumber <1 ){
-            pageNumber = 1; // si page no es un nº válido, se establece 1 como default
-        }
-        if(isNaN(pageSize)|| pageSize<1 ){
-            pageSize = 10; //si el limit no es un nº válido, se establece 10 como default
-        }
-        const products = await serviceProduct.getAll(pageNumber, pageSize, searchQuery, sortOrder);
-        
-            return res.status(200).json(products);
+        const response = await serviceProduct.getAll(pageNumber, pageSize, searchQuery, sortOrder);
+        const prevPage = response.prevPage;
+        const nextPage = response.nextPage;
+        const prevLink = response.hasPrevPage ? `http://localhost:8088/api/products/?page=${prevPage}&limit=${pageSize}` : null;
+        const nextLink = response.hasNextPage ? `http://localhost:8088/api/products/?page=${nextPage}&limit=${pageSize}` : null;
+        const status = 'success';
+        res.json({
+            status,
+            products: response.docs,
+            payload: response.totalDocs,
+            info:{
+                totalPages : response.totalPages,
+                prevPage: response.prevPage,
+                nextPage: response.nextPage,
+                page: response.page,
+                prevLink : prevLink,
+                nextLink: nextLink,
+            }
+        })
     } catch (error) {
-        next(error.message);
+        const status = 'error';
+        next(error);
     }
-}
+};
 
 export const getById = async(req, res, next)=>{
     //console.log('solicitud recibida en /api/products/:pid');
@@ -85,3 +97,33 @@ export const createFileProductCtr = async(req, res, next) =>{
         next(error)
     }
 }
+
+
+/** respuesta personalizada para el método getAll */
+/*const toJson = ({response}) =>{
+    if(Array.isArray(docs)){
+
+        const hasPrevPage = pageNumber > 1;
+        const hasNextPage = pageNumber < totalPages;
+        const status = response.doc.length > 0 ? "success" : "error"
+        const prevPage = hasPrevPage ? pageNumber - 1 : null;
+        const nextPage = hasPrevPage ? pageNumber + 1 : null;
+        const prevLink = hasPrevPage ? `http://localhost:8088/api/products/?page=${prevPage}&limit=${pageSize}` : null;
+        const nextLink = hasNextPage ? `http://localhost:8088/api/products/?page=${nextPage}&limit=${pageSize}` : null;
+
+        return {
+            status,
+            payload: totalPages,
+            prevPage,
+            nextPage,
+            hasPrevPage,
+            hasNextPage,
+            prevLink,
+            nextLink,
+        };
+    } else {
+        return{
+            status: "error",
+        }
+    }
+};*/
