@@ -27,8 +27,9 @@ export const getAll = async (
     pageSize = 10,
     searchQuery = '',
     sortOrder = {},
-    price,
-    category
+    category,
+    exist,
+    priceFilter
 ) => {
     try {
         //validación de pageNumber y pageSize y seteo default por si no es válido
@@ -39,37 +40,41 @@ export const getAll = async (
             pageSize = 10;
         }
 
-        const buildFilter= (searchQuery, price, category) =>{
+        const buildFilter = (searchQuery, priceFilter, category, exist) => {
             let filter = {};
-            if (searchQuery !== '') {
-                filter['$or'] = [
-                    { 'Title': { $regex: searchQuery, $options: 'i' } },
-                    { 'Description': { $regex: searchQuery, $options: 'i' } },
-                    { 'Code': { $regex: searchQuery, $options: 'i' } },
-                    //{ 'Price': { $regex: searchQuery, $options: 'i' } },
-                    { 'Category': { $regex: searchQuery, $options: 'i' } }
-                ];
+            if (typeof priceFilter === 'number'){
+                filter ['Price']= priceFilter;
+            } else {
+                if (searchQuery !== '') {
+                    filter['$or'] = [
+                        { 'Title': { $regex: searchQuery, $options: 'i' } },
+                        { 'Description': { $regex: searchQuery, $options: 'i' } },
+                        { 'Code': { $regex: searchQuery, $options: 'i' } },
+                        { 'Category': { $regex: searchQuery, $options: 'i' } }
+                    ];
+                }
             }
-            if (price) {
-                filter['Price'] = parseInt(price);
+            if(category){
+                filter['Category'] = {$regex:category, $options : 'i'};
             }
-            if (category) {
-                filter['Category'] = category;
+            if(exist){
+                if(exist ==='yes'){filter['Stock']={$gt:0};
+                } else if(exist ==='no'){ filter['Stock'] = {$lte:0}}
             }
-            console.log('console 4:', filter)
             return filter;
         };
-        const buildSortOptions = (sortOrder) =>{
+        const buildSortOptions = (sortOrder) => {
             let sortOptions = {};
             if (sortOrder === 'asc' || sortOrder === 'desc') {
                 sortOptions['Price'] = sortOrder === 'asc' ? 1 : -1;
                 console.log('sortOptions:', sortOptions)
             }
-            console.log('consola 5',sortOptions)
             return sortOptions;
         };
-        const filter = buildFilter(searchQuery, price, category);
+        const filter = buildFilter(searchQuery, priceFilter, category, exist);
+        console.log('consola 4:', filter)
         const sortOptions = buildSortOptions(sortOrder);
+        console.log('consola 5', sortOptions)
         const product = await productDao.getAll(pageNumber, pageSize, filter, sortOptions);
         return product
     } catch (error) {
@@ -77,9 +82,6 @@ export const getAll = async (
         throw new Error('error al obtener los productos')
     }
 };
-
-
-
 
 export const getById = async (id) => {
     try {

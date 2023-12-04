@@ -7,19 +7,30 @@ const productDaoFS = new ProductDaoFS('../daos/filesystem/data/products.json');
 
 export const getAllCtr =  async(req, res, next)=>{
     try {
-        const {page, limit, query, sort} = req.query;
+        const {page, limit, query, sort, category, exist} = req.query;
         const pageNumber = parseInt(page) || 1;
         const pageSize = parseInt(limit) || 10;
-        console.log(typeof(pageSize),'console 1: pageSize',limit)
         const searchQuery = query || '';
-        console.log('console 2:',searchQuery);
         const sortOrder = (sort === 'asc' || sort === 'desc') ? sort : '';
-        console.log(typeof(sortOrder),'console 3:',sortOrder);
-        const response = await serviceProduct.getAll(pageNumber, pageSize, searchQuery, sortOrder);
+        let priceFilter = null;
+        if(!isNaN(query)){priceFilter=parseInt(query)}
+
+        const response = await serviceProduct.getAll(
+            pageNumber,
+            pageSize,
+            searchQuery,
+            sortOrder,
+            category || '',
+            exist || '',
+            priceFilter);
+
+//        console.log(typeof(pageSize),'console 1: pageSize',limit)
+//        console.log('console 2:',searchQuery);
+//        console.log(typeof(sortOrder),'console 3:',sortOrder);
         const prevPage = response.prevPage;
         const nextPage = response.nextPage;
-        const prevLink = response.hasPrevPage ? `http://localhost:8088/api/products/?page=${prevPage}&limit=${pageSize}&sort=${sortOrder}` : null;
-        const nextLink = response.hasNextPage ? `http://localhost:8088/api/products/?page=${nextPage}&limit=${pageSize}&sort=${sortOrder}` : null;
+        const prevLink = response.hasPrevPage ? `http://localhost:8088/api/products/?page=${prevPage}&limit=${pageSize}&query=${searchQuery}&sort=${sortOrder}` : null;
+        const nextLink = response.hasNextPage ? `http://localhost:8088/api/products/?page=${nextPage}&limit=${pageSize}&query=${searchQuery}&sort=${sortOrder}` : null;
         const status = 'success';
         res.json({
             status,
@@ -41,7 +52,6 @@ export const getAllCtr =  async(req, res, next)=>{
 };
 
 export const getById = async(req, res, next)=>{
-    //console.log('solicitud recibida en /api/products/:pid');
     try {
         const {id} = req.params;
         console.log({id})
@@ -99,33 +109,3 @@ export const createFileProductCtr = async(req, res, next) =>{
         next(error)
     }
 }
-
-
-/** respuesta personalizada para el método getAll */
-/*const toJson = ({response}) =>{
-    if(Array.isArray(docs)){
-
-        const hasPrevPage = pageNumber > 1;
-        const hasNextPage = pageNumber < totalPages;
-        const status = response.doc.length > 0 ? "success" : "error"
-        const prevPage = hasPrevPage ? pageNumber - 1 : null;
-        const nextPage = hasPrevPage ? pageNumber + 1 : null;
-        const prevLink = hasPrevPage ? `http://localhost:8088/api/products/?page=${prevPage}&limit=${pageSize}` : null;
-        const nextLink = hasNextPage ? `http://localhost:8088/api/products/?page=${nextPage}&limit=${pageSize}` : null;
-
-        return {
-            status,
-            payload: totalPages,
-            prevPage,
-            nextPage,
-            hasPrevPage,
-            hasNextPage,
-            prevLink,
-            nextLink,
-        };
-    } else {
-        return{
-            status: "error",
-        }
-    }
-};*/

@@ -280,9 +280,11 @@
           "content": "metodo get,  un objeto con el formato: (nombre : y lo que pide que haga)",
           "id": 1701307929499,
           "level": "success",
-          "done": false,
+          "done": true,
           "start": 1701307929499,
-          "tip": "respuesta personalizada como el getAllCtrlinea 83"
+          "tip": "respuesta personalizada como el getAllCtrlinea 83",
+          "focus": false,
+          "end": 1701656972035
         }
       },
       {
@@ -416,7 +418,6 @@
       1701308176770,
       1701308861851,
       1701308904994,
-      1701307929499,
       1701308435545
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
@@ -430,6 +431,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1701656828658"
+    "version": "1701656973472"
   }
 }
