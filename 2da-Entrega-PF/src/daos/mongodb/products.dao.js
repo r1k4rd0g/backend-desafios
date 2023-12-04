@@ -2,9 +2,15 @@ import {ProductModel} from './models/products.model.js';
 
 export default class ProductDaoMongoDB{
 
-    async getAll(page = 1, limit = 10){
+    async getAll(pageNumber, pageSize, sortOptions){
+        const options = {
+            page : pageNumber,
+            limit: pageSize,
+            //filter: filter,
+            sort: sortOptions
+        }
         try {
-            const response = await ProductModel.paginate({}, {page, limit});
+            const response = await ProductModel.paginate({}, options);
             return response;
         } catch (error) {
             console.log('error al obtener todos los productos', error);

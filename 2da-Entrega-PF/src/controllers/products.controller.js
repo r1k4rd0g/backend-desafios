@@ -10,14 +10,16 @@ export const getAllCtr =  async(req, res, next)=>{
         const {page, limit, query, sort} = req.query;
         const pageNumber = parseInt(page) || 1;
         const pageSize = parseInt(limit) || 10;
-        //console.log(typeof(pageSize))
+        console.log(typeof(pageSize),'console 1: pageSize',limit)
         const searchQuery = query || '';
+        console.log('console 2:',searchQuery);
         const sortOrder = (sort === 'asc' || sort === 'desc') ? sort : '';
-        const response = await serviceProduct.getAll(pageNumber, pageSize, searchQuery, sortOrder);
+        console.log(typeof(sortOrder),'console 3:',sortOrder);
+        const response = await serviceProduct.getAll(pageNumber, pageSize, sortOrder);
         const prevPage = response.prevPage;
         const nextPage = response.nextPage;
-        const prevLink = response.hasPrevPage ? `http://localhost:8088/api/products/?page=${prevPage}&limit=${pageSize}` : null;
-        const nextLink = response.hasNextPage ? `http://localhost:8088/api/products/?page=${nextPage}&limit=${pageSize}` : null;
+        const prevLink = response.hasPrevPage ? `http://localhost:8088/api/products/?page=${prevPage}&limit=${pageSize}&sort=${sortOrder}` : null;
+        const nextLink = response.hasNextPage ? `http://localhost:8088/api/products/?page=${nextPage}&limit=${pageSize}&sort=${sortOrder}` : null;
         const status = 'success';
         res.json({
             status,

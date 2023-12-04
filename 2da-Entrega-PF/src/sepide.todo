@@ -52,7 +52,9 @@
               "level": "default",
               "done": false,
               "start": 1701307293859,
-              "tip": "Se debe hace run getProductsByQuery(query) el mismo se debe pasar a cada instancia como si fuera el get by id. \n"
+              "tip": "Se debe hace run getProductsByQuery(query) el mismo se debe pasar a cada instancia como si fuera el get by id. \n",
+              "focus": false,
+              "end": 1701612025711
             }
           },
           {
@@ -62,9 +64,11 @@
               "content": "sort - ordenamiento del precio asced/desce, defual es sin orden.",
               "id": 1701307298221,
               "level": "default",
-              "done": false,
+              "done": true,
               "start": 1701307298221,
-              "tip": "Si recibe asc debe ordenar ascendente y si recibe desc, lo contrario."
+              "tip": "Si recibe asc debe ordenar ascendente y si recibe desc, lo contrario.",
+              "focus": false,
+              "end": 1701612031073
             }
           }
         ],
@@ -425,6 +429,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1701474916920"
+    "version": "1701612031218"
   }
 }
