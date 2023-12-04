@@ -50,11 +50,11 @@
               "content": "query - el tipo de filtro aplicar, defaul es busqueda general",
               "id": 1701307293859,
               "level": "default",
-              "done": false,
+              "done": true,
               "start": 1701307293859,
               "tip": "Se debe hace run getProductsByQuery(query) el mismo se debe pasar a cada instancia como si fuera el get by id. \n",
               "focus": false,
-              "end": 1701612025711
+              "end": 1701656821926
             }
           },
           {
@@ -76,8 +76,10 @@
           "content": "modificar el método get all products, para recibir por query params",
           "id": 1701307253060,
           "level": "warning",
-          "done": false,
-          "start": 1701307253060
+          "done": true,
+          "start": 1701307253060,
+          "focus": false,
+          "end": 1701656824164
         }
       },
       {
@@ -414,7 +416,6 @@
       1701308176770,
       1701308861851,
       1701308904994,
-      1701307253060,
       1701307929499,
       1701308435545
     ],
@@ -429,6 +430,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1701612031218"
+    "version": "1701656828658"
   }
 }

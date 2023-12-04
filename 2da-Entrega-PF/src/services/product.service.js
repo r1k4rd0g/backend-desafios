@@ -25,10 +25,10 @@ export const createFileProduct = async () => {
 export const getAll = async (
     pageNumber = 1,
     pageSize = 10,
-    //searchQuery = '',
+    searchQuery = '',
     sortOrder = {},
-    //price,
-    //category
+    price,
+    category
 ) => {
     try {
         //validación de pageNumber y pageSize y seteo default por si no es válido
@@ -39,14 +39,14 @@ export const getAll = async (
             pageSize = 10;
         }
 
-        /*const buildFilter= (searchQuery, price, category) =>{
+        const buildFilter= (searchQuery, price, category) =>{
             let filter = {};
             if (searchQuery !== '') {
                 filter['$or'] = [
                     { 'Title': { $regex: searchQuery, $options: 'i' } },
                     { 'Description': { $regex: searchQuery, $options: 'i' } },
                     { 'Code': { $regex: searchQuery, $options: 'i' } },
-                    { 'Price': { $regex: searchQuery, $options: 'i' } },
+                    //{ 'Price': { $regex: searchQuery, $options: 'i' } },
                     { 'Category': { $regex: searchQuery, $options: 'i' } }
                 ];
             }
@@ -58,7 +58,7 @@ export const getAll = async (
             }
             console.log('console 4:', filter)
             return filter;
-        };*/
+        };
         const buildSortOptions = (sortOrder) =>{
             let sortOptions = {};
             if (sortOrder === 'asc' || sortOrder === 'desc') {
@@ -68,9 +68,9 @@ export const getAll = async (
             console.log('consola 5',sortOptions)
             return sortOptions;
         };
-        //const filter = buildFilter(searchQuery, price, category);
+        const filter = buildFilter(searchQuery, price, category);
         const sortOptions = buildSortOptions(sortOrder);
-        const product = await productDao.getAll(pageNumber, pageSize, sortOptions);
+        const product = await productDao.getAll(pageNumber, pageSize, filter, sortOptions);
         return product
     } catch (error) {
         console.log('error al obtener todos los productos en products.service', error);

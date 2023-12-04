@@ -15,7 +15,7 @@ export const getAllCtr =  async(req, res, next)=>{
         console.log('console 2:',searchQuery);
         const sortOrder = (sort === 'asc' || sort === 'desc') ? sort : '';
         console.log(typeof(sortOrder),'console 3:',sortOrder);
-        const response = await serviceProduct.getAll(pageNumber, pageSize, sortOrder);
+        const response = await serviceProduct.getAll(pageNumber, pageSize, searchQuery, sortOrder);
         const prevPage = response.prevPage;
         const nextPage = response.nextPage;
         const prevLink = response.hasPrevPage ? `http://localhost:8088/api/products/?page=${prevPage}&limit=${pageSize}&sort=${sortOrder}` : null;
