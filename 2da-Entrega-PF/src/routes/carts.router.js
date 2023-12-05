@@ -21,7 +21,7 @@ router.delete('/:cid', controllerCarts.removeCartById);
 
 //router.put('/:cid',controllerCarts.updateCart); //actualizar el carrito con los productos que existen
 //router.put('/:cid/products/:pid', controllerCarts.updateAll)
-//router.delete('/:cid/products/:pid', controllerCarts.remove);
+router.delete('/:cid/product/:pid', controllerCarts.removeProductById);
 //router.delete('/:cid', controllerCarts.removeAll)
 
 

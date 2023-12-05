@@ -1,0 +1,125 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ecommerce",
+    "dateExported": "2023-12-05T02:48:31.844Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d9ce2d92-a2b1-4e0c-849a-218f19e18a4b",
+            "colId": "1a70f142-714c-464f-9fbb-4ed36403a480",
+            "containerId": "",
+            "name": "Get all Products",
+            "url": "localhost:8088/api/products/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-26T01:19:48.591Z",
+            "modified": "2023-12-04T21:59:59.788Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "query",
+                    "value": "5",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"Title\": \"Reloj Apple\",\n      \"Description\": \"Pantalla táctil, monitoreo actividad física.\",\n      \"Code\": \"abc321\",\n      \"Price\": 500,\n      \"Stock\": 100,\n      \"Category\": \"Tecnología\",\n      \"Thumbnail\": [\n        \"https://f.fcdn.app/imgs/3317cd/www.gstop.uy/gameuy/fea9/original/catalogo/63159_63159_1/2000-2000/reloj-inteligente-smartwatch-xion-series-8-reloj-inteligente-smartwatch-xion-series-8.jpg\",\n        \"https://f.fcdn.app/imgs/efd6f0/www.hastaterminarstock.com.uy/htsuy/a021/original/catalogo/5915_Rosa_1/1500-1500/reloj-inteligente-smartwatch-estilo-de-vida-y-fitness-iw1-rosa.jpg\"]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f17947ee-e56c-4778-80e5-28c95d17fa00",
+            "colId": "1a70f142-714c-464f-9fbb-4ed36403a480",
+            "containerId": "",
+            "name": "Get product by Id",
+            "url": "localhost:8082/api/products/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-26T01:21:13.932Z",
+            "modified": "2023-10-31T18:05:25.672Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"price\": 120\n  }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "152a4549-54a5-4de2-b284-19bc90339652",
+            "colId": "1a70f142-714c-464f-9fbb-4ed36403a480",
+            "containerId": "",
+            "name": "Create product",
+            "url": "localhost:8088/api/products/file",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-26T01:24:02.710Z",
+            "modified": "2023-11-30T20:10:56.365Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d57a3506-8a86-4f4b-85e9-dec63de7b77a",
+            "colId": "1a70f142-714c-464f-9fbb-4ed36403a480",
+            "containerId": "",
+            "name": "Create product 1",
+            "url": "localhost:8088/api/products/",
+            "method": "POST",
+            "sortNum": 35000,
+            "created": "2023-11-30T19:59:42.182Z",
+            "modified": "2023-11-30T20:08:27.516Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "   {\r\n     \"Title\": \"Auriculares inalámbricos\",\r\n    \"Description\": \"Sonido premium, cancelación de ruido.\",\r\n    \"Code\": \"def456\",\r\n    \"Price\": 100,\r\n    \"Stock\": 15,\r\n    \"Category\": \"Electrónica\",\r\n    \"Thumbnail\": [\r\n      \"https://f.fcdn.app/imgs/81c7ee/www.leamau.uy/leamuy/06f4/original/catalogo/6228_6228_1/2000-2000/auriculares-inalambricos-thonet-vander-dauer-blanco-color-blanco-color-de-la-luz-nude-auriculares-inalambricos-thonet-vander-dauer-blanco-color-blanco-color-de-la-luz-nude.jpg\",\r\n      \"https://www.harmanaudio.com.mx/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwfacfc2ea/JBL_LIVE_460NC_Product%20Image_Detail_White.jpg?sw=626&sh=626&sm=fit&sfrm=png\"\r\n    ]\r\n     \r\n   }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3df1ed33-db7d-44c8-9af9-178bb6e1ca62",
+            "colId": "1a70f142-714c-464f-9fbb-4ed36403a480",
+            "containerId": "",
+            "name": "Update product by id",
+            "url": "localhost:8088/api/products/6568ed01ade1e1e11e7c2147",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-10-31T17:15:58.506Z",
+            "modified": "2023-12-04T14:57:09.531Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"Stock\":0\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7134c19b-dd1b-4734-836f-e64b7c2d2056",
+            "colId": "1a70f142-714c-464f-9fbb-4ed36403a480",
+            "containerId": "",
+            "name": "localhost:8082/api/products/1",
+            "url": "localhost:8088/api/products/",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-10-31T18:04:47.528Z",
+            "modified": "2023-11-26T01:55:23.790Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

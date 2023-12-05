@@ -13,7 +13,7 @@ export default class CartDaoMongoDB{
     }
     async getById(cid){
         try {
-            return await CartModel.findById(cid)
+            return await CartModel.findById(cid).populate('product')
         } catch{
             console.log(`error al obtener el carrito de id: ${cid}, msg: ${error}`);
             throw new Error (`error al obtener el carrito de id: ${cid}, msg: ${error}`);
@@ -27,23 +27,42 @@ export default class CartDaoMongoDB{
             throw new Error(`error al crear el carrito con obj ${obj}, msg ${error}`);
         }
     }
-    async update(cid, obj){
+    async saveProductToCart(cid, pid){
         try {
-            return await CartModel.findByIdAndUpdate({_id: cid}, obj,
-                {new: true},);
+            const cartID = await CartModel.findById(cid).populate('product');
+            if(!cartID) throw new error ('no existe el carrito');
+            cartID.product.push(pid);
+            cartID.save();
+            return cartID
+            //return await CartModel.findByIdAndUpdate();
         } catch (error) {
-            console.log(`error al actualizar el carrito de id: ${cid}, con obj: ${obj} ,msg: ${error}`);
-            throw new Error(`error al actualizar el carrito de id: ${cid}, con obj: ${obj} ,msg: ${error}`);
+            console.log(`error al actualizar el carrito de id: ${cid}, msg: ${error}`);
+            throw new Error(`error al actualizar el carrito de id: ${cid}, msg: ${error}`);
         }
     }
 
     async delete(cid){
         try {
-            console.log('consola dao', cid)
-            return await CartModel.findByIdAndDelete(cid);
+            const cartDelete = await CartModel.findByIdAndDelete(cid);
+            //console.log('consola dao', cid)
+            return cartDelete
         } catch (error) {
             console.log(`error al eliminar el carrito con id ${cid}, msg ${error}`);
             throw new Error(`error al eliminar el carrito con id ${cid}, msg ${error}`);
         }
     };
+
+    async removeProductById(cid, pid){
+        try {
+            const cartID = await CartModel.findById(cid).populate('product');
+            if(!cartID) throw new error ('no existe el carrito');
+            cartID.product.pull(pid);
+            await cartID.save();
+            return cartID
+            //return await CartModel.findByIdAndUpdate();
+        } catch (error) {
+            console.log(`error al actualizar el carrito de id: ${cid}, msg: ${error}`);
+            throw new Error(`error al actualizar el carrito de id: ${cid}, msg: ${error}`);
+        }
+    }
 }

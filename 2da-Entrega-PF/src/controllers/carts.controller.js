@@ -30,13 +30,13 @@ export const getCartById = async(req, res, next)=>{
         next (error)
     }
 };
-export const saveProductToCart = async(req, res)=>{
+export const saveProductToCart = async(req, res, next)=>{
     try {
         const { cid, pid } =req.params;
-        const updateCart = await cartsDaoFS.saveProductToCart(cid, pid);
+        const updateCart = await cartsService.saveProductToCart(cid, pid);
         res.status(200).json(updateCart);
     } catch (error) {
-        res.status(500).json(error.message);
+        next (error)
     }
 };
 
@@ -49,7 +49,15 @@ export const removeCartById = async(req, res, next) =>{
         next(error)
     }
 }
-
+export const removeProductById = async(req, res, next)=>{
+    try {
+        const { cid, pid } =req.params;
+        const updateCart = await cartsService.removeProductById(cid, pid);
+        res.status(200).json(updateCart);
+    } catch (error) {
+        next (error)
+    }
+};
 //router.put('/:cid',controllerCarts.updateCart);
 //router.put('/:cid/products/:pid', controllerCarts.updateAll)
 //router.delete('/:cid/products/:pid', controllerCarts.remove);

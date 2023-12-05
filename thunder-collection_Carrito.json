@@ -1,0 +1,67 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Carrito",
+    "dateExported": "2023-12-05T02:48:42.817Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "aa4916a1-dd4e-491d-b14d-133c400e11f0",
+            "colId": "073b606e-3186-46d5-b860-9f17b1083d61",
+            "containerId": "",
+            "name": "Create 1 Carrito",
+            "url": "localhost:8088/api/carts/?name=carrito 1",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-12-04T23:39:46.896Z",
+            "modified": "2023-12-04T23:39:46.896Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "name",
+                    "value": "carrito 1",
+                    "isPath": false
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\"name\": \"carrito 1\"}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "185739e2-05f9-4a7b-bc65-31df8472e62a",
+            "colId": "073b606e-3186-46d5-b860-9f17b1083d61",
+            "containerId": "",
+            "name": "Get All Carts",
+            "url": "localhost:8088/api/carts/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-12-05T00:53:43.765Z",
+            "modified": "2023-12-05T00:53:43.765Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\"name\": \"carrito 1\"}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "211a515b-bcae-45a2-8475-3d43aaf571c9",
+            "colId": "073b606e-3186-46d5-b860-9f17b1083d61",
+            "containerId": "",
+            "name": "actualizar carrito con 1 producto",
+            "url": "localhost:8088/api/carts/656e7bbf07a180b0cb948846/product/6568ed01ade1e1e11e7c2149",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-12-05T02:48:05.675Z",
+            "modified": "2023-12-05T02:48:05.675Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

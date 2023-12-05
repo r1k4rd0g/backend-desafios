@@ -42,7 +42,7 @@ productSchema.plugin(mongoosePaginate);
 
 //exportamos el modelo como ProductModel
 export const ProductModel = model (
-    productCollection,
+    'product',
     productSchema
 );
 
