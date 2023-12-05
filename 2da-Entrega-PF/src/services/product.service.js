@@ -83,10 +83,10 @@ export const getAll = async (
     }
 };
 
-export const getById = async (id) => {
+export const getById = async (pid) => {
     try {
         const prodSearch = await productDao.getById(id);
-        if (!prodSearch) return false, console.log(`producto buscado en products.service con id: ${id}, no encontrado`)
+        if (!prodSearch) return false, console.log(`producto buscado en products.service con id: ${pid}, no encontrado`)
         else return prodSearch;
     } catch (error) {
         console.log(`error al crear el producto con obj ${obj}, msg ${error}, en products.service`);
@@ -103,22 +103,22 @@ export const create = async (obj) => {
     }
 }
 
-export const update = async (id, obj) => {
+export const update = async (pid, obj) => {
     try {
-        const prodUpdate = await productDao.update(id, obj);
-        if (!prodUpdate) return false, console.log(`producto buscado en products.service con id: ${id}, no encontrado`);
+        const prodUpdate = await productDao.update(pid, obj);
+        if (!prodUpdate) return false, console.log(`producto buscado en products.service con id: ${pid}, no encontrado`);
         else return prodUpdate;
     } catch (error) {
-        console.log(`error al actualizar el producto de id: ${id}, con obj: ${obj} ,msg: ${error}, en products.service`);
+        console.log(`error al actualizar el producto de id: ${pid}, con obj: ${obj} ,msg: ${error}, en products.service`);
     }
 }
 
-export const remove = async (id) => {
+export const remove = async (pid) => {
     try {
-        const prodRemove = await productDao.delete(id)
-        if (!prodRemove) return false, console.log(`producto con id: ${id}, no encontrado`);
+        const prodRemove = await productDao.delete(pid)
+        if (!prodRemove) return false, console.log(`producto con id: ${pid}, no encontrado`);
         else return prodRemove;
     } catch (error) {
-        console.log(`error al eliminar el producto con id ${id}, msg ${error}, en products.service`);
+        console.log(`error al eliminar el producto con id ${pid}, msg ${error}, en products.service`);
     }
 }

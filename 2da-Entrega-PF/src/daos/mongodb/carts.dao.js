@@ -11,12 +11,12 @@ export default class CartDaoMongoDB{
             throw new Error ('error al obtener todos los carts', error);
         }
     }
-    async getById(id){
+    async getById(cid){
         try {
-            return await CartModel.findById(id)
+            return await CartModel.findById(cid)
         } catch{
-            console.log(`error al obtener el carrito de id: ${id}, msg: ${error}`);
-            throw new Error (`error al obtener el carrito de id: ${id}, msg: ${error}`);
+            console.log(`error al obtener el carrito de id: ${cid}, msg: ${error}`);
+            throw new Error (`error al obtener el carrito de id: ${cid}, msg: ${error}`);
         }
     }
     async create(obj){
@@ -27,22 +27,23 @@ export default class CartDaoMongoDB{
             throw new Error(`error al crear el carrito con obj ${obj}, msg ${error}`);
         }
     }
-    async update(id, obj){
+    async update(cid, obj){
         try {
-            return await CartModel.findByIdAndUpdate({_id: id}, obj,
+            return await CartModel.findByIdAndUpdate({_id: cid}, obj,
                 {new: true},);
         } catch (error) {
-            console.log(`error al actualizar el carrito de id: ${id}, con obj: ${obj} ,msg: ${error}`);
-            throw new Error(`error al actualizar el carrito de id: ${id}, con obj: ${obj} ,msg: ${error}`);
+            console.log(`error al actualizar el carrito de id: ${cid}, con obj: ${obj} ,msg: ${error}`);
+            throw new Error(`error al actualizar el carrito de id: ${cid}, con obj: ${obj} ,msg: ${error}`);
         }
     }
 
-    async delete(id){
+    async delete(cid){
         try {
-            return await CartModel.findByIdAndDelete(id);
+            console.log('consola dao', cid)
+            return await CartModel.findByIdAndDelete(cid);
         } catch (error) {
-            console.log(`error al eliminar el carrito con id ${id}, msg ${error}`);
-            throw new Error(`error al eliminar el carrito con id ${id}, msg ${error}`);
+            console.log(`error al eliminar el carrito con id ${cid}, msg ${error}`);
+            throw new Error(`error al eliminar el carrito con id ${cid}, msg ${error}`);
         }
     };
 }

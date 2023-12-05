@@ -21,9 +21,9 @@ export default class ProductDaoMongoDB{
         }
     }
 
-    async getById(id){
+    async getById(pid){
         try {
-            return await ProductModel.findById(id);
+            return await ProductModel.findById(pid);
         } catch (error) {
             console.log(`error al obtener el producto de id: ${id}, msg: ${error}`);
             throw new Error (`error al obtener el producto de id: ${id}, msg: ${error}`)
@@ -39,22 +39,22 @@ export default class ProductDaoMongoDB{
         }
     }
 
-    async update(id, obj){
+    async update(pid, obj){
         try {
-            return await ProductModel.findByIdAndUpdate({_id: id}, obj,
+            return await ProductModel.findByIdAndUpdate({_id: pid}, obj,
                 {new: true},);
         } catch (error) {
-            console.log(`error al actualizar el producto de id: ${id}, con obj: ${obj} ,msg: ${error}`);
-            throw new Error (`error al actualizar el producto de id: ${id}, con obj: ${obj} ,msg: ${error}`)
+            console.log(`error al actualizar el producto de id: ${pid}, con obj: ${obj} ,msg: ${error}`);
+            throw new Error (`error al actualizar el producto de id: ${pid}, con obj: ${obj} ,msg: ${error}`)
         }
     }
 
-    async delete(id){
+    async delete(pid){
         try {
-            return await ProductModel.findByIdAndDelete(id);
+            return await ProductModel.findByIdAndDelete(pid);
         } catch (error) {
-            console.log(`error al eliminar el producto con id ${id}, msg ${error}`);
-            throw new Error (`error al eliminar el producto con id ${id}, msg ${error}`)
+            console.log(`error al eliminar el producto con id ${pid}, msg ${error}`);
+            throw new Error (`error al eliminar el producto con id ${pid}, msg ${error}`)
         }
     }
 }

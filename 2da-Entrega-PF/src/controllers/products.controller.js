@@ -53,11 +53,11 @@ export const getAllCtr =  async(req, res, next)=>{
 
 export const getById = async(req, res, next)=>{
     try {
-        const {id} = req.params;
-        console.log({id})
+        const {pid} = req.params;
+        console.log({pid})
         const productFind = await serviceProduct.getById(id);
         //const productFind = products.find (p=>p.id ===Number(pid)); // ahora con mongo el id no es un number
-        if(!productFind) return res.status(404).json({message: `Producto no encontrado con id ${id}`});
+        if(!productFind) return res.status(404).json({message: `Producto no encontrado con id ${pid}`});
         else return res.status(200).json(productFind);
     } catch (error) {
         next(error.message);
@@ -74,12 +74,12 @@ export const create = async(req, res, next)=>{
 }
 export const update = async(req, res, next)=>{
     try {
-        const {id} = req.params;
+        const {pid} = req.params;
         const updateValues = req.body;
         //const productUpdate = await serviceProduct.update(Number(pid), updateValues);
-        const productUpdate = await serviceProduct.update(id, updateValues);
+        const productUpdate = await serviceProduct.update(pid, updateValues);
         if(!productUpdate){
-            return res.status(400).json({messages: `error al actualizar el producto con id ${id}`})
+            return res.status(400).json({messages: `error al actualizar el producto con id ${pid}`})
         }else {
             return res.status(200).json(productUpdate)
         };
@@ -90,10 +90,10 @@ export const update = async(req, res, next)=>{
 
 export const remove = async(req, res, next)=>{
     try {
-        const {id} = req.params;
-        const deletedProduct = await serviceProduct.remove(id);
+        const {pid} = req.params;
+        const deletedProduct = await serviceProduct.remove(pid);
         if(!deletedProduct){
-            return res.status(400).json({messages: `error al eliminar el producto con id: ${id}`})
+            return res.status(400).json({messages: `error al eliminar el producto con id: ${pid}`})
         } else {return res.status(200).json(deletedProduct);}
     } catch (error) {
         next (error.message);
