@@ -6,16 +6,16 @@ export const cartCollection = 'cart';
 
 export const cartSchema = new Schema({
     name: {type: String, required: true, unique: true},
-    product: [
-        {
-        type: Schema.Types.ObjectId,
-        ref: 'product',
-        default: []
-        }
-    ]
+    onCart: [{
+        product:
+            {
+            type: Schema.Types.ObjectId,
+            ref: 'product'},
+        quantity:{ type: Number, default: 1 }
+    }]
 })
 cartSchema.pre ('find', function (){
-    this.populate('product')
+    this.populate('onCart.product')
 })
 cartSchema.plugin(mongoosePaginate);
 

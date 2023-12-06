@@ -13,7 +13,7 @@ export const getAll = async () => {
 export const getById = async (cid) => {
     try {
         const cartSearch = await cartDao.getById(cid);
-        if (cartSearch) return false, console.log(`carrito buscado en carts.service con id: ${cid}, no encontrado`)
+        if (!cartSearch) return false, console.log(`carrito buscado en carts.service con id: ${cid}, no encontrado`)
         else return cartSearch;
     } catch (error) {
         console.log(`error al crear el carrito con obj ${cid}, msg ${error}, en carts.service`);
@@ -30,15 +30,16 @@ export const createCart = async (nameCart) => {
     }
 };
 
-export const saveProductToCart = async (cid, pid) => {
+export const saveProductToCart = async (cid, pid, quantity) => {
     try {
         const productSearch = await productDao.getById(pid);
-        console.log(productSearch)
+        //console.log('consola linea 36 cart services',productSearch)
         if (!productSearch) throw new Error('producto no encontrado');
-        const cartUpdate = await cartDao.saveProductToCart(cid, pid);
+        const cartUpdate = await cartDao.saveProductToCart(cid, pid, quantity);
         if (!cartUpdate) return false,
-            console.log(`carrito buscado en carts.service con id: ${cid}, no encontrado`);
-        else return cartUpdate;
+            //console.log(`carrito buscado en carts.service con id: ${cid}, no encontrado`);
+        console.log('consola linea 41 cart services', cartUpdate)
+        else return cartUpdate
     } catch (error) {
         console.log(`error al actualizar el producto de id: ${cid}, msg: ${error}, en carts.service`);
     }
@@ -56,13 +57,24 @@ export const removeCartById = async (cid) => {
 export const removeProductById = async (cid, pid) => {
     try {
         const productSearch = await productDao.getById(pid);
-        console.log(productSearch)
+        console.log('Producto buscado linea 60 cart service',productSearch)
         if (!productSearch) throw new Error('producto no encontrado');
         const cartUpdate = await cartDao.removeProductById(cid, pid);
+        console.log('Linea 63 cart service cartUpdate',cartUpdate)
         if (!cartUpdate) return false,
             console.log(`carrito buscado en carts.service con id: ${cid}, no encontrado`);
         else return cartUpdate;
     } catch (error) {
         console.log(`error al actualizar el producto de id: ${cid}, msg: ${error}, en carts.service`);
+    }
+}
+
+export const clearCart = async(cid)=>{
+    try {
+        const cartToClear = await cartDao.clearCart(cid);
+        if(!cartToClear) return false, console.log(`Carrito con id:${cid}, no encontrado`)
+        else return cartToClear
+    } catch (error) {
+        console.log(`error al vaciar el carrito de id :${cid}`);
     }
 }

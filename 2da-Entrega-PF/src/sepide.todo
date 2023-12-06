@@ -297,8 +297,10 @@
               "content": "DELETE, api/carts/:cid/products/:pid - debe eliminar del carrito el producto determinado por el id",
               "id": 1701308462958,
               "level": "default",
-              "done": false,
-              "start": 1701308462958
+              "done": true,
+              "start": 1701308462958,
+              "focus": false,
+              "end": 1701829450264
             }
           },
           {
@@ -308,8 +310,10 @@
               "content": "PUT, api/carts/:cid - debe actualizar el carrito con un arreglo de productos con el formato especificado de arriba",
               "id": 1701308463892,
               "level": "default",
-              "done": false,
-              "start": 1701308463892
+              "done": true,
+              "start": 1701308463892,
+              "focus": false,
+              "end": 1701829449266
             }
           },
           {
@@ -319,8 +323,10 @@
               "content": "PUT, api/carts/:cid/products/:pid  - debe actualizar solo la cantidad de  ejemplares del producto, por cualquier cantidad pasada por el req.body",
               "id": 1701308465541,
               "level": "default",
-              "done": false,
-              "start": 1701308465541
+              "done": true,
+              "start": 1701308465541,
+              "focus": false,
+              "end": 1701829447417
             }
           },
           {
@@ -330,8 +336,10 @@
               "content": "DELETE, api/carts/:cid - debe eliminar todos los productos del carrito",
               "id": 1701308467256,
               "level": "default",
-              "done": false,
-              "start": 1701308467256
+              "done": true,
+              "start": 1701308467256,
+              "focus": false,
+              "end": 1701831236442
             }
           },
           {
@@ -350,8 +358,10 @@
           "content": "Agregar los Endpoints  al router de carts:",
           "id": 1701308435545,
           "level": "default",
-          "done": false,
-          "start": 1701308435545
+          "done": true,
+          "start": 1701308435545,
+          "focus": false,
+          "end": 1701831237757
         }
       },
       {
@@ -430,6 +440,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1701702247657"
+    "version": "1701831237796"
   }
 }

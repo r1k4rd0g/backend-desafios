@@ -32,8 +32,8 @@ export const getCartById = async(req, res, next)=>{
 };
 export const saveProductToCart = async(req, res, next)=>{
     try {
-        const { cid, pid } =req.params;
-        const updateCart = await cartsService.saveProductToCart(cid, pid);
+        const { cid, pid, quantity} =req.params;
+        const updateCart = await cartsService.saveProductToCart(cid, pid, quantity);
         res.status(200).json(updateCart);
     } catch (error) {
         next (error)
@@ -58,7 +58,13 @@ export const removeProductById = async(req, res, next)=>{
         next (error)
     }
 };
-//router.put('/:cid',controllerCarts.updateCart);
-//router.put('/:cid/products/:pid', controllerCarts.updateAll)
-//router.delete('/:cid/products/:pid', controllerCarts.remove);
-//router.delete('/:cid', controllerCarts.removeAll)
+
+export const clearCart = async(req, res, next)=>{
+    try {
+        const cid = req.params;
+        const response = await cartsService.clearCart(cid);
+        res.status(200).json(response)
+    } catch (error) {
+        next (error)
+    }
+}
