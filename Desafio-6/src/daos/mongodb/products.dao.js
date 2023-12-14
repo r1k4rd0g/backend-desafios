@@ -57,4 +57,13 @@ export default class ProductDaoMongoDB{
             throw new Error (`error al eliminar el producto con id ${pid}, msg ${error}`)
         }
     }
+    async getAllSimple() {
+        try {
+            return await ProductModel.find({});
+        } catch (error) {
+            console.log('error al obtener todos los productos', error);
+            throw new Error('error al obtener todos los productos', error);
+        }
+    }
+
 }

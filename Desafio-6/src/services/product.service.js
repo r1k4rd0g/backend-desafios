@@ -4,7 +4,7 @@ import { __dirname } from '../utils.js';
 
 
 const productDao = new ProductDaoMongoDB();
-const productsFile = JSON.parse(
+/*const productsFile = JSON.parse(
     fs.readFileSync(`${__dirname}/daos/filesystem/data/products.json`, 'utf-8')
 );
 
@@ -20,7 +20,7 @@ export const createFileProduct = async () => {
     } catch (error) {
         throw new Error(error)
     }
-}
+}*/
 
 export const getAll = async (
     pageNumber = 1,
@@ -122,3 +122,11 @@ export const remove = async (pid) => {
         console.log(`error al eliminar el producto con id ${pid}, msg ${error}, en products.service`);
     }
 }
+export const getAllSimple = async () => {
+    try {
+        const products = await productDao.getAllSimple()
+        return products;
+    } catch (error) {
+        console.log('error al obtener todos los productos en product.service', error);
+    }
+};

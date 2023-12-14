@@ -1,8 +1,6 @@
 import mongoose from 'mongoose';
 import * as serviceProduct from '../services/product.service.js'
-import { ProductDaoFS } from '../daos/filesystem/products.dao.js';
-import { productValidator } from '../middlewares/productsValidator.js';
-const productDaoFS = new ProductDaoFS('../daos/filesystem/data/products.json');
+import socketServer from '../app.js';
 
 
 export const getAllCtr =  async(req, res, next)=>{
@@ -100,12 +98,47 @@ export const remove = async(req, res, next)=>{
     }
 }
 
-export const createFileProductCtr = async(req, res, next) =>{
+/*export const createFileProductCtr = async(req, res, next) =>{
     try {
         const newProducts = await serviceProduct.createFileProduct();
         if(!newProducts) throw new Error("validation error");
         return res.status(201).send('Archivo creado correctamente');
     } catch (error) {
         next(error)
+    }
+}*/
+
+/**
+ * *los códigos de abajo interaccionan con el  views router y, fueron diseñados para aplicar a las vistas */
+
+export const getAllSimple = async(req, res, next)=>{
+    try {
+        const products = await serviceProduct.getAllSimple();
+        //console.log('consola linea 117', products)
+        res.render('home', {products})
+    } catch (error) {
+        next (error)
+    }
+}
+
+export const getProductsRealTime = async (req, res, next)=>{
+    try {
+        const products = await serviceProduct.getAllSimple();
+        res.render('realtimeproducts', {products});
+    } catch (error) {
+        next(error)
+    }
+}
+export const createProductsRealTime = async(req, res, next)=>{
+    try {
+        const {Title, Description, Code, Price, Stock, Category, Thumbnail} = req.body;
+        const newProduct = {Title, Description, Code, Price, Stock, Category, Thumbnail}
+        const productCreated = await serviceProduct.create(newProduct);
+        console.log(productCreated)
+        const allProducts = await serviceProduct.getAllSimple()
+        socketServer.emit('products', allProducts)
+            return res.status(201).json(productCreated);
+    } catch (error) {
+        next (error.message);
     }
 }

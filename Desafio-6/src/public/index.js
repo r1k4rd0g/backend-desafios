@@ -7,7 +7,6 @@ const title = document.getElementById('title');
 const description = document.getElementById('description');
 const code = document.getElementById('code');
 const category = document.getElementById('category');
-const idProduct = document.getElementById('idProduct');
 const stock = document.getElementById('stock');
 const btnCargar = document.getElementById('cargar');
 const btnEliminar = document.getElementById('eliminar');
@@ -20,7 +19,7 @@ socket.on('products', (products)=>{
     products.forEach(p=>{
         console.log(JSON.stringify(p))
         infoProducts += `<li>
-        <strong>Titulo: </strong>${p.title}<br>
+        <strong>Titulo: </strong>${p.Title}<br>
         <strong>Price: </strong>${p.price}<br>
         <strong>Description: </strong>${p.description}<br>
         <strong>Category: </strong>${p.category}<br>
