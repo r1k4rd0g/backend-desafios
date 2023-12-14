@@ -4,6 +4,9 @@ import * as controllerUser from '../controllers/users.controller.js'
 const router = Router();
 
 router.post("/register", controllerUser.register);
+router.get('/home', (req, res)=>{
+    res.render('home');
+})
 //router.post("/login", controllerUser.login)
 
 export default router;

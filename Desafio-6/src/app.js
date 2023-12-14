@@ -28,6 +28,8 @@ const mongoStoreOptions ={
     saveUninitialized: false,
     cookie: {
         maxAge: 180000,
+        secure: false,
+        httpOnly: true
     }
 }
 
