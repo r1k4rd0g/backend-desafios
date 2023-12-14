@@ -5,6 +5,10 @@ const userDao = new UserDaoMongoDB();
 
 export const createUser = async (userData)=>{
     try {
+        const {email, password} = userData;
+        if (email === 'adminCoder@coder.com' && password === 'adminCoder123'){
+            return await userDao.createAdmin({...userData, role:'admin'});
+        }
         const newUser = await userDao.create(userData)
         console.log('consola de users.services const createUser:', newUser);
         if(!newUser) return false, console.log('usuario no creado');

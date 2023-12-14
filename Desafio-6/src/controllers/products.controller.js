@@ -114,8 +114,17 @@ export const remove = async(req, res, next)=>{
 export const getAllSimple = async(req, res, next)=>{
     try {
         const products = await serviceProduct.getAllSimple();
+        const productsDetail = products.map(product =>{
+            return {
+                Title: product.Title,
+                Price: product.Price,
+                Description: product.Description,
+                Category: product.Category,
+                Thumbnail: product.Thumbnail
+            }
+        })
         //console.log('consola linea 117', products)
-        res.render('home', {products})
+        res.render('productlist', {products: productsDetail})
     } catch (error) {
         next (error)
     }
