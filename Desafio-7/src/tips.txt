@@ -1,0 +1,2 @@
+Vistas hechas con handlebars, todas las necesarias.
+rol de administrador, y rol de default usuario.
