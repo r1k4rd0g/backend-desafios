@@ -7,6 +7,7 @@ router.post("/register", controllerUser.register);
 router.get('/home', (req, res)=>{
     res.render('home');
 })
-//router.post("/login", controllerUser.login)
+router.post("/login", controllerUser.login);
+router.post('/logout', controllerUser.logout);
 
 export default router;

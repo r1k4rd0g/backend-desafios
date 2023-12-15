@@ -11,5 +11,13 @@ export default class UserDaoMongoDB{
         }
     }
 
-
+    async userSearch({email, password}){
+        try {//console.log(email, typeof password,'consola de dao')
+            const userFind = await UserModel.findOne({email, password})
+            //console.log(userFind, 'userFind')
+            return userFind;
+        } catch (error) {
+            throw new Error (`error al buscar el usuario con obj ${email, password}, msg ${error}`);
+        }
+    }
 }

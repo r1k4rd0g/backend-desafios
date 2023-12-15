@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import * as serviceProduct from '../services/product.service.js'
+
 import socketServer from '../app.js';
 
 
@@ -123,8 +124,9 @@ export const getAllSimple = async(req, res, next)=>{
                 Thumbnail: product.Thumbnail
             }
         })
+        const userLog = req.session.user
         //console.log('consola linea 117', products)
-        res.render('productlist', {products: productsDetail})
+        res.render('productlist', {products: productsDetail, user: userLog}, )
     } catch (error) {
         next (error)
     }
@@ -143,7 +145,7 @@ export const createProductsRealTime = async(req, res, next)=>{
         const {Title, Description, Code, Price, Stock, Category, Thumbnail} = req.body;
         const newProduct = {Title, Description, Code, Price, Stock, Category, Thumbnail}
         const productCreated = await serviceProduct.create(newProduct);
-        console.log(productCreated)
+        //console.log(productCreated)
         const allProducts = await serviceProduct.getAllSimple()
         socketServer.emit('products', allProducts)
             return res.status(201).json(productCreated);
