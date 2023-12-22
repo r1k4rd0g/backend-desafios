@@ -6,7 +6,7 @@ export const register = async (req, res, next)=>{
     try {
         const userData = req.body
         const user = await usersServices.createUser(userData)
-        if(user) res.redirect("/api/users/home");
+        if(user) res.redirect("/home");
         else res.redirect("/api/views/register-error")
     } catch (error) {
         next(error);
@@ -22,8 +22,8 @@ export const login = async (req, res, next)=>{
             req.session.email=email;
             req.session.password=password;
             console.log('consola de session', req.session.user)
-            res.redirect("/api/views/productlist");
-        } else res.redirect("/api/views/errorlogin");
+            res.redirect("/productlist");
+        } else res.redirect("/errorlogin");
     } catch (error) {
         next(error)
     }
@@ -36,6 +36,6 @@ export const logout = (req, res) => {
             return res.redirect('/error');
         }
         res.clearCookie('connect.sid');
-        res.redirect("/api/users/home");
+        res.redirect("/home");
     });
 };

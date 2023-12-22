@@ -51,10 +51,10 @@ app.set('view engine', 'handlebars');
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 app.use('/api/users', userRouter);
-app.use('/api/views', viewRouter);
+app.use('/', viewRouter);
 
 
-//app.use('/', viewRouter);
+
 
 export const PORT = 8088;
 const httpServer = app.listen(PORT, ()=> console.log(`🚀 Server ok en el puerto ${PORT}`));

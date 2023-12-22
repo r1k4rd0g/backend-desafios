@@ -1,5 +1,5 @@
 import UserDaoMongoDB from "../daos/mongodb/users.dao.js";
-import { __dirname } from "../utils.js";
+import { createHash, isValidPass } from "../utils.js";
 
 const userDao = new UserDaoMongoDB();
 
@@ -7,9 +7,15 @@ export const createUser = async (userData)=>{
     try {
         const {email, password} = userData;
         if (email === 'adminCoder@coder.com' && password === 'adminCoder123'){
-            return await userDao.createAdmin({...userData, role:'admin'});
+            return await userDao.createAdmin({
+                ...userData,
+                password: createHash(password),
+                role:'admin'});
         }
-        const newUser = await userDao.create(userData)
+        const newUser = await userDao.create({
+            ...userData,
+            password: createHash(password)
+            })
         console.log('consola de users.services const createUser:', newUser);
         if(!newUser) return false;
         else return newUser;

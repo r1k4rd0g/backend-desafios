@@ -24,4 +24,5 @@ router.get('/register-error', (req, res)=>{
 router.get('/errorlogin', (req, res)=>{
     res.render('errorlogin')
 })
+
 export default router;
