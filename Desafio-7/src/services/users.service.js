@@ -4,10 +4,10 @@ import { createHash, isValidPass } from "../utils.js";
 const userDao = new UserDaoMongoDB();
 
 export const createUser = async (userData)=>{
-    try {
+    try {console.log('userData services', userData)
         const {email, password} = userData;
         if (email === 'adminCoder@coder.com' && password === 'adminCoder123'){
-            return await userDao.createAdmin({
+            return await userDao.create({
                 ...userData,
                 password: createHash(password),
                 role:'admin'});
@@ -16,7 +16,7 @@ export const createUser = async (userData)=>{
             ...userData,
             password: createHash(password)
             })
-        console.log('consola de users.services const createUser:', newUser);
+        //console.log('consola de users.services const createUser:', newUser);
         if(!newUser) return false;
         else return newUser;
     } catch (error) {
@@ -24,14 +24,39 @@ export const createUser = async (userData)=>{
     }
 }
 
-export const login = async (email, password) =>{
+export const login = async (user) =>{
     try {
-        console.log('consola lo que viene de controller:', email, password)
-        const userExist = await userDao.userSearch({email, password});
-        console.log('user exist', userExist)
-        if(!userExist) return false;
-        else return userExist;
+        //console.log('consola lo que viene de controller:', user)
+        const { email, password } = user;
+        const userExist = await userDao.searchByEmail({email});
+        //console.log('user exist', userExist)
+        if(userExist) {
+            const passValid = isValidPass(password, userExist);
+            if(!passValid) return false;
+            else return userExist
+        }
+        return false;
     } catch (error) {
         console.log(`error al buscar el usuario con datos: ${email, password}, msg: ${error}, en users.service`)
+    }
+}
+
+export const getByEmail = async (email)=>{
+    try {
+        const userSearch = await userDao.searchByEmail(email);
+        if(!userSearch) return false, console.log(`usuario no encontrado en user.service con ${email}`);
+        else return userSearch
+    } catch (error) {
+        console.log(`error al buscar el usuario con datos: ${email}, msg: ${error}, en users.service`)
+    }
+}
+
+export const getById = async (id)=>{
+    try {
+        const userSearch = await userDao.searchById(id);
+        if(!userSearch) return false, console.log(`usuario no encontrado en user.service con ${id}`);
+        else return userSearch
+    } catch (error) {
+        console.log(`error al buscar el usuario con datos: ${id}, msg: ${error}, en users.service`)
     }
 }

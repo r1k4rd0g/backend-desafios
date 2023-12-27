@@ -1,4 +1,6 @@
 import './db/connection.js'
+import './passport/github-strategy.js'
+import './passport/local-strategy.js'
 import express from 'express';
 import {__dirname} from './utils.js';
 import { errorHandler } from '../src/middlewares/errorHandler.js';
@@ -12,6 +14,7 @@ import cookieParser from 'cookie-parser';
 import session  from 'express-session';
 import MongoStore from 'connect-mongo';
 import { connectionURL } from './db/connection.js';
+import passport from 'passport';
 
 
 const app = express();
@@ -44,6 +47,12 @@ app.use(express.static(__dirname + '/public'));
 app.engine('handlebars', handlebars.engine());
 
 app.use(session(mongoStoreOptions));
+/* ------------------------------------ - ----------------------------------- */
+//inicializamos a nivel de aplicación, debe de ir luego de las otras lineas
+app.use(passport.initialize());
+app.use(passport.session());
+//y van antes del enrutador, lineas de abajo.
+/* ------------------------------------ - ----------------------------------- */
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'handlebars');

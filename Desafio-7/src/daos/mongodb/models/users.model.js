@@ -8,7 +8,7 @@ export const userSchema = new Schema({
     },
     last_name: {
         type: String,
-        required: true,
+        required: false,
     },
     email: {
         type: String,
@@ -21,12 +21,15 @@ export const userSchema = new Schema({
     },
     password: {
         type: String,
-        required: true,
     },
     role: {
         type: String,
         default: "usuario",
     },
+    isGithub: {// para identificar que usuario vino por git
+        type: Boolean,
+        default: false
+    }
 })
 
 export const UserModel = model(

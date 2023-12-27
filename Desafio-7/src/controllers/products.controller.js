@@ -124,7 +124,8 @@ export const getAllSimple = async(req, res, next)=>{
                 Thumbnail: product.Thumbnail
             }
         })
-        const userLog = req.session.user
+        const userLog = req.session.passport.user
+        //console.log('userLog de products controller', userLog)
         //console.log('consola linea 117', products)
         res.render('productlist', {products: productsDetail, user: userLog}, )
     } catch (error) {
