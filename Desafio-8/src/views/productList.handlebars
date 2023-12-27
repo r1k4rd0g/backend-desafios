@@ -1,0 +1,30 @@
+<div class="divPrincipal">
+    <h1 class="h1Home">Lista de productos cargados hasta el momento</h1>
+    <h2>Bienvenido,<br>
+                    Nombre: {{user.first_name}}<br>
+                    Apellido: {{user.last_name}}<br>
+                    Rol:{{user.role}}</h2>
+    <form action="/api/users/logout" method="post">
+        <button type="submit">Cerrar sesión</button>
+    </form>
+    <div class = "containerList" id="containerList">
+            <ul>
+                {{#each products}}
+                    <li>
+                        <strong>Titulo: </strong>{{this.Title}}<br>
+                        <strong>Price: </strong>{{this.Price}}<br>
+                        <strong>Description: </strong>{{this.Description}}<br>
+                        <strong>Category: </strong>{{this.Category}}<br>
+                        {{#if this.Thumbnail}}
+                        {{#each this.Thumbnail}}
+                        <div class="imgContainer">
+                            <img class="imgProduct" src="{{this}}" alt="{{this.Title}}">
+                            </div>
+                        {{/each}}
+                    {{/if}}
+                    </li>
+                {{/each}}
+            </ul>
+    </div>
+    <!--acá se muestre la lista que contiene todos los productos hasta el momento. sería el json.-->
+</div>
