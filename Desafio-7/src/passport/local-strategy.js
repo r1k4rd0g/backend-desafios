@@ -15,6 +15,7 @@ const register = async (req, email, password, done) => {
         // const { first_name, last_name,... } = req.body
         const user = await usersServices.getByEmail(email);
         if (user) return done(null, false);
+        console.log('el req.body es un:',typeof req.body)
         const newUser = await usersServices.createUser(req.body);
         return done(null, newUser);
     } catch (error) {
@@ -28,9 +29,9 @@ const register = async (req, email, password, done) => {
 const login = async (req, email, password, done) => {
     try {
         const user = req.body;
-        console.log('USER', user);
+        //console.log('USER', user);
         const userLogin = await usersServices.login(user);
-        console.log('LOGIN', userLogin);
+        //console.log('LOGIN', userLogin);
         if (!userLogin) return done(null, false, { message: 'User not found' });
         return done(null, userLogin);
     } catch (error) {
@@ -45,8 +46,8 @@ const loginStrategy = new LocalStrategy(strategyOptions, login);
 
 
 /* ----------------------------- inicializacion ----------------------------- */
-passport.use('login', loginStrategy);
-passport.use('register', registerStrategy);
+passport.use('login-local', loginStrategy);
+passport.use('register-local', registerStrategy);
 
 
 

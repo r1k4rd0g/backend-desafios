@@ -17,6 +17,7 @@ export const userSchema = new Schema({
     },
     age: {
         type: Number,
+        default: '',
         required: true,
     },
     password: {

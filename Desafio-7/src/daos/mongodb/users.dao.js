@@ -4,17 +4,17 @@ import { UserModel } from "./models/users.model.js";
 export default class UserDaoMongoDB{
 
     async create(newUser){
-        try {
+        try {//console.log('consola create dao',newUser)
             const userCreated = await UserModel.create(newUser);
-            console.log('consola de dao', userCreated)
+            //console.log('consola de dao', userCreated)
             return userCreated;
         } catch (error) {
-            throw new Error (`error al crear el usuario en dao con obj ${obj}, msg ${error}`);
+            throw new Error (`error al crear el usuario en dao con obj ${newUser}, msg ${error}`);
         }
     }
 
     async userSearch({email, password}){
-        try {console.log(email, typeof password,'consola de dao')
+        try {//console.log(email, typeof password,'consola de dao')
             const userFind = await UserModel.findOne({email, password})
             //console.log(userFind, 'userFind')
             return userFind;
@@ -23,9 +23,9 @@ export default class UserDaoMongoDB{
         }
     }
 
-    async searchByEmail ({email}){
+    async searchByEmail (email){
         try {//console.log('viene de services en dao..', typeof(email))
-            const userFindByEmail = await UserModel.findOne({email});
+            const userFindByEmail = await UserModel.findOne({email: email});
             //console.log('consola de dao buscando..', userFindByEmail)
             return userFindByEmail
         } catch (error) {
