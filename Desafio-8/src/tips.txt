@@ -1,2 +1,18 @@
-Vistas hechas con handlebars, todas las necesarias.
-rol de administrador, y rol de default usuario.
+Segunda práctica integradora.
+Se pide:
+Campos de clientes:
+    first_name: String
+    last_name: String
+    email: String y único
+    age: Number
+    password: String y hasheado
+    cart: Id, con referencia a Carts
+    role: String y default: user
+
+Passport, tiene que funcionar para ese esquema de usuario.
+
+Modificar el login para que trabaje con session o con jwt
+si usamos jwt, desarrollar un current, para extraer la cookie para obtener el token, para obtener el usuario asociado a ese token.
+    Si no hay token, devolver un error de passport, utilizar un extractor de cookie.
+
+Agregar al router /api/sessions la ruta /current, la cual utilizará el model de sesión que estes utilizando, para poder devolver una respuesta al usuario actual.- ruta profile.

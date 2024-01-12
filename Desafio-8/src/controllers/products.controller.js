@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import * as serviceProduct from '../services/product.service.js'
+import * as usersServices from '../services/users.service.js'
 
 import socketServer from '../app.js';
 
@@ -125,7 +126,7 @@ export const getAllSimple = async(req, res, next)=>{
             }
         })
         const userLog = req.session.passport.user
-        //console.log('userLog de products controller', userLog)
+        console.log('userLog de products controller', userLog)
         //console.log('consola linea 117', products)
         res.render('productlist', {products: productsDetail, user: userLog}, )
     } catch (error) {

@@ -11,5 +11,8 @@
 <h3>¿USUARIO NUEVO?</h3>
 <button onclick="location.href='register'">Registro Manual</button>
 <div>
-    <button onclick="location.href='/api/users/github'">Registro con Github</button>
+    <button onclick="location.href='/api/users/github-register'">Registro con Github</button>
+    <form action="/api/users/github-login" method="post">
+        <button type="submit">Login con Github</button>
+    </form>
 </div>

@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import {CartModel} from '../models/carts.model.js';
 
 export const userCollection = 'userCollection'
 export const userSchema = new Schema({
@@ -17,6 +18,7 @@ export const userSchema = new Schema({
     },
     age: {
         type: Number,
+        default: '',
         required: true,
     },
     password: {
@@ -29,6 +31,10 @@ export const userSchema = new Schema({
     isGithub: {// para identificar que usuario vino por git
         type: Boolean,
         default: false
+    },
+    cart: {
+        type: Schema.Types.ObjectId,
+        ref: CartModel
     }
 })
 
