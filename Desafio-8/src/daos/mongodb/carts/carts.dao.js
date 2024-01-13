@@ -1,34 +1,12 @@
-import { CartModel } from './models/carts.model.js';
-//import { ProductModel } from './models/product.model.js';
+import { CartModel } from "./carts.model.js";
+import MongoDao from "../mongo.dao.js";
 
-export default class CartDaoMongoDB {
+export default class CartDaoMongo extends MongoDao{
+    constructor(){
+        super(CartModel);
+    }
 
-    async getAll() {
-        try {
-            return await CartModel.find({});
-        } catch (error) {
-            console.log('error al obtener todos los carts', error);
-            throw new Error('error al obtener todos los carts', error);
-        }
-    }
-    async getById(cid) {
-        try {
-            const cartSearch = await CartModel.findById(cid).populate('onCart.product')
-            console.log('linea 18 cart dao', cartSearch)
-            return cartSearch
-        } catch {
-            console.log(`error al obtener el carrito de id: ${cid}, msg: ${error}`);
-            throw new Error(`error al obtener el carrito de id: ${cid}, msg: ${error}`);
-        }
-    }
-    async create(obj) {
-        try {
-            return await CartModel.create(obj);
-        } catch (error) {
-            console.log(`error al crear el carrito con obj ${obj}, msg ${error}`);
-            throw new Error(`error al crear el carrito con obj ${obj}, msg ${error}`);
-        }
-    }
+
     async saveProductToCart(cid, pid, quantity) {
         try {
             const cartID = await CartModel.findById(cid).populate('onCart.product');
@@ -43,17 +21,6 @@ export default class CartDaoMongoDB {
             throw new Error(`error al actualizar el carrito de id: ${cid}, msg: ${error}`);
         }
     }
-
-    async delete(cid) {
-        try {
-            const cartDelete = await CartModel.findByIdAndDelete(cid);
-            //console.log('consola dao', cid)
-            return cartDelete
-        } catch (error) {
-            console.log(`error al eliminar el carrito con id ${cid}, msg ${error}`);
-            throw new Error(`error al eliminar el carrito con id ${cid}, msg ${error}`);
-        }
-    };
 
     async removeProductById(cid, pid) {
         try {

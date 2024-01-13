@@ -1,6 +1,10 @@
-import {ProductModel} from './models/products.model.js';
+import {ProductModel} from './products.model';
+import MongoDao from '../mongo.dao.js';
 
-export default class ProductDaoMongoDB{
+export default class ProductDaoMongo extends MongoDao{
+    constructor(){
+        super(ProductModel);
+    };
 
     async getAll(pageNumber, pageSize, filter, sortOptions){
         const options = {

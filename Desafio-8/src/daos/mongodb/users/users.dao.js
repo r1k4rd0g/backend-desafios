@@ -1,7 +1,11 @@
 import { isValidPass } from "../../utils.js";
-import { UserModel } from "./models/users.model.js";
+import { UserModel } from "./users.model.js";
+import MongoDao from "../mongo.dao.js";
 
-export default class UserDaoMongoDB{
+export default class UserDaoMongo extends MongoDao{
+    constructor(){
+        super(UserModel);
+    }
 
     async create(newUser){
         try {//console.log('consola create dao',newUser)

@@ -1,0 +1,4 @@
+MONGO_URL='mongodb+srv://r1k4rd0g:S41ntr0w2023@coderhouse.gkusrdv.mongodb.net/ecommerce'
+PORTO=8080
+PERSISTENCE="MONGO"
+SECRET_KEY_JWT=1234
