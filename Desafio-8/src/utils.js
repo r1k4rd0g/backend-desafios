@@ -18,3 +18,9 @@ export const createHash = (password) =>{
 export const isValidPass = (password, user)=>{
     return compareSync(password, user.password) //toma el password que no está haseado y lo compara con el pass que está en la base de datos de ese usuario.
 }
+
+/*-función de respuestas -*/
+
+export const createResponse = (res, statusCode, data)=>{
+    return res.status(statusCode).json({data});
+}

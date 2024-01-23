@@ -1,4 +1,3 @@
-import { isValidPass } from "../../utils.js";
 import { UserModel } from "./users.model.js";
 import MongoDao from "../mongo.dao.js";
 
@@ -46,3 +45,6 @@ export default class UserDaoMongo extends MongoDao{
         }
     }
 }
+
+//exporto e instancio para poder usarlo en diferentes partes del código y no instanciarlo cada vez que lo requiera:
+export const userDao = new UserDaoMongo();

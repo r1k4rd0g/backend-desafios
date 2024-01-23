@@ -1,7 +1,7 @@
 import {MsgModel} from './messages.model';
 import MongoDao from '../mongo.dao.js';
 
-export default class MsgDaoMongoDBe extends MongoDao{
+export default class MsgMongoDao extends MongoDao{
     constructor(){
         super(MsgModel);
     }
@@ -14,3 +14,7 @@ export default class MsgDaoMongoDBe extends MongoDao{
         }
     }
 }
+
+//exporto e instancio para poder usarlo en diferentes partes del código y no instanciarlo cada vez que lo requiera:
+
+export const msgDao = new MsgMongoDao();

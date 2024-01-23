@@ -1,12 +1,12 @@
-import {ProductModel} from './products.model';
+import {ProductModel} from './products.model.js';
 import MongoDao from '../mongo.dao.js';
 
-export default class ProductDaoMongo extends MongoDao{
+export default class ProductMongoDao extends MongoDao{
     constructor(){
         super(ProductModel);
     };
 
-    async getAll(pageNumber, pageSize, filter, sortOptions){
+    async getAllPaginate(pageNumber, pageSize, filter, sortOptions){
         const options = {
             page : pageNumber,
             limit: pageSize,
@@ -53,14 +53,14 @@ export default class ProductDaoMongo extends MongoDao{
         }
     }
 
-    async delete(pid){
+    /*async delete(pid){
         try {
             return await ProductModel.findByIdAndDelete(pid);
         } catch (error) {
             console.log(`error al eliminar el producto con id ${pid}, msg ${error}`);
             throw new Error (`error al eliminar el producto con id ${pid}, msg ${error}`)
         }
-    }
+    }*/
     async getAllSimple() {
         try {
             return await ProductModel.find({});
@@ -69,5 +69,7 @@ export default class ProductDaoMongo extends MongoDao{
             throw new Error('error al obtener todos los productos', error);
         }
     }
-
 }
+//exporto e instancio para poder usarlo en diferentes partes del código y no instanciarlo cada vez que lo requiera:
+
+export const productDao = new ProductMongoDao();

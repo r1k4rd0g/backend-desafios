@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+
 import * as serviceProduct from '../services/product.service.js'
-import * as usersServices from '../services/users.service.js'
+
 
 import socketServer from '../app.js';
 
@@ -51,7 +51,7 @@ export const getAllCtr =  async(req, res, next)=>{
     }
 };
 
-export const getById = async(req, res, next)=>{
+/*export const getById = async(req, res, next)=>{
     try {
         const {pid} = req.params;
         console.log({pid})
@@ -62,16 +62,16 @@ export const getById = async(req, res, next)=>{
     } catch (error) {
         next(error.message);
     }
-}
+}*/
 
-export const create = async(req, res, next)=>{
+/*export const create = async(req, res, next)=>{
     try {
         const newProduct = await serviceProduct.create(req.body);
             return res.status(201).json(newProduct);
     } catch (error) {
         next (error.message);
     }
-}
+}*/
 export const update = async(req, res, next)=>{
     try {
         const {pid} = req.params;

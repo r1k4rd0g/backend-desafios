@@ -1,15 +1,29 @@
-import MsgDaoMongoDB from '../daos/mongodb/messages.dao.js';
-const msgDao = new MsgDaoMongoDB();
+//importamos los Crud de servicios:
+import Services from './class.services.js';
+//importamos el modelo MsgDao:
+import msgDao from '../daos/mongodb/messages/messages.dao.js'
 
-export const getAll = async()=>{
-    try {
-        return await msgDao.getAll()
-    } catch (error) {
-        console.log('error al obtener todos los mensajes en messages.service', error);
+
+
+class MsgService extends Services{
+    constructor(){
+        super(msgDao)
+    }
+
+    removeAll = async ()=>{
+        try {
+            return await this.dao.deleteAll()
+        } catch (error) {
+            console.log('error al eliminar todos los mensajes en messages.service', error);
+        }
     }
 }
 
-export const getById = async(id)=>{
+export default MsgService = new MsgService(msgDao);
+
+
+
+/*export const getById = async(id)=>{
     try {
         const msgSearch = await msgDao.getById(id);
         if(msgSearch) return false, console.log(`mensaje buscado en messages.service con id: ${id}, no encontrado`)
@@ -17,8 +31,8 @@ export const getById = async(id)=>{
     } catch (error) {
         console.log(`error al crear el mensaje con obj ${obj}, msg ${error}, en messages.service`);
     }
-}
-export const create = async(obj)=>{
+}*/
+/*export const create = async(obj)=>{
     try {
         const msgNew = await msgDao.create(obj);
         console.log('consola de messages.services const create:',newProd);
@@ -28,8 +42,8 @@ export const create = async(obj)=>{
         console.log(`error al crear el mensaje con obj ${obj}, msg ${error}, en messages.service`);
         }
     }
-
-export const update = async(id, obj)=>{
+*/
+/*export const update = async(id, obj)=>{
     try {
         const msgUpdate = await msgDao.update(id, obj);
         if(!msgUpdate) return false, console.log(`mensaje buscado en messages.service con id: ${id}, no encontrado`);
@@ -37,9 +51,9 @@ export const update = async(id, obj)=>{
     } catch (error) {
         console.log(`error al actualizar el mensaje de id: ${id}, con obj: ${obj} ,msg: ${error}, en messages.service`);
     }
-}
+}*/
 
-export const remove = async(id)=>{
+/*export const remove = async(id)=>{
     try {
         const msgRemove = await msgDao.delete(id)
         if(!msgRemove) return false, console.log(`mensaje con id: ${id}, no encontrado`);
@@ -47,11 +61,4 @@ export const remove = async(id)=>{
     } catch (error) {
         console.log(`error al eliminar el mensaje con id ${id}, msg ${error}, en messages.service`);
     }
-}
-export const removeAll = async ()=>{
-    try {
-        return await msgDao.deleteAll()
-    } catch (error) {
-        console.log('error al eliminar todos los mensajes en messages.service', error);
-    }
-}
+}*/

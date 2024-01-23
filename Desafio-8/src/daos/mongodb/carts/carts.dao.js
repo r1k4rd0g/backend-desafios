@@ -1,7 +1,7 @@
 import { CartModel } from "./carts.model.js";
 import MongoDao from "../mongo.dao.js";
 
-export default class CartDaoMongo extends MongoDao{
+export default class CartMongoDao extends MongoDao{
     constructor(){
         super(CartModel);
     }
@@ -64,3 +64,7 @@ export default class CartDaoMongo extends MongoDao{
         }
     }
 }
+
+//exporto e instancio para poder usarlo en diferentes partes del código y no instanciarlo cada vez que lo requiera:
+
+export const cartDao = new CartMongoDao();

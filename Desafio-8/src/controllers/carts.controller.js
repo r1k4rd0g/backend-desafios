@@ -1,6 +1,10 @@
-import * as cartsService from '../services/carts.service.js';
+//importamos clase general:
+import Controllers from './class.controller.js';
+//importamos servicios:
+import CartService from '../services/carts.service.js';
 
-export const createCart = async(req, res, next)=>{
+
+/*export const createCart = async(req, res, next)=>{
     try {
         const nameCart = req.body
         const newCart = await cartsService.createCart(nameCart);
@@ -8,8 +12,9 @@ export const createCart = async(req, res, next)=>{
     } catch (error) {
         next (error);
     }
-};
-export const getAll = async(req, res, next)=>{
+};*/
+
+/*export const getAll = async(req, res, next)=>{
     try {
         const response = await cartsService.getAll()
         console.log(response)
@@ -17,8 +22,9 @@ export const getAll = async(req, res, next)=>{
     } catch (error) {
         next (error)
     }
-}
-export const getCartById = async(req, res, next)=>{
+}*/
+
+/*export const getCartById = async(req, res, next)=>{
     try {
         const {cid} = req.params;
         const cart = await cartsService.getById(cid)
@@ -29,7 +35,7 @@ export const getCartById = async(req, res, next)=>{
     } catch (error) {
         next (error)
     }
-};
+};*/
 export const saveProductToCart = async(req, res, next)=>{
     try {
         const { cid, pid, quantity} =req.params;

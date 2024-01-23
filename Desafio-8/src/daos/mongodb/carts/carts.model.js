@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-import {ProductModel} from "../models/products.model.js";
 import mongoosePaginate from 'mongoose-paginate-v2';
 
 export const cartCollection = 'cart';
