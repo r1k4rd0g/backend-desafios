@@ -6,7 +6,7 @@ import userDao from "../daos/mongodb/users/users.dao.js";
 import { createHash, isValidPass } from "../utils.js";
 
 
-export default class UserService extends Services{
+class UserService extends Services{
     constructor(){
         super(userDao)
     }
@@ -65,6 +65,8 @@ export default class UserService extends Services{
 
 }
 
+const userService = new UserService(userDao);
+export default userService;
 
 /*export const getById = async (id)=>{
     try {

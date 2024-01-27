@@ -59,7 +59,8 @@ class CartService extends Services{
         }
     }
 }
-export default CartService = new CartService(cartDao, productDao);
+const cartService = new CartService(cartDao, productDao);
+export default cartService;
 
 /*export const getById = async (cid) => {
     try {

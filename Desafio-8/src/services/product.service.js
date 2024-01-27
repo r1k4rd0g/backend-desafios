@@ -7,7 +7,7 @@ import { __dirname } from '../utils.js';
 //inicializamos:
 
 
-export default class ProductService extends Services{
+class ProductService extends Services{
     constructor(){
         super(productDao)
     }
@@ -80,6 +80,10 @@ export default class ProductService extends Services{
         }
     };
 }
+
+const productService = new ProductService(productDao);
+export default productService;
+
 /*const productsFile = JSON.parse(
     fs.readFileSync(`${__dirname}/daos/filesystem/data/products.json`, 'utf-8')
 );

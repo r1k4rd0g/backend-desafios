@@ -19,7 +19,8 @@ class MsgService extends Services{
     }
 }
 
-export default MsgService = new MsgService(msgDao);
+const msgService = new MsgService(msgDao);
+export default msgService;
 
 
 

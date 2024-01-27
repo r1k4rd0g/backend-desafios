@@ -25,42 +25,6 @@ export default class ProductMongoDao extends MongoDao{
         }
     }
 
-    async getById(pid){
-        try {
-            return await ProductModel.findById(pid);
-        } catch (error) {
-            console.log(`error al obtener el producto de id: ${id}, msg: ${error}`);
-            throw new Error (`error al obtener el producto de id: ${id}, msg: ${error}`)
-        }
-    }
-
-    async create(obj){
-        try {
-            return await ProductModel.create(obj);
-        } catch(error) {
-            console.log(`error al crear el producto con obj ${obj}, msg ${error}`);
-            throw new Error (`error al crear el producto con obj ${obj}, msg ${error}`)
-        }
-    }
-
-    async update(pid, obj){
-        try {
-            return await ProductModel.findByIdAndUpdate({_id: pid}, obj,
-                {new: true},);
-        } catch (error) {
-            console.log(`error al actualizar el producto de id: ${pid}, con obj: ${obj} ,msg: ${error}`);
-            throw new Error (`error al actualizar el producto de id: ${pid}, con obj: ${obj} ,msg: ${error}`)
-        }
-    }
-
-    /*async delete(pid){
-        try {
-            return await ProductModel.findByIdAndDelete(pid);
-        } catch (error) {
-            console.log(`error al eliminar el producto con id ${pid}, msg ${error}`);
-            throw new Error (`error al eliminar el producto con id ${pid}, msg ${error}`)
-        }
-    }*/
     async getAllSimple() {
         try {
             return await ProductModel.find({});
@@ -70,6 +34,45 @@ export default class ProductMongoDao extends MongoDao{
         }
     }
 }
+/*async getById(pid){
+    try {
+        return await ProductModel.findById(pid);
+    } catch (error) {
+        console.log(`error al obtener el producto de id: ${id}, msg: ${error}`);
+        throw new Error (`error al obtener el producto de id: ${id}, msg: ${error}`)
+    }
+}
+
+async create(obj){
+    try {
+        return await ProductModel.create(obj);
+    } catch(error) {
+        console.log(`error al crear el producto con obj ${obj}, msg ${error}`);
+        throw new Error (`error al crear el producto con obj ${obj}, msg ${error}`)
+    }
+}
+
+async update(pid, obj){
+    try {
+        return await ProductModel.findByIdAndUpdate({_id: pid}, obj,
+            {new: true},);
+    } catch (error) {
+        console.log(`error al actualizar el producto de id: ${pid}, con obj: ${obj} ,msg: ${error}`);
+        throw new Error (`error al actualizar el producto de id: ${pid}, con obj: ${obj} ,msg: ${error}`)
+    }
+}*/
+
+    /*async delete(pid){
+        try {
+            return await ProductModel.findByIdAndDelete(pid);
+        } catch (error) {
+            console.log(`error al eliminar el producto con id ${pid}, msg ${error}`);
+            throw new Error (`error al eliminar el producto con id ${pid}, msg ${error}`)
+        }
+    }*/
+
+
+/*** ----------------------------------------------------------------------****/
 //exporto e instancio para poder usarlo en diferentes partes del código y no instanciarlo cada vez que lo requiera:
 
 export const productDao = new ProductMongoDao();
