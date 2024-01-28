@@ -64,7 +64,7 @@ class ProductService extends Services{
             console.log('consola 4:', filter)
             const sortOptions = buildSortOptions(sortOrder);
             console.log('consola 5', sortOptions)
-            const product = await this.dao.getAllPaginate(pageNumber, pageSize, filter, sortOptions);
+            const product = await productDao.getAllPaginate(pageNumber, pageSize, filter, sortOptions);
             return product
         } catch (error) {
             console.log('error al obtener todos los productos en products.service', error);
@@ -73,7 +73,7 @@ class ProductService extends Services{
     };
     getAllSimple = async () => {
         try {
-            const products = await this.dao.getAllSimple()
+            const products = await productDao.getAllSimple()
             return products;
         } catch (error) {
             console.log('error al obtener todos los productos en product.service', error);

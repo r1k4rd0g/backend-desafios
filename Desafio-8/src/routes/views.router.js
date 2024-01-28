@@ -1,10 +1,10 @@
 import {Router} from 'express';
-import socketServer from '../app.js';
+import productController from '../controllers/products.controller.js';
 import * as controllerProducts from '../controllers/products.controller.js'
 import * as controllerUsers from '../controllers/users.controller.js'
 const router = Router();
 
-router.get('/productlist', controllerProducts.getAllSimple);
+router.get('/productlist', productController.getAllSimple);
 
 router.get('/home', (req, res)=>{
     res.render('home');
@@ -20,9 +20,9 @@ router.get('/productlist', (req, res)=>{
     res.render('productlist')
 })
 
-router.get('/realtimeproducts', controllerProducts.getProductsRealTime);
+router.get('/realtimeproducts', productController.getProductsRealTime);
 
-router.post('/realtimeproducts',controllerProducts.createProductsRealTime);
+router.post('/realtimeproducts',productController.createProductsRealTime);
 
 router.get('/registererror', (req, res)=>{
     res.render('registererror')

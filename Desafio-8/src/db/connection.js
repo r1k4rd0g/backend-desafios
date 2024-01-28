@@ -12,4 +12,3 @@ export const initMongoDB = async()=>{
     }
 };
 
-initMongoDB();

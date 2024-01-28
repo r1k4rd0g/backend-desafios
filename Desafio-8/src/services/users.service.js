@@ -15,12 +15,12 @@ class UserService extends Services{
             const { first_name, last_name, email, password, age, isGithub} = userData;
             //console.log('consola 9', typeof email, typeof password, typeof first_name)
             if (email === 'adminCoder@coder.com' && password === 'adminCoder123'){
-                return await this.dao.create({
+                return await userDao.create({
                     ...userData,
                     password: createHash(password),
                     role:'admin'});
             }
-            const newUser = await this.dao.create({
+            const newUser = await userDao.create({
                 first_name,
                 last_name,
                 age: 18,
@@ -40,7 +40,7 @@ class UserService extends Services{
         try {
             //console.log('consola lo que viene de controller:', user)
             const { email, password } = user;
-            const userExist = await this.dao.searchByEmail(email);
+            const userExist = await userDao.searchByEmail(email);
             //console.log('user exist', userExist)
             if(userExist) {
                 const passValid = isValidPass(password, userExist);
@@ -55,7 +55,7 @@ class UserService extends Services{
 
     getByEmail = async (email)=>{
         try {//console.log(email, typeof email, 'verifico email en service')
-            const userSearch = await this.dao.searchByEmail(email);
+            const userSearch = await userDao.searchByEmail(email);
             if(!userSearch) return false, console.log(`usuario no encontrado en user.service con ${email}`);
             else return userSearch
         } catch (error) {
@@ -65,8 +65,8 @@ class UserService extends Services{
 
 }
 
-const userService = new UserService(userDao);
-export default userService;
+const usersServices = new UserService(userDao);
+export default usersServices;
 
 /*export const getById = async (id)=>{
     try {

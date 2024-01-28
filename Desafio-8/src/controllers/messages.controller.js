@@ -4,7 +4,10 @@ import Controllers from "./class.controller.js";
 import msgService from "../services/messages.service.js";
 
 
-export default class MsgController extends Controllers{
+class MsgController extends Controllers{
     constructor(){
         super(msgService)};
 }
+
+const msgController = new MsgController();
+export default msgController;

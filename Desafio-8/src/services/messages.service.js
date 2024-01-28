@@ -12,7 +12,7 @@ class MsgService extends Services{
 
     removeAll = async ()=>{
         try {
-            return await this.dao.deleteAll()
+            return await msgDao.deleteAll()
         } catch (error) {
             console.log('error al eliminar todos los mensajes en messages.service', error);
         }

@@ -6,7 +6,6 @@ export default class CartMongoDao extends MongoDao{
         super(CartModel);
     }
 
-
     async saveProductToCart(cid, pid, quantity) {
         try {
             const cartID = await CartModel.findById(cid).populate('onCart.product');

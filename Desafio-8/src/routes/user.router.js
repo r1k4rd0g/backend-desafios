@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as controllerUser from '../controllers/users.controller.js'
+import userController from "../controllers/users.controller.js";
 import passport from "passport";
 
 
@@ -19,15 +19,15 @@ router.get('/productlist', (req, res) => {
 }); //con esta vista renderizo y muestro los datos del usuario registrado (falta ver si para github tambien o solo localmente).
 
 
-router.post("/login", passport.authenticate("login-local"), controllerUser.loginResponse) //con esta vista puedo generar el logueo local
+router.post("/login", passport.authenticate("login-local"), userController.loginResponse) //con esta vista puedo generar el logueo local
 
 router.get("/github-register", passport.authenticate("github-register", {
     failureRedirect: "/registererror", //en caso de que haya error, nos manda al login nuevamente.
     successRedirect: "/register-success", //en caso de que no haya error, entonces renderizamos la vista que queremos ver..
     passReqToCallback: true
 }));
-router.get("/github-login", passport.authenticate("github-login"), controllerUser.loginResponse);
-router.post("/github-login", passport.authenticate("github-login"), controllerUser.loginResponse);
+router.get("/github-login", passport.authenticate("github-login"), userController.loginResponse);
+router.post("/github-login", passport.authenticate("github-login"), userController.loginResponse);
 
-router.post('/logout', controllerUser.logout);
+router.post('/logout', userController.logout);
 export default router;

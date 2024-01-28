@@ -4,7 +4,7 @@ import Controllers from "./class.controller.js";
 import productService from "../services/product.service.js";
 import socketServer from '../app.js';
 
-export default class ProductControllers {
+class ProductController extends Controllers{
     constructor() {
         super(productService)
     }
@@ -18,7 +18,7 @@ export default class ProductControllers {
             let priceFilter = null;
             if (!isNaN(query)) { priceFilter = parseInt(query) }
 
-            const response = await serviceProduct.getAll(
+            const response = await productService.getAll(
                 pageNumber,
                 pageSize,
                 searchQuery,
@@ -58,7 +58,7 @@ export default class ProductControllers {
             const { pid } = req.params;
             const updateValues = req.body;
             //const productUpdate = await serviceProduct.update(Number(pid), updateValues);
-            const productUpdate = await serviceProduct.update(pid, updateValues);
+            const productUpdate = await productService.update(pid, updateValues);
             if (!productUpdate) {
                 return res.status(400).json({ messages: `error al actualizar el producto con id ${pid}` })
             } else {
@@ -72,7 +72,7 @@ export default class ProductControllers {
     remove = async (req, res, next) => {
         try {
             const { pid } = req.params;
-            const deletedProduct = await serviceProduct.remove(pid);
+            const deletedProduct = await productService.remove(pid);
             if (!deletedProduct) {
                 return res.status(400).json({ messages: `error al eliminar el producto con id: ${pid}` })
             } else { return res.status(200).json(deletedProduct); }
@@ -85,7 +85,7 @@ export default class ProductControllers {
 
     getAllSimple = async (req, res, next) => {
         try {
-            const products = await serviceProduct.getAllSimple();
+            const products = await productService.getAllSimple();
             const productsDetail = products.map(product => {
                 return {
                     Title: product.Title,
@@ -106,7 +106,7 @@ export default class ProductControllers {
 
     getProductsRealTime = async (req, res, next) => {
         try {
-            const products = await serviceProduct.getAllSimple();
+            const products = await productService.getAllSimple();
             res.render('realtimeproducts', { products });
         } catch (error) {
             next(error)
@@ -116,9 +116,9 @@ export default class ProductControllers {
         try {
             const { Title, Description, Code, Price, Stock, Category, Thumbnail } = req.body;
             const newProduct = { Title, Description, Code, Price, Stock, Category, Thumbnail }
-            const productCreated = await serviceProduct.create(newProduct);
+            const productCreated = await productService.create(newProduct);
             //console.log(productCreated)
-            const allProducts = await serviceProduct.getAllSimple()
+            const allProducts = await productService.getAllSimple()
             socketServer.emit('products', allProducts)
             return res.status(201).json(productCreated);
         } catch (error) {
@@ -126,6 +126,8 @@ export default class ProductControllers {
         }
     }
 }
+const  productController = new ProductController();
+export default productController;
 
 
 /*export const getById = async(req, res, next)=>{
