@@ -1,5 +1,5 @@
 import {cartDao} from '../daos/mongodb/carts/carts.dao.js';
-import {productDao} from '../daos/mongodb/products/products.dao.js';
+import productDao from '../daos/mongodb/products/products.dao.js';
 import Services from './class.services.js';
 
 

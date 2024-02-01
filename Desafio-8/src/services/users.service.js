@@ -13,7 +13,7 @@ class UserService extends Services{
     createUser = async (userData)=>{
         try {//console.log('userData services', typeof(userData), userData)
             const { first_name, last_name, email, password, age, isGithub} = userData;
-            //console.log('consola 9', typeof email, typeof password, typeof first_name)
+            console.log('consola 9', typeof email, typeof password, typeof first_name)
             if (email === 'adminCoder@coder.com' && password === 'adminCoder123'){
                 return await userDao.create({
                     ...userData,
@@ -41,7 +41,7 @@ class UserService extends Services{
             //console.log('consola lo que viene de controller:', user)
             const { email, password } = user;
             const userExist = await userDao.searchByEmail(email);
-            //console.log('user exist', userExist)
+            console.log('user exist', userExist)
             if(userExist) {
                 const passValid = isValidPass(password, userExist);
                 if(!passValid) return false;

@@ -16,7 +16,7 @@ router.get('/home', (req, res)=>{
 })
 router.get('/productlist', (req, res) => {
     res.render('productlist', { user: req.user });
-}); //con esta vista renderizo y muestro los datos del usuario registrado (falta ver si para github tambien o solo localmente).
+}); //con esta vista renderizo y muestro los datos del usuario registrado.
 
 
 router.post("/login", passport.authenticate("login-local"), userController.loginResponse) //con esta vista puedo generar el logueo local

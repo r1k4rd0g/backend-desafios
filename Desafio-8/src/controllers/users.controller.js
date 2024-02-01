@@ -39,9 +39,9 @@ class UserController extends Controllers {
     loginResponse = async (req, res, next) => {
         try {
             const id = req.session.passport.user;
-            console.log('id de passport', id)
+            console.log('id de passport users.controllers', id)
             const userOk = await usersServices.getById(id);
-            console.log(userOk)
+            console.log('consola de loginResponse con dato userOk:', userOk)
             const { email, password } = userOk
             console.log('usuario ok?', userOk);
             if (userOk) {

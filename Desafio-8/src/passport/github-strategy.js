@@ -1,6 +1,6 @@
 import { Strategy as GithubStrategy } from "passport-github2";
 import passport from "passport";
-import * as usersServices from '../services/users.service.js';
+import usersServices from '../services/users.service.js';
 
 
 

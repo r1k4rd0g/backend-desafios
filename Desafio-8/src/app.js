@@ -37,7 +37,7 @@ const mongoStoreOptions ={
 
 
 app.use(express.static('data'));
-app.use(express.json());
+app.use(express.json()); // lo que hace es traducir  el body de las peticiones a json
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 app.use(morgan('dev'));

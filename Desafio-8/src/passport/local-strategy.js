@@ -1,6 +1,6 @@
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
-import * as usersServices from '../services/users.service.js';
+import usersServices from '../services/users.service.js';
 
 
 const strategyOptions = {
@@ -29,7 +29,7 @@ const register = async (req, email, password, done) => {
 const login = async (req, email, password, done) => {
     try {
         const user = req.body;
-        //console.log('USER', user);
+        console.log(user);
         const userLogin = await usersServices.login(user);
         //console.log('LOGIN', userLogin);
         if (!userLogin) return done(null, false, { message: 'User not found' });

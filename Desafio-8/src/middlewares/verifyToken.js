@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import UserMongoDao from '../daos/mongodb/users/users.dao.js';
-const userDao = new UserMongoDao(); //inicilizamos.
+import userDao from '../daos/mongodb/users/users.dao.js';
+
 
 const SECRET_KEY = process.env.SECRET_KEY_JWT;
 

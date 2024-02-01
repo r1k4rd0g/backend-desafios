@@ -1,7 +1,7 @@
 import {ProductModel} from './products.model.js';
 import MongoDao from '../mongo.dao.js';
 
-export default class ProductMongoDao extends MongoDao{
+class ProductDao extends MongoDao{
     constructor(){
         super(ProductModel);
     };
@@ -23,8 +23,7 @@ export default class ProductMongoDao extends MongoDao{
             console.log('error al obtener todos los productos', error);
             throw new Error ('error al obtener todos los productos', error)
         }
-    }
-
+    };
     async getAllSimple() {
         try {
             return await ProductModel.find({});
@@ -75,4 +74,5 @@ async update(pid, obj){
 /*** ----------------------------------------------------------------------****/
 //exporto e instancio para poder usarlo en diferentes partes del código y no instanciarlo cada vez que lo requiera:
 
-export const productDao = new ProductMongoDao();
+const productDao = new ProductDao();
+export default productDao;
