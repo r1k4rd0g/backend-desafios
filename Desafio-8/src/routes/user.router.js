@@ -11,9 +11,9 @@ router.post("/register", passport.authenticate('register-local', {
 }));
 //router.get('/github', passport.authenticate('github', {scope: ['user:email']}))
 
-router.get('/home', (req, res)=>{
+/**router.get('/home', (req, res)=>{
     res.render('home');
-})
+})*/
 router.get('/productlist', (req, res) => {
     res.render('productlist', { user: req.user });
 }); //con esta vista renderizo y muestro los datos del usuario registrado.

@@ -4,7 +4,7 @@ import Controllers from "./class.controller.js";
 import productService from "../services/product.service.js";
 import socketServer from '../app.js';
 
-class ProductController extends Controllers{
+class ProductController extends Controllers {
     constructor() {
         super(productService)
     }
@@ -96,8 +96,8 @@ class ProductController extends Controllers{
                 }
             })
             const userLog = req.session.passport.user
-            console.log('userLog de products controller', userLog)
-            //console.log('consola linea 117', products)
+            //console.log('userLog de products controller', userLog)
+            //console.log('consola linea 100', products)
             res.render('productlist', { products: productsDetail, user: userLog },)
         } catch (error) {
             next(error)
@@ -126,7 +126,7 @@ class ProductController extends Controllers{
         }
     }
 }
-const  productController = new ProductController();
+const productController = new ProductController();
 export default productController;
 
 

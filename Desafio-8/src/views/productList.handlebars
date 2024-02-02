@@ -7,6 +7,9 @@
     <form action="/api/users/logout" method="post">
         <button type="submit">Cerrar sesión</button>
     </form>
+        <form action="/api/sessions/current" method="get">
+        <button type="submit">Perfil</button>
+    </form>
     <div class = "containerList" id="containerList">
             <ul>
                 {{#each products}}

@@ -1,6 +1,7 @@
 import './db/connection.js'
 import './passport/github-strategy.js'
 import './passport/local-strategy.js'
+import 'dotenv/config';
 import express from 'express';
 import morgan from 'morgan';
 import {__dirname} from './utils.js';
@@ -66,7 +67,7 @@ const persistence = process.env.PERSISTENCE;
 if(persistence === 'MONGO') await initMongoDB();
 
 
-const PORT = process.env.PORT || 8088;
+const PORT = process.env.PORT || 8080;
 const httpServer = app.listen(PORT, ()=> console.log(`🚀 Server ok en el puerto ${PORT}`));
 
 const socketServer = new Server(httpServer);

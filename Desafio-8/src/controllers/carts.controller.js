@@ -10,7 +10,7 @@ class CartController extends Controllers {
     saveProductToCart = async (req, res, next) => {
         try {
             const { cid, pid, quantity } = req.params;
-            const updateCart = await cartsService.saveProductToCart(cid, pid, quantity);
+            const updateCart = await cartService.saveProductToCart(cid, pid, quantity);
             res.status(200).json(updateCart);
         } catch (error) {
             next(error)
@@ -20,7 +20,7 @@ class CartController extends Controllers {
     removeCartById = async (req, res, next) => {
         try {
             const cid = req.params.cid;
-            const response = await cartsService.removeCartById(cid);
+            const response = await cartService.removeCartById(cid);
             res.status(200).json(response);
         } catch (error) {
             next(error)
@@ -29,7 +29,7 @@ class CartController extends Controllers {
     removeProductById = async (req, res, next) => {
         try {
             const { cid, pid } = req.params;
-            const updateCart = await cartsService.removeProductById(cid, pid);
+            const updateCart = await cartService.removeProductById(cid, pid);
             res.status(200).json(updateCart);
         } catch (error) {
             next(error)
@@ -39,7 +39,7 @@ class CartController extends Controllers {
     clearCart = async (req, res, next) => {
         try {
             const cid = req.params;
-            const response = await cartsService.clearCart(cid);
+            const response = await cartService.clearCart(cid);
             res.status(200).json(response)
         } catch (error) {
             next(error)

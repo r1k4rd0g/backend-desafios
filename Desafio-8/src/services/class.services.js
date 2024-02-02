@@ -15,9 +15,10 @@ export default class Services {
     };
     //busca un item por id específico:
     getById = async (id)=>{
-        try {console.log('id que viene desde controllers:', id)
+        try {
+            //console.log('consola getById de class.services que muestra el id que viene desde controllers:', id)
             const itemSearch = await this.dao.getById(id);
-            console.log('itemSearch en class.service', itemSearch);
+            //console.log('itemSearch en class.service', itemSearch);
             if(!itemSearch) return false, console.log(`no se encontró item buscado por id ${id}`);
             else return itemSearch;
         } catch (error) {

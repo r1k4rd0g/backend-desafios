@@ -1,9 +1,10 @@
 import {Router} from 'express';
 import productController from '../controllers/products.controller.js';
-import * as controllerProducts from '../controllers/products.controller.js'
-import * as controllerUsers from '../controllers/users.controller.js'
+
+import userController from '../controllers/users.controller.js'
 const router = Router();
 
+//esta vista muestra los productos de lista, más el nombre de usuario y más:
 router.get('/productlist', productController.getAllSimple);
 
 router.get('/home', (req, res)=>{
@@ -15,7 +16,7 @@ router.get('/register', (req, res)=>{
 router.get('/register-success', (req, res)=>{
     res.render('registersuccess')
 })
-//router.get('/productlist', controllerUsers.register
+
 router.get('/productlist', (req, res)=>{
     res.render('productlist')
 })
@@ -30,5 +31,9 @@ router.get('/registererror', (req, res)=>{
 router.get('/errorlogin', (req, res)=>{
     res.render('errorlogin')
 })
+router.get('/profile', (req, res)=>{
+    res.render('profile')
+})
+
 
 export default router;
