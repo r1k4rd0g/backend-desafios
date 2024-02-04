@@ -47,7 +47,7 @@ class UserService extends Services {
 
     login = async (user) => {
         try {
-            //console.log('consola lo que viene de controller:', user)
+            //console.log('consola lo que viene de user:', user)//puede venir de controller o local strategy
             const { email, password } = user;
             const userExist = await userDao.searchByEmail(email);
             //console.log('consola login user service exist:', userExist)
@@ -55,9 +55,9 @@ class UserService extends Services {
                 const passValid = isValidPass(password, userExist);
                 if (!passValid) return false;
                 else {
-                    const token = generateToken(userExist);
-                    console.log('consola login user service que genera token:', token)
-                    userExist.token = token;
+                    //const token = generateToken(userExist);
+                    //console.log('consola login user service que genera token:', token)
+                    //userExist.token = token;
                     return userExist
                 }
             }

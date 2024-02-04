@@ -4,6 +4,9 @@ import usersServices from '../services/users.service.js';
 
 
 
+
+
+
 const strategyOptions = {
     usernameField: 'email',
     passwordField: 'password',
@@ -16,7 +19,7 @@ const register = async (req, email, password, done) => {
         // const { first_name, last_name,... } = req.body
         const user = await usersServices.getByEmail(email);
         if (user) return done(null, false);
-        console.log('console local-strategy.register, el req.body es un:',typeof req.body)
+        console.log('console local-strategy.register, el req.body es un:', typeof req.body)
         const newUser = await usersServices.createUser(req.body);
         return done(null, newUser);
     } catch (error) {
@@ -27,13 +30,15 @@ const register = async (req, email, password, done) => {
 
 
 /* ------------------------------ lógica login ------------------------------ */
-const login = async (req, email, password, done) => {
+const login = async (req, res, password, done) => {
     try {
-        const user = req.body;
+        const user = req.body
+        //const user = { email, password }
+        //const user = req.body;
         //console.log('consola local strategy - login que lee user:', user);
         const userLogin = await usersServices.login(user);
-        //console.log('LOGIN', userLogin);
         if (!userLogin) return done(null, false, { message: 'User not found' });
+        //console.log('Login de local strategy', userLogin);
         return done(null, userLogin);
     } catch (error) {
         console.log(error);

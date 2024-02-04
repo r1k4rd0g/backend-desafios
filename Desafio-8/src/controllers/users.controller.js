@@ -3,6 +3,8 @@ import Controllers from "./class.controller.js";
 //importamos Service específico:
 import usersServices from '../services/users.service.js';
 import session from 'express-session';
+import { generateToken } from "../jwt/auth.js";
+
 
 class UserController extends Controllers {
     constructor() {
@@ -20,12 +22,19 @@ class UserController extends Controllers {
         }
     }
 
-    login = async (req, res, next) => {
-        try {
+    /*login = async (req, res, next) => {
+        try {console.log(req.body, 'lo que viene de req.body en login de user controller')
             const { email, password } = req.body
-            const user = { email, password }
-            const userOk = await usersServices.login(user);
+            //const user = { email, password }
+            const userOk = await usersServices.login({ user: { email, password } });
+            console.log('userOk del login en user.controller', userOk)
             if (userOk) {
+                //const token = generateToken(userOk);
+                //console.log('consola login user service que genera token:', token)
+                //res.cookie('token', token, {
+                //    maxAge: 120000,
+                //    httpOnly: true,
+                //})
                 req.session.user = userOk;
                 req.session.email = email;
                 req.session.password = password;
@@ -33,9 +42,9 @@ class UserController extends Controllers {
                 res.redirect('/productlist');
             } else res.redirect("/errorlogin");
         } catch (error) {
-            next(error)
+            console.log(error)
         }
-    }
+    }*/
     loginResponse = async (req, res, next) => {
         try {
             const id = req.session.passport.user;
@@ -43,6 +52,10 @@ class UserController extends Controllers {
             const userOk = await usersServices.getById(id);
             //console.log('consola de loginResponse con dato userOk:', userOk)
             const { email, password } = userOk
+            const token = generateToken(userOk)
+            console.log('token',token);
+            res
+            .cookie('token', token, { httpOnly: true })
             //console.log('usuario ok?', userOk);
             if (userOk) {
                 req.session.passport.user = userOk;

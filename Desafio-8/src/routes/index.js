@@ -5,7 +5,7 @@ import userRouter from '../routes/user.router.js'
 import cartsRouter from '../routes/carts.router.js'
 import viewsRouter from '../routes/views.router.js'
 import sessionsRouter from '../routes/sessions.router.js'
-import { verifyToken } from '../middlewares/verifyToken.js';
+
 
 
 class MainRouter {
@@ -19,7 +19,7 @@ class MainRouter {
         this.router.use("/api/carts", cartsRouter);
         this.router.use("/api/users", userRouter);
         this.router.use("/", viewsRouter);
-        this.router.use('/api/sessions', verifyToken, sessionsRouter);
+        this.router.use('/api/sessions', sessionsRouter);
     };
     //inicialización del enrutador:
     getRouter(){

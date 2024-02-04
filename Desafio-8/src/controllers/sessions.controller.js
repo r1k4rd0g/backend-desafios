@@ -10,6 +10,7 @@ class SessionController extends Controllers {
     profileResponse = async (req, res, next) =>{
         try {
             const dataProfileUser = req.user;
+            console.log('dataProfileUser de sessions.controller', dataProfileUser)
             res.render('profile', {user: dataProfileUser});
         } catch (error) {
             console.log('consola error de profileResponse', error);

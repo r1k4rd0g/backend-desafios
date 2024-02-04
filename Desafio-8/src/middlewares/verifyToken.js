@@ -6,7 +6,8 @@ const SECRET_KEY = process.env.SECRET_KEY_JWT;
 
 export const verifyToken = async (req, res, next) => {
     const authHeader = req.get("Authorization");
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    console.log(authHeader, 'verifyToken,  Authorization header');
+    if (!authHeader || !authHeader.startsWith("Bearer")) {
         return res.status(401).json({ msg: "Authorization header missing" });
     }
     const token = authHeader.split(" ")[1];
