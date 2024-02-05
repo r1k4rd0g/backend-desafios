@@ -2,24 +2,24 @@
 import Services from './class.services.js';
 //importamos el modelo UserMongo con las nuevas :
 import userDao from "../daos/mongodb/users/users.dao.js";
+import cartDao from '../daos/mongodb/carts/carts.dao.js';
 //importamos utils:
 import { createHash, isValidPass } from "../utils.js";
-//importamos jwt:
-import jwt from 'jsonwebtoken'
-//importamos dotenv para poder usar el secret Key:
-import 'dotenv/config';
-//importamos generateToken:
-import { generateToken } from '../jwt/auth.js'
+
 
 
 
 class UserService extends Services {
     constructor() {
         super(userDao)
+        this.cartDao = cartDao
     }
     createUser = async (userData) => {
         try {//console.log('userData services', typeof(userData), userData)
             const { first_name, last_name, email, password, age, isGithub } = userData;
+            const newCart = await this.cartDao.create()
+            console.log('carrito nuevo al crear usuario', newCart)
+            const cartId = newCart._id;
             //console.log('consola 9', typeof email, typeof password, typeof first_name)
             if (email === 'adminCoder@coder.com' && password === 'adminCoder123') {
                 const newUser = await userDao.create({
@@ -35,7 +35,8 @@ class UserService extends Services {
                 age: 18,
                 email,
                 password: createHash(password),
-                isGithub
+                isGithub,
+                cart : cartId
             })
             if (!newUser) return false;
             //console.log('consola de users.services const createUser:', newUser);

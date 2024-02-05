@@ -29,6 +29,7 @@ export default class MongoDao {
     async create(obj) {
         try {
             const response = await this.model.create(obj);
+            console.log('consola create de mongo.dao', response)
             return response;
         } catch (error) {
             console.log(error, 'consola create de mongo.dao');

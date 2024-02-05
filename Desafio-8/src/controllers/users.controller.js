@@ -51,18 +51,19 @@ class UserController extends Controllers {
             //console.log('id de passport users.controllers', id)
             const userOk = await usersServices.getById(id);
             //console.log('consola de loginResponse con dato userOk:', userOk)
-            const { email, password } = userOk
-            const token = generateToken(userOk)
-            console.log('token',token);
-            res
-            .cookie('token', token, { httpOnly: true })
+            const { email, password } = userOk;
+            const token = generateToken(userOk);
+            console.log('token generado en loginResponse userController',token, typeof token);
             //console.log('usuario ok?', userOk);
             if (userOk) {
                 req.session.passport.user = userOk;
                 req.session.passport.email = email.userOk;
                 req.session.passport.password = password.userOk;
                 //console.log('consola de session', req.session.passport.user)
-                res.redirect("/productlist");
+                res
+                .header('Authorization', token)//acá dejo establecido el token en el header
+                .cookie('token', token, { httpOnly: true })// acá dejo establecido el token en una cookie
+                .redirect("/productlist");
             } else res.redirect("/errorlogin");
         } catch (error) {
             next(error)

@@ -7,9 +7,9 @@ class UserDaoMongo extends MongoDao{
     }
 
     async create(newUser){
-        try {//console.log('consola create dao',newUser)
+        try {console.log('consola create dao',newUser)
             const userCreated = await UserModel.create(newUser);
-            //console.log('consola de dao', userCreated)
+            console.log('consola de dao', userCreated)
             return userCreated;
         } catch (error) {
             throw new Error (`error al crear el usuario en dao con obj ${newUser}, msg ${error}`);

@@ -2,11 +2,6 @@ import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import usersServices from '../services/users.service.js';
 
-
-
-
-
-
 const strategyOptions = {
     usernameField: 'email',
     passwordField: 'password',
@@ -30,7 +25,7 @@ const register = async (req, email, password, done) => {
 
 
 /* ------------------------------ lógica login ------------------------------ */
-const login = async (req, res, password, done) => {
+const login = async (req, email, password, done) => {
     try {
         const user = req.body
         //const user = { email, password }

@@ -1,17 +1,27 @@
 
-    const boton = document.getElementById("boton");
 
-    boton.onclick = () => {
-        const token = localStorage.getItem('token')
-        console.log('token almacenado en local storage', token)
-        fetch('/api/sessions/current', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        }).then((response) => response.json())
-            .then((response) => {
-                console.log(response); //DATOS DEL USUARIO
-            })
-    };
+const formLogin = document.getElementById("formLogin");
+const inputEmail = document.getElementById("email");
+const inputPassword = document.getElementById("password");
+
+formLogin.onsubmit = (e) => {
+    //e.preventDefault(); //para que la página no se refresque
+    fetch('/api/user/login', {
+        method: 'POST',
+        body: JSON.stringify({
+            email: inputEmail.value,
+            password: inputPassword.value
+        }),
+        headers: {
+            'Content-Type': 'application/json' //esto va por defecto
+        },
+    })
+        .then((response) => {
+            response.header()
+            response.cookies
+        }) //responde por el token
+        .then((response) => {
+            console.log(response); //token
+            localStorage.setItem('token', response)
+        })
+}

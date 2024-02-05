@@ -9,7 +9,7 @@ export const userSchema = new Schema({
     },
     last_name: {
         type: String,
-        required: false,
+        required: true,
     },
     email: {
         type: String,
@@ -39,6 +39,6 @@ export const userSchema = new Schema({
 })
 
 export const UserModel = model(
-    'userCollection',
+    userCollection,
     userSchema
 );

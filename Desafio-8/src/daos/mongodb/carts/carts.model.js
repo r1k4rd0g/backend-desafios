@@ -4,7 +4,7 @@ import mongoosePaginate from 'mongoose-paginate-v2';
 export const cartCollection = 'cart';
 
 export const cartSchema = new Schema({
-    name: {type: String, required: true, unique: true},
+    //name: {type: String, required: true, unique: true},
     onCart: [{
         product:
             {
