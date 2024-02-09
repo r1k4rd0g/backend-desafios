@@ -1,25 +1,25 @@
 //importamos los Crud de servicios:
 import Services from './class.services.js';
 //importamos el modelo MsgDao:
-import msgDao from '../persistence/persistence.js'
+import persistence from '../persistence/persistence.js'
 
 
 
 class MsgService extends Services{
     constructor(){
-        super(msgDao)
+        super(persistence.msgDao)
     }
 
     removeAll = async ()=>{
         try {
-            return await msgDao.deleteAll()
+            return await this.dao.deleteAll()
         } catch (error) {
             console.log('error al eliminar todos los mensajes en messages.service', error);
         }
     }
 }
 
-const msgService = new MsgService(msgDao);
+const msgService = new MsgService(persistence.msgDao);
 export default msgService;
 
 

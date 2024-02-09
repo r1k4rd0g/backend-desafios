@@ -1,5 +1,7 @@
 import {dirname} from 'path';
 import { fileURLToPath } from 'url';
+import MongoStore from 'connect-mongo';
+import config from './config/config.js';
 export const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /* ------------------------------------ - ----------------------------------- */
@@ -23,4 +25,25 @@ export const isValidPass = (password, user)=>{
 
 export const createResponse = (res, statusCode, data)=>{
     return res.status(statusCode).json({data});
+}
+
+/*-cookie -*/
+
+const connectionURL = config.MONGO_URL;
+export const mongoStoreOptions ={
+    store: MongoStore.create({
+        mongoUrl: connectionURL,
+        ttl: 180,
+        crypto:{
+            secret : '1234'
+        }
+    }),
+    secret: "1234",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 180000,
+        secure: false,
+        httpOnly: true
+    }
 }

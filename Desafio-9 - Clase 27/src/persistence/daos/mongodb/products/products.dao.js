@@ -1,7 +1,7 @@
 import {ProductModel} from './products.model.js';
 import MongoDao from '../mongo.dao.js';
 
-class ProductDao extends MongoDao{
+export default class ProductMongoDao extends MongoDao{
     constructor(){
         super(ProductModel);
     };
@@ -70,9 +70,3 @@ async update(pid, obj){
         }
     }*/
 
-
-/*** ----------------------------------------------------------------------****/
-//exporto e instancio para poder usarlo en diferentes partes del código y no instanciarlo cada vez que lo requiera:
-
-const productDaoMongoDB = new ProductDao();
-export default productDaoMongoDB;

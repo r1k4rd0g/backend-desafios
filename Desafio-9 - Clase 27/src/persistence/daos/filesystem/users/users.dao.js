@@ -1,6 +1,6 @@
 import fs from "fs";
 
-class UserFSDao {
+export default class UserDaoFS {
     constructor(path) {
         this.path = path;
     }
@@ -85,28 +85,25 @@ class UserFSDao {
             console.log(error);
         }
     }
-    async userSearch({email, password}){
+    async userSearch({ email, password }) {
         try {//console.log(email, typeof password,'consola de dao')
-            const userFind = await UserModel.findOne({email, password})
+            const userFind = await UserModel.findOne({ email, password })
             //console.log(userFind, 'userFind')
             return userFind;
         } catch (error) {
-            throw new Error (`error al buscar el usuario con obj ${email, password}, msg ${error}`);
+            throw new Error(`error al buscar el usuario con obj ${email, password}, msg ${error}`);
         }
     }
 
-    async searchByEmail (email){
+    async searchByEmail(email) {
         try {//console.log('viene de services en dao..', typeof(email))
             const userFindByEmail = await UserModel.findOne({ email: { $regex: new RegExp(email, 'i') } }); //expresión que hace que sea insensible la busqueda del email ante mayúsucla o minúscula.
             //console.log('consola de dao buscando..', userFindByEmail)
             return userFindByEmail
         } catch (error) {
             console.log(`error al obtener el usuario de email: ${email}, msg: ${error}`);
-            throw new Error (`error al obtener el usuario de email: ${email}, msg: ${error}`)
+            throw new Error(`error al obtener el usuario de email: ${email}, msg: ${error}`)
         }
     }
 }
 
-
-const userDaoFS = new UserFSDao();
-export default userDaoFS;

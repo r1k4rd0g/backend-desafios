@@ -1,7 +1,7 @@
 //importamos los Crud de servicios o las funciones básicas de servicios:
 import Services from './class.services.js';
 //importamos el modelo ProductDao con las nuevas :
-import productDao from '../persistence/persistence.js'
+import persistence from '../persistence/persistence.js'
 import fs from 'fs';
 import { __dirname } from '../utils.js';
 //inicializamos:
@@ -9,7 +9,7 @@ import { __dirname } from '../utils.js';
 
 class ProductService extends Services{
     constructor(){
-        super(productDao)
+        super(persistence.productDao)
     }
 
     getAllPaginate = async (
@@ -64,7 +64,7 @@ class ProductService extends Services{
             console.log('consola 4:', filter)
             const sortOptions = buildSortOptions(sortOrder);
             console.log('consola 5', sortOptions)
-            const product = await productDao.getAllPaginate(pageNumber, pageSize, filter, sortOptions);
+            const product = await this.dao.getAllPaginate(pageNumber, pageSize, filter, sortOptions);
             return product
         } catch (error) {
             console.log('error al obtener todos los productos en products.service', error);
@@ -73,7 +73,7 @@ class ProductService extends Services{
     };
     getAllSimple = async () => {
         try {
-            const products = await productDao.getAllSimple()
+            const products = await this.dao.getAllSimple()
             return products;
         } catch (error) {
             console.log('error al obtener todos los productos en product.service', error);
@@ -81,7 +81,7 @@ class ProductService extends Services{
     };
 }
 
-const productService = new ProductService(productDao);
+const productService = new ProductService(persistence.productDao);
 export default productService;
 
 /*const productsFile = JSON.parse(

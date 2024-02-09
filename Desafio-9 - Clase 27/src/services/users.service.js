@@ -1,8 +1,8 @@
 //importamos los Crud de servicios o las funciones básicas de servicios:
 import Services from './class.services.js';
 //importamos el modelo UserMongo con las nuevas :
-import userDao from "../persistence/persistence.js";
-import cartDao from '../persistence/persistence.js';
+import persistence from '../persistence/persistence.js';
+
 //importamos utils:
 import { createHash, isValidPass } from "../utils.js";
 
@@ -11,25 +11,25 @@ import { createHash, isValidPass } from "../utils.js";
 
 class UserService extends Services {
     constructor() {
-        super(userDao)
-        this.cartDao = cartDao
+        super(persistence.userDao)
+        this.cartDao = persistence.cartDao
     }
     createUser = async (userData) => {
         try {//console.log('userData services', typeof(userData), userData)
             const { first_name, last_name, email, password, age, isGithub } = userData;
-            const newCart = await this.cartDao.create()
+            const newCart = await this.dao.create()
             console.log('carrito nuevo al crear usuario', newCart)
             const cartId = newCart._id;
             //console.log('consola 9', typeof email, typeof password, typeof first_name)
             if (email === 'adminCoder@coder.com' && password === 'adminCoder123') {
-                const newUser = await userDao.create({
+                const newUser = await this.dao.create({
                     ...userData,
                     password: createHash(password),
                     role: 'admin'
                 });
                 return newUser
             }
-            const newUser = await userDao.create({
+            const newUser = await this.dao.create({
                 first_name,
                 last_name,
                 age: 18,
@@ -48,10 +48,10 @@ class UserService extends Services {
 
     login = async (user) => {
         try {
-            //console.log('consola lo que viene de user:', user)//puede venir de controller o local strategy
+            console.log('consola lo que viene de user:', user)//puede venir de controller o local strategy
             const { email, password } = user;
-            const userExist = await userDao.searchByEmail(email);
-            //console.log('consola login user service exist:', userExist)
+            const userExist = await this.dao.searchByEmail(email);
+            console.log('consola login user service exist:', userExist)
             if (userExist) {
                 const passValid = isValidPass(password, userExist);
                 if (!passValid) return false;
@@ -64,13 +64,13 @@ class UserService extends Services {
             }
             return false;
         } catch (error) {
-            console.log(`error al buscar el usuario con datos: ${email, password}, msg: ${error}, en users.service`)
+            console.log(`error al buscar el usuario con datos: ${user}, msg: ${error}, en users.service`)
         }
     }
 
     getByEmail = async (email) => {
         try {//console.log(email, typeof email, 'verifico email en service')
-            const userSearch = await userDao.searchByEmail(email);
+            const userSearch = await this.dao.searchByEmail(email);
             if (!userSearch) return false, console.log(`usuario no encontrado en user.service con ${email}`);
             else return userSearch
         } catch (error) {
@@ -80,7 +80,7 @@ class UserService extends Services {
 
 }
 
-const usersServices = new UserService(userDao);
+const usersServices = new UserService(persistence.userDao);
 export default usersServices;
 
 /*export const getById = async (id)=>{

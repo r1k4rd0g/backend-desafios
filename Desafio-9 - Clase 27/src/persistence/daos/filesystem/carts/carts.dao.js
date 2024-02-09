@@ -9,7 +9,7 @@ async function loadProducts(){
         throw new Error (`Error al cargar los productos: ${error.message}`);
     }
 }
-class CartsDaoFS{
+export default class CartsDaoFS{
     constructor(path){
         this.path = path;
         this.carts = [];
@@ -109,6 +109,3 @@ async #saveCart(cart){
 
 }
 
-
-const cartDaoFS = new CartsDaoFS();
-export default cartDaoFS;

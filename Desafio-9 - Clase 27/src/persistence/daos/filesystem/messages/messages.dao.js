@@ -1,7 +1,7 @@
 
 import fs from 'fs';
 
-class MessageFSDao {
+export default class MessageFSDao {
     constructor(path) {
         this.path = path;
     }
@@ -84,6 +84,3 @@ class MessageFSDao {
         }
     }
 }
-
-const messagesDaoFS = new MessageFSDao();
-export default messagesDaoFS;

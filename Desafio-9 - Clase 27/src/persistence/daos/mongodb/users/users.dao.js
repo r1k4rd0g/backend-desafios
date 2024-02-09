@@ -1,7 +1,7 @@
 import { UserModel } from "./users.model.js";
 import MongoDao from "../mongo.dao.js";
 
-class UserDaoMongo extends MongoDao{
+export default class UserMongoDao extends MongoDao{
     constructor(){
         super(UserModel);
     }
@@ -27,9 +27,9 @@ class UserDaoMongo extends MongoDao{
     }
 
     async searchByEmail (email){
-        try {//console.log('viene de services en dao..', typeof(email))
+        try {console.log('viene de services en dao..', typeof(email))
             const userFindByEmail = await UserModel.findOne({ email: { $regex: new RegExp(email, 'i') } }); //expresión que hace que sea insensible la busqueda del email ante mayúsucla o minúscula.
-            //console.log('consola de dao buscando..', userFindByEmail)
+            console.log('consola de dao buscando..', userFindByEmail)
             return userFindByEmail
         } catch (error) {
             console.log(`error al obtener el usuario de email: ${email}, msg: ${error}`);
@@ -46,6 +46,3 @@ class UserDaoMongo extends MongoDao{
     }
 }
 
-//exporto e instancio para poder usarlo en diferentes partes del código y no instanciarlo cada vez que lo requiera:
-const userDaoMongoDB = new UserDaoMongo();
-export default userDaoMongoDB;

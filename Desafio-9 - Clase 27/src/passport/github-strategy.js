@@ -1,6 +1,7 @@
 import { Strategy as GithubStrategy } from "passport-github2";
 import passport from "passport";
 import usersServices from '../services/users.service.js';
+import config from '../config/config.js';
 
 
 
@@ -13,14 +14,14 @@ cliente secret: 630c1746089da2e6fcac8ea358b494738a422ad2
 */
 //ahora llenamos con los datos que nos da github: (estos datos son del profe)
 const strategyRegister = {
-    clientID: "Iv1.4bd7f92440eecbc2",
-    clientSecret: "630c1746089da2e6fcac8ea358b494738a422ad2",
+    clientID: config.clientID,
+    clientSecret: config.clientSecret,
     callbackURL: "http://localhost:8088/api/users/github-register", //tenemos que tener creado el endpoint de esta url
 };
 const strategyLogin = {
-    clientID: "Iv1.4bd7f92440eecbc2",
-    clientSecret: "630c1746089da2e6fcac8ea358b494738a422ad2",
-    callbackURL: "http://localhost:8088/api/users/github-login", //tenemos que tener creado el endpoint de esta url
+    clientID: config.clientID,
+    clientSecret: config.clientSecret,
+    callbackURL: "http://localhost:8088/api/users/github-login", //tenemos que tener creado el endpoint de esta url.
 };
 
 /*const registerOrLogin = async (accessToken, refreshToken, profile, done) => {

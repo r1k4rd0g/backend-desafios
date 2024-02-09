@@ -1,20 +1,20 @@
-import cartDao from '../persistence/persistence.js';
-import productDao from '../persistence/persistence.js';
+import persistence from '../persistence/persistence.js';
+
 import Services from './class.services.js';
 
 
 
 class CartService extends Services{
-    constructor(cartDao, productDao){
-        super(cartDao);
-        this.productDao = productDao
+    constructor(){
+        super(persistence.cartDao);
+        this.productDao = persistence.productDao
     }
     saveProductToCart = async (cid, pid, quantity) => {
         try {
             const productSearch = await this.productDao.getById(pid);
             //console.log('consola linea 36 cart services',productSearch)
             if (!productSearch) throw new Error('producto no encontrado');
-            const cartUpdate = await cartDao.saveProductToCart(cid, pid, quantity);
+            const cartUpdate = await this.dao.saveProductToCart(cid, pid, quantity);
             if (!cartUpdate) return false,
                 //console.log(`carrito buscado en carts.service con id: ${cid}, no encontrado`);
             console.log('consola linea 41 cart services', cartUpdate)
@@ -26,7 +26,7 @@ class CartService extends Services{
 
     removeCartById = async (cid) => {
         try {
-            const cartRemove = await cartDao.delete(cid)
+            const cartRemove = await this.dao.delete(cid)
             if (!cartRemove) return false, console.log(`carrito con id: ${cid}, no encontrado`);
             else return cartRemove;
         } catch (error) {
@@ -39,7 +39,7 @@ class CartService extends Services{
             const productSearch = await this.productDao.getById(pid);
             console.log('Producto buscado linea 60 cart service',productSearch)
             if (!productSearch) throw new Error('producto no encontrado');
-            const cartUpdate = await cartDao.removeProductById(cid, pid);
+            const cartUpdate = await this.dao.removeProductById(cid, pid);
             console.log('Linea 63 cart service cartUpdate',cartUpdate)
             if (!cartUpdate) return false,
                 console.log(`carrito buscado en carts.service con id: ${cid}, no encontrado`);
@@ -51,7 +51,7 @@ class CartService extends Services{
 
     clearCart = async(cid)=>{
         try {
-            const cartToClear = await cartDao.clearCart(cid);
+            const cartToClear = await this.dao.clearCart(cid);
             if(!cartToClear) return false, console.log(`Carrito con id:${cid}, no encontrado`)
             else return cartToClear
         } catch (error) {
@@ -59,7 +59,7 @@ class CartService extends Services{
         }
     }
 }
-const cartService = new CartService(cartDao, productDao);
+const cartService = new CartService();
 export default cartService;
 
 /*export const getById = async (cid) => {

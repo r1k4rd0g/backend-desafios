@@ -10,29 +10,13 @@ import handlebars from 'express-handlebars';
 import mainRouter from './routes/index.js';
 import cookieParser from 'cookie-parser';
 import session  from 'express-session';
-import MongoStore from 'connect-mongo';
 import passport from 'passport';
+import config from './config/config.js';
+import {mongoStoreOptions} from './utils.js'
 
 
 const app = express();
-const connectionURL = process.env.MONGO_URL;
-const mongoStoreOptions ={
-    store: MongoStore.create({
-        mongoUrl: connectionURL,
-        ttl: 180,
-        crypto:{
-            secret : '1234'
-        }
-    }),
-    secret: "1234",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 180000,
-        secure: false,
-        httpOnly: true
-    }
-}
+
 
 
 
@@ -61,7 +45,7 @@ app.set('view engine', 'handlebars');
 app.use('/', mainRouter.getRouter());
 //app.use('api/sessions', sessionRouter); el endpoint para llamar a las diferentes maneras de login.
 
-const PORT = process.env.PORT || 8080;
+const PORT = config.PORT || 8080;
 const httpServer = app.listen(PORT, ()=> console.log(`🚀 Server ok en el puerto ${PORT}`));
 
 const socketServer = new Server(httpServer);
