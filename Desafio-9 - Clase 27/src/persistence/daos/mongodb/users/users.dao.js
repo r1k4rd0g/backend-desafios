@@ -47,5 +47,5 @@ class UserDaoMongo extends MongoDao{
 }
 
 //exporto e instancio para poder usarlo en diferentes partes del código y no instanciarlo cada vez que lo requiera:
-const userDao = new UserDaoMongo();
-export default userDao;
+const userDaoMongoDB = new UserDaoMongo();
+export default userDaoMongoDB;

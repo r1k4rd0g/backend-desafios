@@ -2,50 +2,16 @@
   "todotree": {
     "tree": [
       {
-        "key": 1705071542100,
-        "children": [
-          {
-            "key": 1705071574630,
-            "children": [],
-            "todo": {
-              "content": "Crear otra vista en '/carts/:cid (cartId) para ver un carrito específico, con los productos de ese carrito",
-              "id": 1701308977472,
-              "level": "secondary",
-              "done": false,
-              "start": 1701308977472
-            }
-          },
-          {
-            "key": 1705071588004,
-            "children": [],
-            "todo": {
-              "content": "Crear vista del views '/products' para visualizar los productos con su respectiva paginación",
-              "id": 1701308861851,
-              "level": "secondary",
-              "done": false,
-              "start": 1701308861851
-            }
-          }
-        ],
-        "todo": {
-          "content": "traigo que debo desde la segunda pre entrega:",
-          "id": 1705071542100,
-          "level": "default",
-          "done": false,
-          "start": 1705071542100
-        }
-      },
-      {
         "key": 1705071602838,
         "children": [
           {
             "key": 1705071612519,
             "children": [],
             "todo": {
-              "content": "carts, en el models user.",
+              "content": "Ordenar todo en capas",
               "id": 1705071612519,
               "level": "default",
-              "done": true,
+              "done": false,
               "start": 1705071612519,
               "focus": false,
               "end": 1705071626199
@@ -55,10 +21,10 @@
             "key": 1705071628096,
             "children": [],
             "todo": {
-              "content": "Passport funcionando para ese esquema de usuario.",
+              "content": "Mover del proyecto las partes importantes y comprometedoras en un archivo .env para lerlo en variables de enterno, en un archivo config.js",
               "id": 1705071628096,
               "level": "default",
-              "done": true,
+              "done": false,
               "start": 1705071628096,
               "focus": false,
               "end": 1705071651527
@@ -88,10 +54,32 @@
                   "done": false,
                   "start": 1705071694662
                 }
+              },
+              {
+                "key": 1707434175882,
+                "children": [],
+                "todo": {
+                  "content": "Crear vista del views '/products' para visualizar los productos con su respectiva paginación",
+                  "id": 1707434175882,
+                  "level": "default",
+                  "done": false,
+                  "start": 1707434175882
+                }
+              },
+              {
+                "key": 1707434183848,
+                "children": [],
+                "todo": {
+                  "content": "Crear otra vista en '/carts/:cid (cartId) para ver un carrito específico, con los productos de ese carrito",
+                  "id": 1707434183848,
+                  "level": "default",
+                  "done": false,
+                  "start": 1707434183848
+                }
               }
             ],
             "todo": {
-              "content": "login con jwt",
+              "content": "Me queda por resolver de desafios o entregas pasadas:",
               "id": 1705071659610,
               "level": "default",
               "done": false,
@@ -109,10 +97,10 @@
       }
     ],
     "expandKeys": [
-      1705071542100,
       1705071588004,
       1705071602838,
-      1705071659610
+      1705071659610,
+      1705071694662
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -125,6 +113,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1705071713049"
+    "version": "1707434262677"
   }
 }

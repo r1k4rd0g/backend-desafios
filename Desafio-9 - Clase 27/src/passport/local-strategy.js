@@ -29,8 +29,7 @@ const login = async (req, email, password, done) => {
     try {
         const user = req.body
         //const user = { email, password }
-        //const user = req.body;
-        //console.log('consola local strategy - login que lee user:', user);
+        console.log('consola local strategy - login que lee user:', user);
         const userLogin = await usersServices.login(user);
         if (!userLogin) return done(null, false, { message: 'User not found' });
         //console.log('Login de local strategy', userLogin);

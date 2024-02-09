@@ -1,4 +1,3 @@
-import './db/connection.js'
 import './passport/github-strategy.js'
 import './passport/local-strategy.js'
 import 'dotenv/config';
@@ -12,11 +11,11 @@ import mainRouter from './routes/index.js';
 import cookieParser from 'cookie-parser';
 import session  from 'express-session';
 import MongoStore from 'connect-mongo';
-import { connectionURL, initMongoDB } from './db/connection.js';
 import passport from 'passport';
 
 
 const app = express();
+const connectionURL = process.env.MONGO_URL;
 const mongoStoreOptions ={
     store: MongoStore.create({
         mongoUrl: connectionURL,
@@ -61,11 +60,6 @@ app.set('view engine', 'handlebars');
 
 app.use('/', mainRouter.getRouter());
 //app.use('api/sessions', sessionRouter); el endpoint para llamar a las diferentes maneras de login.
-
-
-const persistence = process.env.PERSISTENCE;
-if(persistence === 'MONGO') await initMongoDB();
-
 
 const PORT = process.env.PORT || 8080;
 const httpServer = app.listen(PORT, ()=> console.log(`🚀 Server ok en el puerto ${PORT}`));

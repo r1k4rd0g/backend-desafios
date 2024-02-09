@@ -74,5 +74,5 @@ async update(pid, obj){
 /*** ----------------------------------------------------------------------****/
 //exporto e instancio para poder usarlo en diferentes partes del código y no instanciarlo cada vez que lo requiera:
 
-const productDao = new ProductDao();
-export default productDao;
+const productDaoMongoDB = new ProductDao();
+export default productDaoMongoDB;

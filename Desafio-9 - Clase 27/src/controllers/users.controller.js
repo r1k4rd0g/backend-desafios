@@ -2,7 +2,7 @@
 import Controllers from "./class.controller.js";
 //importamos Service específico:
 import usersServices from '../services/users.service.js';
-import session from 'express-session';
+
 import { generateToken } from "../jwt/auth.js";
 
 

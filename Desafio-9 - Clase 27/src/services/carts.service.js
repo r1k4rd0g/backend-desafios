@@ -1,5 +1,5 @@
-import cartDao from '../daos/mongodb/carts/carts.dao.js';
-import productDao from '../daos/mongodb/products/products.dao.js';
+import cartDao from '../persistence/persistence.js';
+import productDao from '../persistence/persistence.js';
 import Services from './class.services.js';
 
 

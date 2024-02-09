@@ -1,8 +1,8 @@
 //importamos los Crud de servicios o las funciones básicas de servicios:
 import Services from './class.services.js';
 //importamos el modelo UserMongo con las nuevas :
-import userDao from "../daos/mongodb/users/users.dao.js";
-import cartDao from '../daos/mongodb/carts/carts.dao.js';
+import userDao from "../persistence/persistence.js";
+import cartDao from '../persistence/persistence.js';
 //importamos utils:
 import { createHash, isValidPass } from "../utils.js";
 

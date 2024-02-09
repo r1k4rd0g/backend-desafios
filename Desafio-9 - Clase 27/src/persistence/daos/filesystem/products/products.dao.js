@@ -1,6 +1,6 @@
 import fs from "fs";
 
-export class ProductDaoFS{
+class ProductDaoFS{
     constructor(path){
         this.path = path;
         this.products=[];
@@ -117,3 +117,6 @@ async #saveProducts(products){
     }
 
 };
+
+const productDaoFS = new ProductDaoFS();
+export default productDaoFS;

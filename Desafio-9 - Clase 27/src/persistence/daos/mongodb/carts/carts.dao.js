@@ -66,5 +66,5 @@ class CartMongoDao extends MongoDao{
 
 //exporto e instancio para poder usarlo en diferentes partes del código y no instanciarlo cada vez que lo requiera:
 
-const cartDao = new CartMongoDao();
-export default cartDao
+const cartDaoMongoDB = new CartMongoDao();
+export default cartDaoMongoDB

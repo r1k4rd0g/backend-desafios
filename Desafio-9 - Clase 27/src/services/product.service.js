@@ -1,7 +1,7 @@
 //importamos los Crud de servicios o las funciones básicas de servicios:
 import Services from './class.services.js';
 //importamos el modelo ProductDao con las nuevas :
-import productDao from '../daos/mongodb/products/products.dao.js'
+import productDao from '../persistence/persistence.js'
 import fs from 'fs';
 import { __dirname } from '../utils.js';
 //inicializamos:
