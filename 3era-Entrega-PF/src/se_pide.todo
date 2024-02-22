@@ -8,26 +8,26 @@
             "key": 1705071612519,
             "children": [],
             "todo": {
-              "content": "Ordenar todo en capas",
+              "content": "Modificar la capa persistencia por factory, incluir DAO y DTO",
               "id": 1705071612519,
               "level": "default",
-              "done": true,
+              "done": false,
               "start": 1705071612519,
               "focus": false,
-              "end": 1708617280337
+              "end": 1705071626199
             }
           },
           {
             "key": 1705071628096,
             "children": [],
             "todo": {
-              "content": "Mover del proyecto las partes importantes y comprometedoras en un archivo .env para lerlo en variables de enterno, en un archivo config.js",
+              "content": "El Dao debe poder recibir parámetro por consola",
               "id": 1705071628096,
               "level": "default",
-              "done": true,
+              "done": false,
               "start": 1705071628096,
               "focus": false,
-              "end": 1708617282053
+              "end": 1705071651527
             }
           },
           {
@@ -76,6 +76,17 @@
                   "done": false,
                   "start": 1707434183848
                 }
+              },
+              {
+                "key": 1708617354184,
+                "children": [],
+                "todo": {
+                  "content": "Modificar la ruta current, para que la misma solo muestre datos no sensibles del usuario, esto es con DTO",
+                  "id": 1708617354184,
+                  "level": "default",
+                  "done": false,
+                  "start": 1708617354184
+                }
               }
             ],
             "todo": {
@@ -113,6 +124,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1708617282102"
+    "version": "1708617375061"
   }
 }

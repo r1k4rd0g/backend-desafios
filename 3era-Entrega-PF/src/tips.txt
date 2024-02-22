@@ -1,0 +1,28 @@
+3era Entrega de proyecto final
+Se pide:
+Modificar capa persistencia para que se llame factory, integrando DAO y DTO
+    El DAO debe poder recibir el comando por el parámetro en consola.
+
+Modificar la ruta current para que no se mande información sensible del usuario con DTO.
+
+Realizar un middleware que verifique si el usuario es admin o user:
+    Si es admin, este puede crear actualizar y eliminar productos.
+    Si es user, puede enviar mensajes en el chat
+    Si es user, pueda agregar productos al carrito.
+
+Crear un modelo Ticket, el cual debe contar con:
+    Id - Generado por mongo
+    Code, string autogenerado y único.
+    purchase_datatime: debe guardar la fecha y hora exacta en la que se formalizó la compra.
+    amount: Number, total de la compra.
+    purchaser: string, que contendrá el correo del usuario asociado al carrito.
+
+Implementar en la ruta carts:
+    /:cid/purchase: la que permitirá finalizar la compra.
+    La compra debe corroborar el stock del producto, al momento de finalizarse.
+        Si hay el suficiente stock colocado en el carrito, el mismo debe ser restado del stock total de productos.
+        si no hay suficiente stock, entonces no agregar el producto al proceso de compra.
+        Al finalizar, generar un servicio de tickets para generar un ticket con los datos de la compra.
+        En caso de existir una compra no completada, devolver el arreglo con los ids de los productos que no pudieron procesarse.
+
+    Finalizada la compra, el carrito, deberá contener los productos que no pudieron comprarse.
