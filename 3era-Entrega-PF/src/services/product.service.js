@@ -1,10 +1,10 @@
 //importamos los Crud de servicios o las funciones básicas de servicios:
 import Services from './class.services.js';
 //importamos el modelo ProductDao con las nuevas :
-import persistence from '../persistence/persistence.js'
-import fs from 'fs';
+import persistence from '../persistence/daos/factory.js';
+
 import { __dirname } from '../utils.js';
-//inicializamos:
+
 
 
 class ProductService extends Services{

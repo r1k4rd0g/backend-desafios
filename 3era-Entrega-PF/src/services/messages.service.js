@@ -1,7 +1,7 @@
 //importamos los Crud de servicios:
 import Services from './class.services.js';
 //importamos el modelo MsgDao:
-import persistence from '../persistence/persistence.js'
+import persistence from '../persistence/daos/factory.js'
 
 
 

@@ -57,13 +57,17 @@ class UserController extends Controllers {
             //console.log('usuario ok?', userOk);
             if (userOk) {
                 req.session.passport.user = userOk;
-                req.session.passport.email = email.userOk;
-                req.session.passport.password = password.userOk;
-                //console.log('consola de session', req.session.passport.user)
+                req.session.passport.email = email;
+                req.session.passport.password = password;
+                console.log('console req.session', req.session)
+                console.log('console req.session.user:', req.session.passport.user)
+                console.log('console req.session.email:', req.session.passport.user.email)
+                console.log('console req.session.password:', req.session.passport.user.password)
                 res
                 .header('Authorization', token)//acá dejo establecido el token en el header
                 .cookie('token', token, { httpOnly: true })// acá dejo establecido el token en una cookie
-                .redirect("/productlist");
+                .json({token:token})
+                //.redirect("/productlist");
             } else res.redirect("/errorlogin");
         } catch (error) {
             next(error)

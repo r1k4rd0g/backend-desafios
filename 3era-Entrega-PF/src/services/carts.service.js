@@ -1,4 +1,4 @@
-import persistence from '../persistence/persistence.js';
+import persistence from '../persistence/daos/factory.js';
 
 import Services from './class.services.js';
 

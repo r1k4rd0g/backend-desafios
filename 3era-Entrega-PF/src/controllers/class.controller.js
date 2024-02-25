@@ -26,7 +26,7 @@ export default class Controllers {
             } else {
                 createResponse (res, 200, item)};
         } catch (error) {
-            next(error.message)
+            throw new Error(error.message)
         }
     }
     create = async (req, res, next)=>{

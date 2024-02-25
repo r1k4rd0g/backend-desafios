@@ -1,11 +1,12 @@
 import jwt from 'jsonwebtoken';
 import userController from '../controllers/users.controller.js';
 import 'dotenv/config'
+import usersServices from '../services/users.service.js';
 
 const SECRET_KEY = process.env.SECRET_KEY_JWT;
 
 export const verifyToken = async (req, res, next) => {
-    const authHeader = req.header.Authorization || req.header('Authorization') || req.cookies.token
+    const authHeader = req.header.Authorization || req.header('Authorization') || req.cookies.token || req.get('Authorization')
     console.log('verifyToken Authorization header', authHeader, typeof authHeader);
     if (!authHeader || !authHeader.startsWith("Bearer")) {
         return res.status(401).json({ msg: "Authorization header missing" });
@@ -16,7 +17,7 @@ export const verifyToken = async (req, res, next) => {
         const decode = jwt.verify(token, SECRET_KEY);
         console.log("token decodificado");
         console.log(decode);
-        const user = await userController.getById(decode.userId);
+        const user = await usersServices.getById(decode.userId);
         if (!user) return res.status(400).json({ msg: "User not found" })
         req.user = user;
         console.log('consola verifyToken user:', user)
@@ -26,3 +27,8 @@ export const verifyToken = async (req, res, next) => {
         return res.status(401).json({ msg: "Invalid token" });
     }
 }
+/*
+function suma(número 1, número 2){
+    return (número 1 + número 2)
+}
+*/

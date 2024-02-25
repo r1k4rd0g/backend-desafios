@@ -1,18 +1,18 @@
 import 'dotenv/config';
 
 /*** importamos la conexión al servidor de MongoDB */
-import { ConnectMongoDB } from '../config/connection.js';
+import { ConnectMongoDB } from '../../config/connection.js';
 /*** importamos los DAO de FS  ****/
-import CartsDaoFS from './daos/filesystem/carts/carts.dao.js'
-import ProductDaoFS from './daos/filesystem/products/products.dao.js'
-import UserDaoFS from './daos/filesystem/users/users.dao.js';
-import MessageFSDao from './daos/filesystem/messages/messages.dao.js'
+import CartsDaoFS from './filesystem/carts/carts.dao.js'
+import ProductDaoFS from './filesystem/products/products.dao.js'
+import UserDaoFS from './filesystem/users/users.dao.js';
+import MessageFSDao from './filesystem/messages/messages.dao.js'
 
 /*** importamos los DAO de MongoDB  ****/
-import CartMongoDao from './daos/mongodb/carts/carts.dao.js'
-import ProductMongoDao from './daos/mongodb/products/products.dao.js'
-import UserMongoDao from './daos/mongodb/users/users.dao.js'
-import MsgMongoDao from './daos/mongodb/messages/messages.dao.js'
+import CartMongoDao from './mongodb/carts/carts.dao.js'
+import ProductMongoDao from './mongodb/products/products.dao.js'
+import UserMongoDao from './mongodb/users/users.dao.js'
+import MsgMongoDao from './mongodb/messages/messages.dao.js'
 
 /*** Variables y Constantes */
 let cartDao;
@@ -21,6 +21,10 @@ let productDao;
 let msgDao;
 const persistence = process.env.PERSISTENCE
 
+//su ejecución es mediante el comando node app.js mongo o la base de datos que a la que se desee conectar ----> /
+//let persistence = process.argv[2]
+
+
 
 switch (persistence) {
     case "FS":
@@ -28,7 +32,7 @@ switch (persistence) {
         productDao = new ProductDaoFS();
         userDao = new  UserDaoFS();
         msgDao = new MessageFSDao();
-        console.log('Persistencia funcionando en FS:', persistence);
+        console.log('Persistencia funcionando:', persistence);
         break;
     case "MONGO":
         ConnectMongoDB.getInstance()
@@ -36,14 +40,14 @@ switch (persistence) {
         productDao = new ProductMongoDao();
         userDao = new UserMongoDao();
         msgDao = new  MsgMongoDao();
-        console.log('Persistencia funcionando en Mongo:', persistence);
+        console.log('Persistencia funcionando:', persistence);
         break;
     default:
         cartDao = new CartsDaoFS();
         productDao = new ProductDaoFS();
         userDao = new  UserDaoFS();
         msgDao = new MessageFSDao();
-        console.log('Persistencia funcionando en FS x Default:', persistence);
+        console.log('Persistencia funcionando x Default en:', persistence);
         break;
 }
 

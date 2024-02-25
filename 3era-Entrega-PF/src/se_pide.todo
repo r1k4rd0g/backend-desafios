@@ -24,10 +24,179 @@
               "content": "El Dao debe poder recibir parámetro por consola",
               "id": 1705071628096,
               "level": "default",
-              "done": false,
+              "done": true,
               "start": 1705071628096,
               "focus": false,
-              "end": 1705071651527
+              "end": 1708642829871
+            }
+          },
+          {
+            "key": 1708618460519,
+            "children": [
+              {
+                "key": 1708618470799,
+                "children": [],
+                "todo": {
+                  "content": "Id - Generado por mongo",
+                  "id": 1708618470799,
+                  "level": "default",
+                  "done": false,
+                  "start": 1708618470799
+                }
+              },
+              {
+                "key": 1708618478230,
+                "children": [],
+                "todo": {
+                  "content": "Code - Debe ser un string que se autogenere y sea único.",
+                  "id": 1708618478230,
+                  "level": "default",
+                  "done": false,
+                  "start": 1708618478230
+                }
+              },
+              {
+                "key": 1708618492825,
+                "children": [],
+                "todo": {
+                  "content": "Purchase_data_time: debe guardar la fecha y hora en la que se realiza la compra",
+                  "id": 1708618492825,
+                  "level": "default",
+                  "done": false,
+                  "start": 1708618492825
+                }
+              },
+              {
+                "key": 1708618514406,
+                "children": [],
+                "todo": {
+                  "content": "amount: debe ser un número resultante de sumar el total de la compra",
+                  "id": 1708618514406,
+                  "level": "default",
+                  "done": false,
+                  "start": 1708618514406
+                }
+              },
+              {
+                "key": 1708618533040,
+                "children": [],
+                "todo": {
+                  "content": "purchaser: debe contener el mail del usuario asociado al carrito.",
+                  "id": 1708618533040,
+                  "level": "default",
+                  "done": false,
+                  "start": 1708618533040
+                }
+              }
+            ],
+            "todo": {
+              "content": "Generar modelo ticket:",
+              "id": 1708618460519,
+              "level": "default",
+              "done": false,
+              "start": 1708618460519
+            }
+          },
+          {
+            "key": 1708618286370,
+            "children": [
+              {
+                "key": 1708618310847,
+                "children": [
+                  {
+                    "key": 1708618353237,
+                    "children": [],
+                    "todo": {
+                      "content": "Si hay stock, se debe restar del stock total",
+                      "id": 1708618353237,
+                      "level": "default",
+                      "done": false,
+                      "start": 1708618353237
+                    }
+                  },
+                  {
+                    "key": 1708618363896,
+                    "children": [],
+                    "todo": {
+                      "content": "Si no hay stock entonces no se agrega el producto al carrito",
+                      "id": 1708618363896,
+                      "level": "default",
+                      "done": false,
+                      "start": 1708618363896
+                    }
+                  },
+                  {
+                    "key": 1708618404150,
+                    "children": [],
+                    "todo": {
+                      "content": "Cuando haya una compra no completada, devolver los productos que no pudieron comprarse en el carrito",
+                      "id": 1708618404150,
+                      "level": "default",
+                      "done": false,
+                      "start": 1708618404150
+                    }
+                  }
+                ],
+                "todo": {
+                  "content": "Se corrobora al momento de finalizar la compra si hay stock del producto:",
+                  "id": 1708618310847,
+                  "level": "default",
+                  "done": false,
+                  "start": 1708618310847
+                }
+              },
+              {
+                "key": 1708618424023,
+                "children": [],
+                "todo": {
+                  "content": "Al finalizar la compra, el carrito deberá contener solo los productos que no pudieron comprarse",
+                  "id": 1708618424023,
+                  "level": "default",
+                  "done": false,
+                  "start": 1708618424023
+                }
+              }
+            ],
+            "todo": {
+              "content": "Implementar ruta /:cid/purchase para realizar compras",
+              "id": 1708618286370,
+              "level": "default",
+              "done": false,
+              "start": 1708618286370
+            }
+          },
+          {
+            "key": 1708618227196,
+            "children": [
+              {
+                "key": 1708618254064,
+                "children": [],
+                "todo": {
+                  "content": "Si es admin, solo permitir modificar, agregar o eliminar productos",
+                  "id": 1708618254064,
+                  "level": "default",
+                  "done": false,
+                  "start": 1708618254064
+                }
+              },
+              {
+                "key": 1708618269000,
+                "children": [],
+                "todo": {
+                  "content": "Si es usuario, permitir hablar en el chat y  agregar productos al carrito.",
+                  "id": 1708618269000,
+                  "level": "default",
+                  "done": false,
+                  "start": 1708618269000
+                }
+              }
+            ],
+            "todo": {
+              "content": "Generar middleware, para verificar que tipo de usuario es:",
+              "id": 1708618227196,
+              "level": "default",
+              "done": false,
+              "start": 1708618227196
             }
           },
           {
@@ -111,7 +280,11 @@
       1705071588004,
       1705071602838,
       1705071659610,
-      1705071694662
+      1705071694662,
+      1708618227196,
+      1708618286370,
+      1708618310847,
+      1708618460519
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -124,6 +297,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1708617375061"
+    "version": "1708642829998"
   }
 }

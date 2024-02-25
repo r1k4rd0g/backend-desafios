@@ -1,7 +1,7 @@
 //importamos los Crud de servicios o las funciones básicas de servicios:
-import Services from './class.services.js';
+import Services from './class.services.js'
 //importamos el modelo UserMongo con las nuevas :
-import persistence from '../persistence/persistence.js';
+import persistence from '../persistence/daos/factory.js';
 
 //importamos utils:
 import { createHash, isValidPass } from "../utils.js";

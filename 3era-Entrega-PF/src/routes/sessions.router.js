@@ -8,7 +8,8 @@ const router = Router();
 
 router.post('/current',verifyToken, sessionController.profileResponse);
 //acá tiene que ir el método necesario para mostrar los datos del usuario, una vez sea validado el token
-router.get('/current', verifyToken, (req, res) => {
-    res.render('current', { user: req.user })
-});
+
+/*router.get('/profile', (req, res) => {
+    res.render('profile', { user })
+});*/
 export default router;

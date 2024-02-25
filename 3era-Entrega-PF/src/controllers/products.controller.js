@@ -17,7 +17,6 @@ class ProductController extends Controllers {
             const sortOrder = (sort === 'asc' || sort === 'desc') ? sort : '';
             let priceFilter = null;
             if (!isNaN(query)) { priceFilter = parseInt(query) }
-
             const response = await productService.getAll(
                 pageNumber,
                 pageSize,
@@ -26,7 +25,6 @@ class ProductController extends Controllers {
                 category || '',
                 exist || '',
                 priceFilter);
-
             //        console.log(typeof(pageSize),'console 1: pageSize',limit)
             //        console.log('console 2:',searchQuery);
             //        console.log(typeof(sortOrder),'console 3:',sortOrder);
@@ -129,37 +127,4 @@ class ProductController extends Controllers {
 const productController = new ProductController();
 export default productController;
 
-
-/*export const getById = async(req, res, next)=>{
-    try {
-        const {pid} = req.params;
-        console.log({pid})
-        const productFind = await serviceProduct.getById(id);
-        //const productFind = products.find (p=>p.id ===Number(pid)); // ahora con mongo el id no es un number
-        if(!productFind) return res.status(404).json({message: `Producto no encontrado con id ${pid}`});
-        else return res.status(200).json(productFind);
-    } catch (error) {
-        next(error.message);
-    }
-}*/
-
-/*export const create = async(req, res, next)=>{
-    try {
-        const newProduct = await serviceProduct.create(req.body);
-            return res.status(201).json(newProduct);
-    } catch (error) {
-        next (error.message);
-    }
-}*/
-
-
-/*export const createFileProductCtr = async(req, res, next) =>{
-    try {
-        const newProducts = await serviceProduct.createFileProduct();
-        if(!newProducts) throw new Error("validation error");
-        return res.status(201).send('Archivo creado correctamente');
-    } catch (error) {
-        next(error)
-    }
-}*/
 
