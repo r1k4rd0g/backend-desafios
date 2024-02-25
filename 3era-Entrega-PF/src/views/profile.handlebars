@@ -1,8 +1,8 @@
 <div>
     <h2>Bienvenido</h2><br>
-    Nombre: {{user.first_name}}<br>
-    Apellido: {{user.last_name}}<br>
-    Rol: {{user.role}}</h2>
+    {{#each user}}
+        {{@key}}: {{this}}<br>
+    {{/each}}
 </div>
 <div><a href="/home">Home</a></div>
 
