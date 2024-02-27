@@ -1,8 +1,8 @@
 import { CartModel } from "./carts.model.js";
 import MongoDao from "../mongo.dao.js";
 
-export default class CartMongoDao extends MongoDao{
-    constructor(){
+export default class CartMongoDao extends MongoDao {
+    constructor() {
         super(CartModel);
     }
 
@@ -11,7 +11,12 @@ export default class CartMongoDao extends MongoDao{
             const cartID = await CartModel.findById(cid).populate('onCart.product');
             console.log('consola linea 35 cart dao', cartID, 'id de product:', pid)
             if (!cartID) throw new error('no existe el carrito');
-            cartID.onCart.push({ product: pid, quantity: quantity || 1 });
+            const productExist = cartID.onCart.findIndex(item => item.product === pid);
+            if (productExist !== -1){
+                cartID.onCart[productExist].quantity = quantity
+            } else {
+                cartID.onCart.push({ product: pid, quantity: quantity || 1 });
+            }
             cartID.save();
             return cartID
             //return await CartModel.findByIdAndUpdate();
@@ -41,7 +46,7 @@ export default class CartMongoDao extends MongoDao{
 
     async clearCart(cid) {
         try {
-            console.log('linea 78 cart dao',cid);
+            console.log('linea 78 cart dao', cid);
             let cartId = cid;
             if (typeof cid === 'object' && cid.cid) {
                 cartId = cid.cid;

@@ -17,13 +17,13 @@ formLogin.onsubmit = (e) => {
         },
     })
         .then((response) => {
-            console.log('que es esto 1',typeof(response),response)
+            //console.log('que es esto 1',typeof(response),response)
             return response.json()
             //response.header()
             //response.cookies
         }) //responde por el token
         .then((response) => {
-            console.log('que es esto 2',typeof(response),response); //token
+            //console.log('que es esto 2',typeof(response),response); //token
             localStorage.setItem('token', response.token)
             window.location.href = "productlist";
         })

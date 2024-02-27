@@ -13,12 +13,14 @@ import CartMongoDao from './mongodb/carts/carts.dao.js'
 import ProductMongoDao from './mongodb/products/products.dao.js'
 import UserMongoDao from './mongodb/users/users.dao.js'
 import MsgMongoDao from './mongodb/messages/messages.dao.js'
+import TicketMongoDao from './mongodb/tickets/tickets.dao.js';
 
 /*** Variables y Constantes */
 let cartDao;
 let userDao;
 let productDao;
 let msgDao;
+let ticketDao;
 const persistence = process.env.PERSISTENCE
 
 //su ejecución es mediante el comando node app.js mongo o la base de datos que a la que se desee conectar ----> /
@@ -32,6 +34,7 @@ switch (persistence) {
         productDao = new ProductDaoFS();
         userDao = new  UserDaoFS();
         msgDao = new MessageFSDao();
+        //ticketDao = new TicketFSDao();
         console.log('Persistencia funcionando:', persistence);
         break;
     case "MONGO":
@@ -40,6 +43,7 @@ switch (persistence) {
         productDao = new ProductMongoDao();
         userDao = new UserMongoDao();
         msgDao = new  MsgMongoDao();
+        ticketDao = new TicketMongoDao();
         console.log('Persistencia funcionando:', persistence);
         break;
     default:

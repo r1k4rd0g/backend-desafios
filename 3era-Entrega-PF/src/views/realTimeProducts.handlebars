@@ -2,7 +2,7 @@
     <h1 class="h1Home">Lista de productos actualizados, utilizando Websockets</h1>
     <div class="divForm">
         <h2 class="titLista">Formulario para cargar productos:</h2>
-        <form method="post" class="Form" id="add" action="/realtimeproducts">
+        <form method="post" class="form" id="add" action="/realtimeproducts">
                 <label for="Title"><strong>Titulo: </strong></label>
                 <input type="text" id="title" name="title"><br>
                 <label for="Description"><strong>Description: </strong></label>
@@ -20,7 +20,7 @@
     </div>
         <div class="divForm">
         <h2 class="titLista">Formulario para eliminar productos:</h2>
-        <form method="post" class="Form" action="/realtimeproducts" id="eliminarForm" data-action="delete">
+        <form method="post" class="form" action="/realtimeproducts" id="eliminarForm" data-action="delete">
                 <label for="Id"><strong>Id: </strong></label>
                 <input type="number" id="idProduct" name="idProduct" required><br>
                 <button type="button" id="eliminar">Eliminar</button>

@@ -11,10 +11,10 @@
               "content": "Modificar la capa persistencia por factory, incluir DAO y DTO",
               "id": 1705071612519,
               "level": "default",
-              "done": false,
+              "done": true,
               "start": 1705071612519,
               "focus": false,
-              "end": 1705071626199
+              "end": 1708886777396
             }
           },
           {
@@ -175,8 +175,10 @@
                   "content": "Si es admin, solo permitir modificar, agregar o eliminar productos",
                   "id": 1708618254064,
                   "level": "default",
-                  "done": false,
-                  "start": 1708618254064
+                  "done": true,
+                  "start": 1708618254064,
+                  "focus": false,
+                  "end": 1709059743406
                 }
               },
               {
@@ -271,8 +273,10 @@
           "content": "Para este nuevo desafio:",
           "id": 1705071602838,
           "level": "default",
-          "done": false,
-          "start": 1705071602838
+          "done": true,
+          "start": 1705071602838,
+          "focus": false,
+          "end": 1708886778086
         }
       }
     ],
@@ -297,6 +301,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1708642829998"
+    "version": "1709059743503"
   }
 }

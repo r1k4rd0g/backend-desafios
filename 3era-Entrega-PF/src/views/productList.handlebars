@@ -4,12 +4,17 @@
                     Nombre: {{user.first_name}}<br>
                     Apellido: {{user.last_name}}<br>
                     Rol:{{user.role}}</h2>
-    <form action="/api/users/logout" method="post">
-        <button type="submit">Cerrar sesión</button>
-    </form>
-        <form action="/api/sessions/current" method="post">
-        <button id="boton" type="submit">Perfil</button>
-    </form>
+    <div class="botonBox">
+        <form class="form" action="/api/sessions/current" method="post">
+            <button id="perfil" type="submit">Perfil</button>
+        </form>
+        <form class="form" action="/api/product" method="post">
+            <button id="workWProduct">Work with product</button>
+        </form>
+        <form class="form" action="/api/users/logout" method="post">
+            <button type="submit">Cerrar sesión</button>
+        </form>
+    </div>
     <div class = "containerList" id="containerList">
             <ul>
                 {{#each products}}
@@ -25,10 +30,14 @@
                             </div>
                         {{/each}}
                     {{/if}}
+                    <form class="form" action="/api/cart/add" method="post">
+                    <input type="hidden" name="productId" value="{{this._id}}">
+                    <input type="number" name="quantity" value="1" min="1">
+                    <button type="submit">Agregar al carrito</button>
                     </li>
                 {{/each}}
             </ul>
     </div>
     <!--acá se muestre la lista que contiene todos los productos hasta el momento. sería el json.-->
 </div>
-    <script src="profile.js" charset="utf-8"></script>
+    <script src="productlist.js" charset="utf-8"></script>

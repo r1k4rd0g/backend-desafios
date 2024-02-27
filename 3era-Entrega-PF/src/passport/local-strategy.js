@@ -13,8 +13,8 @@ const register = async (req, email, password, done) => {
     try {
         // const { first_name, last_name,... } = req.body
         const user = await usersServices.getByEmail(email);
-        if (user) return done(null, false);
-        console.log('console local-strategy.register, el req.body es un:', typeof req.body)
+        if (user) return done(null, false, {message: 'El mail ya está registrado'});
+        //console.log('console local-strategy.register, el req.body es un:', typeof req.body, req.body)
         const newUser = await usersServices.createUser(req.body);
         return done(null, newUser);
     } catch (error) {
@@ -59,6 +59,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
+    //console.log('consola deserializeUser id:', id)
     const user = await usersServices.getById(id);
     return done(null, user);
 });

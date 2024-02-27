@@ -1,9 +1,12 @@
 export default class UserResDTO{
     constructor(user){
-        this.first_name = user.first_name;
-        this.last_name = user.last_name;
-        this.email = user.email;
-        this.age = user.age;
-        this.role = user.role;
+        console.log('user que llega al UserResDTO:', user);
+        this.Nombre = user.first_name;
+        this.Apellido = user.last_name;
+        this.Email = user.email;
+        this.Rol = user.role;
     }
 }
+
+//const userResDto = new UserResDTO ();
+//export default userResDto;

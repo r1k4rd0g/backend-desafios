@@ -1,10 +1,10 @@
 
-    const boton = document.getElementById("boton");
-
-    boton.onclick = (e) => {
+    const profile = document.getElementById("perfil");
+    const workWProduct = document.getElementById("workWProduct")
+    profile.onclick = (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token')
-        console.log('token almacenado en local storage', token)
+        //console.log('token almacenado en local storage', token)
         fetch('/api/sessions/current', {
             method: 'POST',
             headers: {
@@ -19,3 +19,8 @@
             })
     };
 
+    workWProduct.onclick = (e) => {
+        e.preventDefault();
+            window.location.href = "/realtimeproducts";
+
+    };

@@ -18,6 +18,7 @@ export default class MongoDao {
 
     async getById(id){
         try {
+            //console.log('id en consola mongo dao:', id)
             const response = await this.model.findById(id);
             return response;
         } catch (error) {

@@ -21,30 +21,6 @@ class UserController extends Controllers {
             next(error);
         }
     }
-
-    /*login = async (req, res, next) => {
-        try {console.log(req.body, 'lo que viene de req.body en login de user controller')
-            const { email, password } = req.body
-            //const user = { email, password }
-            const userOk = await usersServices.login({ user: { email, password } });
-            console.log('userOk del login en user.controller', userOk)
-            if (userOk) {
-                //const token = generateToken(userOk);
-                //console.log('consola login user service que genera token:', token)
-                //res.cookie('token', token, {
-                //    maxAge: 120000,
-                //    httpOnly: true,
-                //})
-                req.session.user = userOk;
-                req.session.email = email;
-                req.session.password = password;
-                console.log('consola de session', req.session.user)
-                res.redirect('/productlist');
-            } else res.redirect("/errorlogin");
-        } catch (error) {
-            console.log(error)
-        }
-    }*/
     loginResponse = async (req, res, next) => {
         try {
             const id = req.session.passport.user;
@@ -53,16 +29,16 @@ class UserController extends Controllers {
             //console.log('consola de loginResponse con dato userOk:', userOk)
             const { email, password } = userOk;
             const token = generateToken(userOk);
-            console.log('token generado en loginResponse userController',token, typeof token);
+            //console.log('token generado en loginResponse userController',token, typeof token);
             //console.log('usuario ok?', userOk);
             if (userOk) {
                 req.session.passport.user = userOk;
                 req.session.passport.email = email;
                 req.session.passport.password = password;
-                console.log('console req.session', req.session)
-                console.log('console req.session.user:', req.session.passport.user)
-                console.log('console req.session.email:', req.session.passport.user.email)
-                console.log('console req.session.password:', req.session.passport.user.password)
+                //console.log('console req.session', req.session)
+                //console.log('console req.session.user:', req.session.passport.user)
+                //console.log('console req.session.email:', req.session.passport.user.email)
+                //console.log('console req.session.password:', req.session.passport.user.password)
                 res
                 .header('Authorization', token)//acá dejo establecido el token en el header
                 .cookie('token', token, { httpOnly: true })// acá dejo establecido el token en una cookie
@@ -73,7 +49,6 @@ class UserController extends Controllers {
             next(error)
         }
     }
-
     logout = (req, res) => {
         req.session.destroy((err) => {
             if (err) {

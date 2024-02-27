@@ -1,9 +1,10 @@
 import { Router } from 'express';
 import productController from '../controllers/products.controller.js'
+import { verifyAdmin } from '../middlewares/verifyRole.js';
 
 const router = Router();
 
-router.get('/', productController.getAllCtr);
+router.get('/', verifyAdmin, productController.getAllCtr);
 
 router.get('/:id', productController.getById);
 
