@@ -40,8 +40,10 @@
                   "content": "Id - Generado por mongo",
                   "id": 1708618470799,
                   "level": "default",
-                  "done": false,
-                  "start": 1708618470799
+                  "done": true,
+                  "start": 1708618470799,
+                  "focus": false,
+                  "end": 1709400081127
                 }
               },
               {
@@ -51,8 +53,10 @@
                   "content": "Code - Debe ser un string que se autogenere y sea único.",
                   "id": 1708618478230,
                   "level": "default",
-                  "done": false,
-                  "start": 1708618478230
+                  "done": true,
+                  "start": 1708618478230,
+                  "focus": false,
+                  "end": 1709400082375
                 }
               },
               {
@@ -62,8 +66,10 @@
                   "content": "Purchase_data_time: debe guardar la fecha y hora en la que se realiza la compra",
                   "id": 1708618492825,
                   "level": "default",
-                  "done": false,
-                  "start": 1708618492825
+                  "done": true,
+                  "start": 1708618492825,
+                  "focus": false,
+                  "end": 1709400083712
                 }
               },
               {
@@ -73,8 +79,10 @@
                   "content": "amount: debe ser un número resultante de sumar el total de la compra",
                   "id": 1708618514406,
                   "level": "default",
-                  "done": false,
-                  "start": 1708618514406
+                  "done": true,
+                  "start": 1708618514406,
+                  "focus": false,
+                  "end": 1709400084233
                 }
               },
               {
@@ -84,8 +92,10 @@
                   "content": "purchaser: debe contener el mail del usuario asociado al carrito.",
                   "id": 1708618533040,
                   "level": "default",
-                  "done": false,
-                  "start": 1708618533040
+                  "done": true,
+                  "start": 1708618533040,
+                  "focus": false,
+                  "end": 1709400085239
                 }
               }
             ],
@@ -93,8 +103,10 @@
               "content": "Generar modelo ticket:",
               "id": 1708618460519,
               "level": "default",
-              "done": false,
-              "start": 1708618460519
+              "done": true,
+              "start": 1708618460519,
+              "focus": false,
+              "end": 1709400128486
             }
           },
           {
@@ -110,30 +122,10 @@
                       "content": "Si hay stock, se debe restar del stock total",
                       "id": 1708618353237,
                       "level": "default",
-                      "done": false,
-                      "start": 1708618353237
-                    }
-                  },
-                  {
-                    "key": 1708618363896,
-                    "children": [],
-                    "todo": {
-                      "content": "Si no hay stock entonces no se agrega el producto al carrito",
-                      "id": 1708618363896,
-                      "level": "default",
-                      "done": false,
-                      "start": 1708618363896
-                    }
-                  },
-                  {
-                    "key": 1708618404150,
-                    "children": [],
-                    "todo": {
-                      "content": "Cuando haya una compra no completada, devolver los productos que no pudieron comprarse en el carrito",
-                      "id": 1708618404150,
-                      "level": "default",
-                      "done": false,
-                      "start": 1708618404150
+                      "done": true,
+                      "start": 1708618353237,
+                      "focus": false,
+                      "end": 1709400089658
                     }
                   }
                 ],
@@ -141,19 +133,10 @@
                   "content": "Se corrobora al momento de finalizar la compra si hay stock del producto:",
                   "id": 1708618310847,
                   "level": "default",
-                  "done": false,
-                  "start": 1708618310847
-                }
-              },
-              {
-                "key": 1708618424023,
-                "children": [],
-                "todo": {
-                  "content": "Al finalizar la compra, el carrito deberá contener solo los productos que no pudieron comprarse",
-                  "id": 1708618424023,
-                  "level": "default",
-                  "done": false,
-                  "start": 1708618424023
+                  "done": true,
+                  "start": 1708618310847,
+                  "focus": false,
+                  "end": 1709400126522
                 }
               }
             ],
@@ -161,8 +144,10 @@
               "content": "Implementar ruta /:cid/purchase para realizar compras",
               "id": 1708618286370,
               "level": "default",
-              "done": false,
-              "start": 1708618286370
+              "done": true,
+              "start": 1708618286370,
+              "focus": false,
+              "end": 1709400127771
             }
           },
           {
@@ -300,6 +285,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1709355812280"
+    "version": "1709400128530"
   }
 }
