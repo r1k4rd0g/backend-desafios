@@ -17,6 +17,8 @@ class CartController extends Controllers {
             //console.log('id del carrito',typeof(cid), cid)
             const updateCart = await cartService.saveProductToCart(cid, pid, quantity);
             res.status(200).json(updateCart);
+            console.log('cart update en controller', updateCart)
+            return updateCart
         } catch (error) {
             next(error)
         }

@@ -39,7 +39,9 @@ router.get('/current', sessionController.profileResponse);
 router.get('/profile', (req, res)=>{
     res.render('profile', {user: req.session.passport.dto});
 })
-
+router.get('/ticket', (req, res)=>{
+    res.render('ticket')
+})
 
 
 export default router;

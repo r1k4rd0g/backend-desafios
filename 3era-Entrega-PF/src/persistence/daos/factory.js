@@ -57,4 +57,4 @@ switch (persistence) {
 
 
 /*** Exportamos las variables que se van a usar en service */
-export default { cartDao, userDao, productDao, msgDao };
+export default { cartDao, userDao, productDao, msgDao, ticketDao };

@@ -1,7 +1,8 @@
 
 const profile = document.getElementById("perfil");
 const workWProduct = document.getElementById("workWProduct");
-const toCart = document.getElementById('toCart');
+const crearTicket = document.getElementById('crearTicket')
+const cartId = document.getElementById('cartId').getAttribute('data-cart-id');
 
 
 profile.onclick = (e) => {
@@ -38,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 //console.log(productId, 'productId')
                 //const productIdElement = form.querySelector('.productId');
                 //const productId = productIdElement.getAttribute('data-product-id');
-            const cartId = document.getElementById('cartId').getAttribute('data-cart-id');
             console.log('product id: ', productId, 'cart id:', cartId);
             const quantity = parseInt(form.querySelector("input[name='quantity']").value);
             const response = await fetch(`/api/carts/${cartId}/product/${productId}`, {
@@ -59,4 +59,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
+/** Creación del ticket */
+crearTicket.onclick = (e) =>{
+    e.preventDefault();
+    const response = fetch(`/api/carts/${cartId}/purchase`, {
+        method:"POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    if(response.ok){
+        window.location.href= '/ticket';
+    }
+}

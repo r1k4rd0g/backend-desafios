@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import cartController from '../controllers/carts.controller.js';
+import ticketController from '../controllers/tickets.controller.js';
 import { verifyUser } from '../middlewares/verifyRole.js';
 
 const router = Router();
@@ -27,6 +28,9 @@ router.delete('/:cid/product/:pid', cartController.removeProductById);
 
 //vacía el carrito:
 router.delete('/clear/:cid', cartController.clearCart)
+
+//genera el ticket:
+router.post('/:cid/purchase', verifyUser, ticketController.generateTicket)
 
 
 export default router;

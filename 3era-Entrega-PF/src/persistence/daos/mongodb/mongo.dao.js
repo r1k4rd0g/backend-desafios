@@ -28,13 +28,13 @@ export default class MongoDao {
     }
 
     async create(obj) {
-        try {
+        try {console.log('consola mongo dao create', obj)
             const response = await this.model.create(obj);
             console.log('consola create de mongo.dao', response)
             return response;
         } catch (error) {
-            console.log(error, 'consola create de mongo.dao');
-            throw new Error (`error al obtener crear el items por objeto: ${obj}`);
+            console.log('consola create de mongo.dao', error);
+            throw new Error (`error al crear el items por objeto: ${obj}`);
         }
     }
 

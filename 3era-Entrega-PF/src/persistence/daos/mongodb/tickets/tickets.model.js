@@ -5,7 +5,7 @@ import { UserModel } from '../users/users.model.js';
 export const ticketsCollection = "tickets"
 
 export const ticketsSchema = new Schema({
-    Code:{ //Código debe ser un string, se auto genere y sea único.
+    code:{ //Código debe ser un string, se auto genere y sea único.
         type: String,
         required: true,
         index: true,
@@ -25,7 +25,6 @@ export const ticketsSchema = new Schema({
         email: {
             type: String,
             required: true,
-            unique: true,
             index: true
         },
         userId:{
