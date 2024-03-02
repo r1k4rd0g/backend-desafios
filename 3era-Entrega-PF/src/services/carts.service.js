@@ -10,9 +10,10 @@ class CartService extends Services{
         this.productDao = persistence.productDao
     }
     saveProductToCart = async (cid, pid, quantity) => {
-        try {
+        try {console.log(`que llega del controller en service? cid ${cid}, pid ${pid}, quantity ${quantity}`)
             const productSearch = await this.productDao.getById(pid);
             //console.log('consola linea 36 cart services',productSearch)
+            //console.log('cid que llega al cartsService', cid)
             if (!productSearch) throw new Error('producto no encontrado');
             const cartUpdate = await this.dao.saveProductToCart(cid, pid, quantity);
             if (!cartUpdate) return false,

@@ -9,7 +9,12 @@ class CartController extends Controllers {
     }
     saveProductToCart = async (req, res, next) => {
         try {
-            const { cid, pid, quantity } = req.params;
+            console.log('req.body que llega al controlador', req.body, 'lo que llega de params', req.params);
+            const {quantity} = req.body;
+            const {pid, cid} = req.params
+            //const cid = req.session.passport.user.cart
+            //console.log('quantity del carrito',typeof(quantity), quantity)
+            //console.log('id del carrito',typeof(cid), cid)
             const updateCart = await cartService.saveProductToCart(cid, pid, quantity);
             res.status(200).json(updateCart);
         } catch (error) {

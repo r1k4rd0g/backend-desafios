@@ -8,17 +8,18 @@ export default class CartMongoDao extends MongoDao {
 
     async saveProductToCart(cid, pid, quantity) {
         try {
-            const cartID = await CartModel.findById(cid).populate('onCart.product');
-            console.log('consola linea 35 cart dao', cartID, 'id de product:', pid)
-            if (!cartID) throw new error('no existe el carrito');
-            const productExist = cartID.onCart.findIndex(item => item.product === pid);
-            if (productExist !== -1){
-                cartID.onCart[productExist].quantity = quantity
+            const cart = await CartModel.findById(cid).populate('onCart.product');
+            console.log('consola linea 35 cart dao', cart, 'id de product:', pid)
+            if (!cart) throw new error('no existe el carrito');
+            const productExist = cart.onCart.find(item => item.product._id.toString() === pid);
+            if (productExist) {
+                productExist.quantity += quantity;
+                console.log('productExist:', productExist)
             } else {
-                cartID.onCart.push({ product: pid, quantity: quantity || 1 });
+                cart.onCart.push({ product: pid, quantity: quantity || 1 });
             }
-            cartID.save();
-            return cartID
+            cart.save();
+            return cart
             //return await CartModel.findByIdAndUpdate();
         } catch (error) {
             console.log(`error al actualizar el carrito de id: ${cid}, msg: ${error}`);

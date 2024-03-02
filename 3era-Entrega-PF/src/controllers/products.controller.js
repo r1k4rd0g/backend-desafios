@@ -90,12 +90,13 @@ class ProductController extends Controllers {
                     Price: product.Price,
                     Description: product.Description,
                     Category: product.Category,
-                    Thumbnail: product.Thumbnail
+                    Thumbnail: product.Thumbnail,
+                    Id: product._id
                 }
             })
             const userLog = req.session.passport.user
             //console.log('userLog de products controller', userLog)
-            //console.log('consola linea 100', products)
+            //console.log('consola linea 100', productsDetail)
             res.render('productlist', { products: productsDetail, user: userLog },)
         } catch (error) {
             next(error)

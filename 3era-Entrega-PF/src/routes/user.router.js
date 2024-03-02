@@ -8,7 +8,7 @@ const router = Router();
 
 
 router.get('/productlist', (req, res) => {
-    res.render('productlist', { user: req.user });
+    res.render('productlist', { user: req.session.passport.user });
 }); //con esta vista renderizo y muestro los datos del usuario registrado.
 
 router.post("/register", passport.authenticate('register-local', {

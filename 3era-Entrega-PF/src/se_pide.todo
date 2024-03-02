@@ -188,8 +188,10 @@
                   "content": "Si es usuario, permitir hablar en el chat y  agregar productos al carrito.",
                   "id": 1708618269000,
                   "level": "default",
-                  "done": false,
-                  "start": 1708618269000
+                  "done": true,
+                  "start": 1708618269000,
+                  "focus": false,
+                  "end": 1709254083387
                 }
               }
             ],
@@ -197,8 +199,10 @@
               "content": "Generar middleware, para verificar que tipo de usuario es:",
               "id": 1708618227196,
               "level": "default",
-              "done": false,
-              "start": 1708618227196
+              "done": true,
+              "start": 1708618227196,
+              "focus": false,
+              "end": 1709259433057
             }
           },
           {
@@ -211,8 +215,10 @@
                   "content": "current con respuesta específica",
                   "id": 1705071666564,
                   "level": "default",
-                  "done": false,
-                  "start": 1705071666564
+                  "done": true,
+                  "start": 1705071666564,
+                  "focus": false,
+                  "end": 1709254549105
                 }
               },
               {
@@ -222,8 +228,10 @@
                   "content": "una ruta api/sessions con la ruta current adentro. una ruta profile.",
                   "id": 1705071694662,
                   "level": "default",
-                  "done": false,
-                  "start": 1705071694662
+                  "done": true,
+                  "start": 1705071694662,
+                  "focus": false,
+                  "end": 1709254546208
                 }
               },
               {
@@ -238,25 +246,16 @@
                 }
               },
               {
-                "key": 1707434183848,
-                "children": [],
-                "todo": {
-                  "content": "Crear otra vista en '/carts/:cid (cartId) para ver un carrito específico, con los productos de ese carrito",
-                  "id": 1707434183848,
-                  "level": "default",
-                  "done": false,
-                  "start": 1707434183848
-                }
-              },
-              {
                 "key": 1708617354184,
                 "children": [],
                 "todo": {
                   "content": "Modificar la ruta current, para que la misma solo muestre datos no sensibles del usuario, esto es con DTO",
                   "id": 1708617354184,
                   "level": "default",
-                  "done": false,
-                  "start": 1708617354184
+                  "done": true,
+                  "start": 1708617354184,
+                  "focus": false,
+                  "end": 1709355784710
                 }
               }
             ],
@@ -301,6 +300,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1709059743503"
+    "version": "1709355812280"
   }
 }

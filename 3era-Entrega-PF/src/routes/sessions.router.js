@@ -7,10 +7,10 @@ import { verifyToken } from "../middlewares/verifyToken.js";
 
 const router = Router();
 
-router.post('/current',verifyToken, sessionController.profileResponse);
+router.get('/current',verifyToken, sessionController.profileResponse);
 //acá tiene que ir el método necesario para mostrar los datos del usuario, una vez sea validado el token
 
-router.get('/profile', (req, res) => {
+/*router.get('/profile', (req, res) => {
     res.render('profile', { user })
-});
+});*/
 export default router;

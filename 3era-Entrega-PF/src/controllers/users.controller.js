@@ -35,7 +35,7 @@ class UserController extends Controllers {
                 req.session.passport.user = userOk;
                 req.session.passport.email = email;
                 req.session.passport.password = password;
-                //console.log('console req.session', req.session)
+                //console.log('console req.session', userOk)
                 //console.log('console req.session.user:', req.session.passport.user)
                 //console.log('console req.session.email:', req.session.passport.user.email)
                 //console.log('console req.session.password:', req.session.passport.user.password)

@@ -14,11 +14,11 @@ class SessionController extends Controllers {
             //console.log('consola req.user en sessions controller:', req.user)
             const userLog = req.session.passport.user;
             const id = userLog._id
-            console.log('id buscado de userLog', id)
+            //console.log('id buscado de userLog', id)
             const user = await userRepository.getUserById(id);
-            console.log('user de dto en sessions.controller', user)
-            req.session.passport.dto = user
-            res.json(user)
+            //console.log('user de dto en sessions.controller', user);
+            req.session.passport.dto = user;
+            res.json(user);
             //res.render('profile', {user: user});
             //return user
         } catch (error) {

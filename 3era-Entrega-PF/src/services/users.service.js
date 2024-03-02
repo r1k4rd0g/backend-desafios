@@ -83,12 +83,3 @@ class UserService extends Services {
 const usersServices = new UserService(persistence.userDao);
 export default usersServices;
 
-/*export const getById = async (id)=>{
-    try {
-        const userSearch = await userDao.searchById(id);
-        if(!userSearch) return false, console.log(`usuario no encontrado en user.service con ${id}`);
-        else return userSearch
-    } catch (error) {
-        console.log(`error al buscar el usuario con datos: ${id}, msg: ${error}, en users.service`)
-    }
-}*/

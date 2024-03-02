@@ -14,7 +14,7 @@ router.get('/home', (req, res)=>{
 router.get('/productlist', productController.getAllSimple);
 
 router.get('/productlist', (req, res)=>{
-    res.render('productlist')
+    res.render('productlist', { user: req.session.passport.user })
 })
 
 router.get('/register', (req, res)=>{

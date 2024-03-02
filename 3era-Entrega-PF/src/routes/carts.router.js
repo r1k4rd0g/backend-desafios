@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import cartController from '../controllers/carts.controller.js';
+import { verifyUser } from '../middlewares/verifyRole.js';
 
 const router = Router();
 
@@ -15,7 +16,7 @@ router.get('/:cid', cartController.getById);
 //crea un carrito:
 router.post('/', cartController.create);
 
-router.post('/:cid/product/:pid', cartController.saveProductToCart);
+router.post('/:cid/product/:pid', verifyUser, cartController.saveProductToCart);
 
 //elimina el carrito por id seleccionado.
 router.delete('/:cid', cartController.removeCartById);

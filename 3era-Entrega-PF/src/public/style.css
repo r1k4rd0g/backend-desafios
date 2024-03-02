@@ -34,6 +34,17 @@
     background-color: rgb(105, 105, 105, 0.2);
 
 }
+.cartInfo{
+    margin: auto;
+    width: 75%;
+    height: auto;
+    padding: 2px;
+    background-color: rgba(215, 224, 175, 0.2);
+    border-radius: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 .form{
     display: flex;
     flex-direction: column;
