@@ -1,0 +1,151 @@
+{
+  "todotree": {
+    "tree": [
+      {
+        "key": 1705071602838,
+        "children": [
+          {
+            "key": 1705071659610,
+            "children": [
+              {
+                "key": 1707434175882,
+                "children": [],
+                "todo": {
+                  "content": "Crear vista del views '/products' para visualizar los productos con su respectiva paginación",
+                  "id": 1707434175882,
+                  "level": "default",
+                  "done": false,
+                  "start": 1707434175882
+                }
+              }
+            ],
+            "todo": {
+              "content": "Me queda por resolver de desafios o entregas pasadas:",
+              "id": 1705071659610,
+              "level": "default",
+              "done": false,
+              "start": 1705071659610
+            }
+          },
+          {
+            "key": 1709414382420,
+            "children": [
+              {
+                "key": 1709414410623,
+                "children": [],
+                "todo": {
+                  "content": "Debe realizarse en una endpoind /mockingproducts",
+                  "id": 1709414410623,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709414410623
+                }
+              },
+              {
+                "key": 1709414433664,
+                "children": [],
+                "todo": {
+                  "content": "Debe generar y entregar 100 productos",
+                  "id": 1709414433664,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709414433664
+                }
+              }
+            ],
+            "todo": {
+              "content": "Generar un módulo Mocking para el servidor",
+              "id": 1709414382420,
+              "level": "default",
+              "done": false,
+              "start": 1709414382420
+            }
+          },
+          {
+            "key": 1709414456461,
+            "children": [
+              {
+                "key": 1709414467631,
+                "children": [],
+                "todo": {
+                  "content": "Errores frecuentes al trabajar con  el carrito",
+                  "id": 1709414467631,
+                  "level": "default",
+                  "done": true,
+                  "start": 1709414467631,
+                  "focus": false,
+                  "end": 1709422104442
+                }
+              },
+              {
+                "key": 1709414478047,
+                "children": [],
+                "todo": {
+                  "content": "Errores frecuentes al trabajar con productos",
+                  "id": 1709414478047,
+                  "level": "default",
+                  "done": true,
+                  "start": 1709414478047,
+                  "focus": false,
+                  "end": 1709422106329
+                }
+              }
+            ],
+            "todo": {
+              "content": "Generar un diccionario de errores comunes",
+              "id": 1709414456461,
+              "level": "default",
+              "done": true,
+              "start": 1709414456461,
+              "focus": false,
+              "end": 1709422108970
+            }
+          },
+          {
+            "key": 1709414515955,
+            "children": [],
+            "todo": {
+              "content": "Customizar los errores",
+              "id": 1709414515955,
+              "level": "default",
+              "done": true,
+              "start": 1709414515955,
+              "focus": false,
+              "end": 1709422107864
+            }
+          }
+        ],
+        "todo": {
+          "content": "Para este nuevo desafio:",
+          "id": 1705071602838,
+          "level": "default",
+          "done": false,
+          "start": 1705071602838,
+          "focus": false,
+          "end": 1708886778086
+        }
+      }
+    ],
+    "expandKeys": [
+      1705071588004,
+      1705071602838,
+      1708618310847,
+      1709414382420,
+      1709414410623,
+      1709414456461,
+      1705071659610
+    ],
+    "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
+    "add_mode": "bottom",
+    "virtual": false,
+    "timelines": [],
+    "showLine": false,
+    "playFontSize": 24,
+    "title": "se_pide",
+    "autoSort": false,
+    "showEndTime": false,
+    "simpleMode": false,
+    "lang": "es",
+    "version": "1709422109009"
+  }
+}
