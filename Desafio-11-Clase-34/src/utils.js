@@ -2,6 +2,9 @@ import {dirname} from 'path';
 import { fileURLToPath } from 'url';
 import MongoStore from 'connect-mongo';
 import config from './config/config.js';
+
+
+/************************** ************************************/
 export const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /* ------------------------------------ - ----------------------------------- */

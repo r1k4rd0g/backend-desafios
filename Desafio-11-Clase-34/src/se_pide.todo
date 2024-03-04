@@ -28,96 +28,109 @@
             }
           },
           {
-            "key": 1709414382420,
-            "children": [
-              {
-                "key": 1709414410623,
-                "children": [],
-                "todo": {
-                  "content": "Debe realizarse en una endpoind /mockingproducts",
-                  "id": 1709414410623,
-                  "level": "default",
-                  "done": true,
-                  "start": 1709414410623,
-                  "focus": false,
-                  "end": 1709439374959
-                }
-              },
-              {
-                "key": 1709414433664,
-                "children": [],
-                "todo": {
-                  "content": "Debe generar y entregar 100 productos",
-                  "id": 1709414433664,
-                  "level": "default",
-                  "done": true,
-                  "start": 1709414433664,
-                  "focus": false,
-                  "end": 1709439373347
-                }
-              }
-            ],
-            "todo": {
-              "content": "Generar un módulo Mocking para el servidor",
-              "id": 1709414382420,
-              "level": "default",
-              "done": true,
-              "start": 1709414382420,
-              "focus": false,
-              "end": 1709439376304
-            }
-          },
-          {
-            "key": 1709414456461,
-            "children": [
-              {
-                "key": 1709414467631,
-                "children": [],
-                "todo": {
-                  "content": "Errores frecuentes al trabajar con  el carrito",
-                  "id": 1709414467631,
-                  "level": "default",
-                  "done": true,
-                  "start": 1709414467631,
-                  "focus": false,
-                  "end": 1709422104442
-                }
-              },
-              {
-                "key": 1709414478047,
-                "children": [],
-                "todo": {
-                  "content": "Errores frecuentes al trabajar con productos",
-                  "id": 1709414478047,
-                  "level": "default",
-                  "done": true,
-                  "start": 1709414478047,
-                  "focus": false,
-                  "end": 1709422106329
-                }
-              }
-            ],
-            "todo": {
-              "content": "Generar un diccionario de errores comunes",
-              "id": 1709414456461,
-              "level": "default",
-              "done": true,
-              "start": 1709414456461,
-              "focus": false,
-              "end": 1709422108970
-            }
-          },
-          {
-            "key": 1709414515955,
+            "key": 1709506418235,
             "children": [],
             "todo": {
-              "content": "Customizar los errores",
-              "id": 1709414515955,
+              "content": "Definir sistema de niveles con una prioridad determinada : fatal, error, warning, info, http, debug.",
+              "id": 1709506418235,
               "level": "default",
               "done": true,
-              "start": 1709414515955,
+              "start": 1709506418235,
               "focus": false,
-              "end": 1709422107864
+              "end": 1709506703429
+            }
+          },
+          {
+            "key": 1709506460937,
+            "children": [
+              {
+                "key": 1709506484972,
+                "children": [],
+                "todo": {
+                  "content": "Debe loggear a partir del nivel debug y solo muestre en consola",
+                  "id": 1709506484972,
+                  "level": "default",
+                  "done": true,
+                  "start": 1709506484972,
+                  "focus": false,
+                  "end": 1709590851856
+                }
+              }
+            ],
+            "todo": {
+              "content": "Implementar logger desarrollo",
+              "id": 1709506460937,
+              "level": "default",
+              "done": true,
+              "start": 1709506460937,
+              "focus": false,
+              "end": 1709590850820
+            }
+          },
+          {
+            "key": 1709506470398,
+            "children": [
+              {
+                "key": 1709506514576,
+                "children": [],
+                "todo": {
+                  "content": "Debe loggear solo a partir de info y guarde en un archivo errors.log",
+                  "id": 1709506514576,
+                  "level": "default",
+                  "done": true,
+                  "start": 1709506514576,
+                  "focus": false,
+                  "end": 1709590853818
+                }
+              }
+            ],
+            "todo": {
+              "content": "Implementar logger producción",
+              "id": 1709506470398,
+              "level": "default",
+              "done": true,
+              "start": 1709506470398,
+              "focus": false,
+              "end": 1709590852889
+            }
+          },
+          {
+            "key": 1709506584328,
+            "children": [],
+            "todo": {
+              "content": "Agregar logs de valor alto en los punto críticos del servidor",
+              "id": 1709506584328,
+              "level": "default",
+              "done": true,
+              "start": 1709506584328,
+              "focus": false,
+              "end": 1709590855302
+            }
+          },
+          {
+            "key": 1709506614297,
+            "children": [],
+            "todo": {
+              "content": "Modifcar console.log por winston",
+              "id": 1709506614297,
+              "level": "default",
+              "done": true,
+              "start": 1709506614297,
+              "focus": false,
+              "end": 1709590857501
+            }
+          },
+          {
+            "key": 1709506632215,
+            "children": [],
+            "todo": {
+              "content": "Crear un endpoint /loggerTest que permita probar los logs.",
+              "id": 1709506632215,
+              "level": "default",
+              "done": true,
+              "start": 1709506632215,
+              "focus": false,
+              "end": 1709590858275
             }
           }
         ],
@@ -136,10 +149,9 @@
       1705071588004,
       1705071602838,
       1708618310847,
-      1709414382420,
       1709414410623,
-      1709414456461,
-      1705071659610
+      1709506460937,
+      1709506470398
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -152,6 +164,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1709439376337"
+    "version": "1709590858307"
   }
 }

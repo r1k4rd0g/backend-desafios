@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import config from '../../config/config.js';
 
 /*** importamos la conexión al servidor de MongoDB */
 import { ConnectMongoDB } from '../../config/connection.js';
@@ -21,7 +21,7 @@ let userDao;
 let productDao;
 let msgDao;
 let ticketDao;
-const persistence = process.env.PERSISTENCE
+const persistence = config.PERSISTENCE
 
 //su ejecución es mediante el comando node app.js mongo o la base de datos que a la que se desee conectar ----> /
 //let persistence = process.argv[2]

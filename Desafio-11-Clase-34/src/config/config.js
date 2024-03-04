@@ -6,5 +6,6 @@ export default {
     PERSISTENCE:process.env.PERSISTENCE,
     SECRET_KEY_JWT:process.env.SECRET_KEY_JWT,
     clientID : process.env.CLIENTID,
-    clientSecret : process.env.CLIENTSECRET
+    clientSecret : process.env.CLIENTSECRET,
+    NODE_ENV: process.env.NODE_ENV
 }

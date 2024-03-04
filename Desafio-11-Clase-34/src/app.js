@@ -13,6 +13,7 @@ import session  from 'express-session';
 import passport from 'passport';
 import config from './config/config.js';
 import {mongoStoreOptions} from './utils.js'
+import logger from './utils/logger/logger.winston.js';
 
 
 const app = express();
@@ -62,7 +63,7 @@ socketServer.on('connection', async (socket)=>{
             socketServer.emit('products', products);
         } catch (error) {
             socket.emit('deleteProductError', {errorMessage: error.message});
-            console.error(error.message);
+            logger.error(error.message);
         }
     })
 })

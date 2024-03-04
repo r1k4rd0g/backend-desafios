@@ -2,6 +2,7 @@
 import usersServices from "../services/users.service.js";
 import userRepository from "../persistence/repository/user.repository.js";
 import Controllers from "./class.controller.js";
+import logger from  '../utils/logger/logger.winston.js'
 
 class SessionController extends Controllers {
     constructor(){
@@ -11,17 +12,18 @@ class SessionController extends Controllers {
 
     profileResponse = async (req, res, next) =>{
         try {
-            //console.log('consola req.user en sessions controller:', req.user)
+            logger.info('consola req.user en sessions controller:'+ req.user)
             const userLog = req.session.passport.user;
             const id = userLog._id
-            //console.log('id buscado de userLog', id)
+            logger.debug('id buscado de userLog'+ id)
             const user = await userRepository.getUserById(id);
-            //console.log('user de dto en sessions.controller', user);
+            logger.info('user de dto en sessions.controller'+ user);
             req.session.passport.dto = user;
             res.json(user);
             //res.render('profile', {user: user});
             //return user
         } catch (error) {
+            logger.error('Entró al catch en profileResponse'+ error)
             next (error);
         }
     }
@@ -31,3 +33,5 @@ class SessionController extends Controllers {
 
 const sessionController = new SessionController();
 export default sessionController
+
+

@@ -1,4 +1,5 @@
 import { createResponse } from '../utils.js';
+import logger from '../utils/logger/logger.winston.js';
 
 export default class Controllers {
     constructor(service) {
@@ -10,6 +11,7 @@ export default class Controllers {
             const items = await this.service.getAll();
             createResponse(res, 200, items)
         } catch (error) {
+            logger.error('Entró al catch en class.controller getAll' + error)
             next(error)
         }
     }
@@ -26,6 +28,7 @@ export default class Controllers {
             } else {
                 createResponse (res, 200, item)};
         } catch (error) {
+            logger.error('Entró al catch en class.controller getById' + error)
             next(error)
         }
     }
@@ -40,6 +43,7 @@ export default class Controllers {
                 createResponse(res, 201, newItem)
             }
         } catch (error) {
+            logger.error('Entró al catch en class.controller create' + error)
             next(error)
         }
     }
@@ -57,6 +61,7 @@ export default class Controllers {
                     createResponse(res, 200, itemUpdated)
                 }
         } catch (error) {
+            logger.error('Entró al catch en class.controller update' + error)
             next(error)
         }
     }
@@ -74,6 +79,7 @@ export default class Controllers {
                 createResponse(res, 200, itemDelete);
             }
         } catch (error) {
+            logger.error('Entró al catch en class.controller delete' + error)
             next(error)
         }
     }

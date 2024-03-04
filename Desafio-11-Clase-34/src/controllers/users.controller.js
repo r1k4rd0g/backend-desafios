@@ -5,6 +5,7 @@ import usersServices from '../services/users.service.js';
 
 import { generateToken } from "../jwt/auth.js";
 
+import logger from '../utils/logger/logger.winston.js'
 
 class UserController extends Controllers {
     constructor() {
@@ -13,20 +14,21 @@ class UserController extends Controllers {
     register = async (req, res, next) => {
         try {
             const userData = req.body
-            console.log('consola register en controller', userData);
+            logger.info('user.controller - register - userData: '+ userData);
             const user = await usersServices.createUser(userData)
             if (user) res.redirect("/home");
             else res.redirect("/registererror")
         } catch (error) {
+            logger.error('Entró al catch en users.controller de register'+ error)
             next(error);
         }
     }
     loginResponse = async (req, res, next) => {
         try {
             const id = req.session.passport.user;
-            //console.log('id de passport users.controllers', id)
+            logger.info('users.controllers - loginResponse id de req.session: ' + id)
             const userOk = await usersServices.getById(id);
-            //console.log('consola de loginResponse con dato userOk:', userOk)
+            logger.info('consola de loginResponse con dato userOk:' + userOk)
             const { email, password } = userOk;
             const token = generateToken(userOk);
             //console.log('token generado en loginResponse userController',token, typeof token);
@@ -46,6 +48,7 @@ class UserController extends Controllers {
                 //.redirect("/productlist");
             } else res.redirect("/errorlogin");
         } catch (error) {
+            logger.error('Entró al catch en users.controller de loginResponse' + error)
             next(error)
         }
     }
@@ -53,13 +56,14 @@ class UserController extends Controllers {
         try {
             req.session.destroy((err) => {
                 if (err) {
-                    console.error('Error al cerrar sesión:', err);
+                    logger.fatal('Error en user.controller - logout if(error):' + err);
                     return res.redirect('/error');
                 }
                 res.clearCookie('connect.sid');
                 res.redirect("/home");
             });
         } catch (error) {
+            logger.error('Entró al catch en users.controller de logout' + error)
             next(error)
         }
     };

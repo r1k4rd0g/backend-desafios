@@ -4,6 +4,7 @@ import Controllers from "./class.controller.js";
 import productService from "../services/product.service.js";
 import socketServer from '../app.js';
 import httpResponse from "../utils/http.response.js";
+import logger from "../utils/logger/logger.winston.js";
 
 class ProductController extends Controllers {
     constructor() {
@@ -26,9 +27,9 @@ class ProductController extends Controllers {
                 category || '',
                 exist || '',
                 priceFilter);
-            //        console.log(typeof(pageSize),'console 1: pageSize',limit)
-            //        console.log('console 2:',searchQuery);
-            //        console.log(typeof(sortOrder),'console 3:',sortOrder);
+            logger.info(typeof(pageSize) + 'console 1: pageSize' + limit)
+            //logger.info('console 2:' + searchQuery);
+            //logger.info(typeof(sortOrder) + 'console 3:'+ sortOrder);
             const prevPage = response.prevPage;
             const nextPage = response.nextPage;
             const prevLink = response.hasPrevPage ? `http://localhost:8088/api/products/?page=${prevPage}&limit=${pageSize}&query=${searchQuery}&sort=${sortOrder}` : null;
@@ -48,7 +49,7 @@ class ProductController extends Controllers {
                 }
             })
         } catch (error) {
-            //const status = 'error';
+            logger.error('Entró al catch en products.controller de getAllCtr' + error)
             next(error);
         }
     };
@@ -56,7 +57,6 @@ class ProductController extends Controllers {
         try {
             const { pid } = req.params;
             const updateValues = req.body;
-            //const productUpdate = await serviceProduct.update(Number(pid), updateValues);
             const productUpdate = await productService.update(pid, updateValues);
             if (!productUpdate) {
                 return res.status(400).json({ messages: `error al actualizar el producto con id ${pid}` })
@@ -64,6 +64,7 @@ class ProductController extends Controllers {
                 return res.status(200).json(productUpdate)
             };
         } catch (error) {
+            logger.error('Entró al catch en products.controller de update' + error)
             next(error);
         }
     }
@@ -76,6 +77,7 @@ class ProductController extends Controllers {
                 return res.status(400).json({ messages: `error al eliminar el producto con id: ${pid}` })
             } else { return res.status(200).json(deletedProduct); }
         } catch (error) {
+            logger.error('Entró al catch en products.controller de remove'+ error)
             next(error);
         }
     }
@@ -96,10 +98,11 @@ class ProductController extends Controllers {
                 }
             })
             const userLog = req.session.passport.user
-            //console.log('userLog de products controller', userLog)
-            //console.log('consola linea 100', productsDetail)
+            logger.info('userLog de products controller' + userLog)
+            logger.info('consola linea 100' + productsDetail)
             res.render('productlist', { products: productsDetail, user: userLog },)
         } catch (error) {
+            logger.error('Entró al catch en products.controller de getAllSimple' + error)
             next(error)
         }
     }
@@ -109,6 +112,7 @@ class ProductController extends Controllers {
             const products = await productService.getAllSimple();
             res.render('realtimeproducts', { products });
         } catch (error) {
+            logger.error('Entró al catch en products.controller de getProductsRealTime' + error)
             next(error)
         }
     }
@@ -117,11 +121,12 @@ class ProductController extends Controllers {
             const { Title, Description, Code, Price, Stock, Category, Thumbnail } = req.body;
             const newProduct = { Title, Description, Code, Price, Stock, Category, Thumbnail }
             const productCreated = await productService.create(newProduct);
-            //console.log(productCreated)
+            logger.info('productCreated en products.controller: ' + productCreated)
             const allProducts = await productService.getAllSimple()
             socketServer.emit('products', allProducts)
             return res.status(201).json(productCreated);
         } catch (error) {
+            logger.error('Entró al catch en products.controller de createProductsRealTime' + error)
             next(error);
         }
     }
@@ -132,15 +137,17 @@ class ProductController extends Controllers {
             const response = await productService.createMockingProducts(cant);
             return httpResponse.Ok(res, response)
         } catch (error) {
+            logger.error('Entró al catch en products.controller de createProductsMocking' + error)
             next(error);
         }
     }
     getProductsMocking = async (req, res, next) =>{
         try {
             const response = await productService.getMockingProducts();
-            console.log(response)
+            logger.info('products.controller - getProductsMocking response: ' + response)
             return httpResponse.Ok(res,response)
         } catch (error) {
+            logger.error('Entró al catch en products.controller de getProductsMocking'+ error)
             next (error);
         }
     }

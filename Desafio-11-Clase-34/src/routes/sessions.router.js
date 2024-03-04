@@ -1,6 +1,4 @@
 import { Router } from "express";
-import userController from "../controllers/users.controller.js";
-import passport from "passport";
 import sessionController from '../controllers/sessions.controller.js'
 import { verifyToken } from "../middlewares/verifyToken.js";
 
