@@ -2,6 +2,7 @@ import Services from "./class.services.js";
 import persistence from '../persistence/daos/factory.js';
 import { errorsDictionary } from "../utils/errors.dictionary.js";
 import { v4 as uuidv4 } from 'uuid';
+import logger from '../utils/logger/logger.winston.js'
 
 
 class TicketService extends Services {
@@ -13,7 +14,7 @@ class TicketService extends Services {
     }
     generateTicket = async (cid, userData) => {
         try {
-            //console.log('cart id en ticket.services', cid) //ok
+            logger.info('cart id en ticket.services' + cid) //ok
             const cart = await this.cartDao.getById(cid)
             //console.log('cart que viene del dao buscado:', cart) //ok
             let amountAcc = 0;
@@ -41,6 +42,7 @@ class TicketService extends Services {
             //console.log('ticket creado?:', newTicket)d
             return newTicket;
         } catch (error) {
+            logger.error('entró en el catch - ticket.service - generateTicket: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_CREATE);
         }
     }

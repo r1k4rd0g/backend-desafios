@@ -1,6 +1,7 @@
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import usersServices from '../services/users.service.js';
+import logger from '../utils/logger/logger.winston.js'
 
 const strategyOptions = {
     usernameField: 'email',
@@ -18,7 +19,7 @@ const register = async (req, email, password, done) => {
         const newUser = await usersServices.createUser(req.body);
         return done(null, newUser);
     } catch (error) {
-        console.log(error);
+        logger.error('Entró en catch de local-strategy -> register' + error);
         return done(null, false)
     }
 };
@@ -35,7 +36,7 @@ const login = async (req, email, password, done) => {
         //console.log('Login de local strategy', userLogin);
         return done(null, userLogin);
     } catch (error) {
-        console.log(error);
+        logger.error('Entró en catch de local-strategy -> login' + error);
         throw new Error(error.message)
     }
 };

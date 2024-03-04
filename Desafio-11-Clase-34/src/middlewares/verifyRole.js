@@ -2,19 +2,20 @@
 import httpResponse from "../utils/http.response.js"
 //importamos diccionario de errores:
 import { errorsDictionary } from "../utils/errors.dictionary.js"
+import logger from '../utils/logger/logger.winston.js'
 
 export const verifyAdmin = (req, res, next)=>{
     try {
         const user = req.session.passport.user
-        console.log('rol de verifyAdmin', user)
+        logger.info('rol de verifyAdmin' + user)
         const role = user.role
-        console.log(role)
+        logger.info(role)
     if (role === 'admin'){
         next()
     } else  //res.status(403).json ({message: 'Acceso denegado, no tiene permisos para entrar'})
         return httpResponse.Unauthorized(res, errorsDictionary.ERROR_VERIFY_ROLE);
     } catch (error) {
-        console.log('acá no podría caer')
+        logger.error('entró en el catch de verifyRole - verifyAdmin')
         throw new Error(errorsDictionary.ERROR_VERIFY_ROLE)
     }
 }
@@ -27,6 +28,7 @@ export const verifyUser = (req, res, next)=>{
     } else //res.status(403).json ({message: 'Acceso denegado, no tiene permisos para entrar'})
         return httpResponse.Unauthorized(res, errorsDictionary.ERROR_VERIFY_ROLE);
     } catch (error) {
+        logger.error('entró en el catch de verifyRole - verifyUser')
         throw new Error(errorsDictionary.ERROR_VERIFY_ROLE)
     }
 }

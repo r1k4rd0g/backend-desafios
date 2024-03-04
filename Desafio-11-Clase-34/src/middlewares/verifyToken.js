@@ -1,13 +1,13 @@
 import jwt from 'jsonwebtoken';
-import userController from '../controllers/users.controller.js';
 import 'dotenv/config'
 import usersServices from '../services/users.service.js';
+import logger from '../utils/logger/logger.winston.js'
 
 const SECRET_KEY = process.env.SECRET_KEY_JWT;
 
 export const verifyToken = async (req, res, next) => {
     const authHeader = req.header.Authorization || req.header('Authorization') || req.cookies.token || req.get('Authorization')
-    console.log('verifyToken Authorization header', authHeader, typeof authHeader);
+    logger.info('verifyToken Authorization header' + authHeader + typeof authHeader);
     if (!authHeader || !authHeader.startsWith("Bearer")) {
         return res.status(401).json({ msg: "Authorization header missing" });
     }
@@ -23,7 +23,7 @@ export const verifyToken = async (req, res, next) => {
         //console.log('consola verifyToken user:', user)
         next();
     } catch (error) {
-        console.log(error, 'consola de error de jwt archivo verifyToken');
+        logger.error('entró en el catch de verifyToken' + error);
         return res.status(401).json({ msg: "Invalid token" });
     }
 };

@@ -5,6 +5,7 @@ import persistence from '../persistence/daos/factory.js';
 import { errorsDictionary } from '../utils/errors.dictionary.js';
 import { __dirname } from '../utils.js';
 import { generateProducts } from '../utils/faker/products.faker.js';
+import logger from '../utils/logger/logger.winston.js'
 
 
 
@@ -69,6 +70,7 @@ class ProductService extends Services {
             const product = await this.dao.getAllPaginate(pageNumber, pageSize, filter, sortOptions);
             return product
         } catch (error) {
+            logger.error('entró en el catch - product.service - getAllPaginate: ' + error)
             throw new Error(error.message, errorsDictionary.ERROR_TO_GET);
         }
     };
@@ -77,6 +79,7 @@ class ProductService extends Services {
             const products = await this.dao.getAllSimple()
             return products;
         } catch (error) {
+            logger.error('entró en el catch - product.service - getAllSimple: ' + error)
             throw new Error(error.message, errorsDictionary.ERROR_TO_GET);
         }
     };
@@ -91,6 +94,7 @@ class ProductService extends Services {
             const products = await this.dao.create(productsArray);
             return products;
         } catch (error) {
+            logger.error('entró en el catch - product.service - createMockingProducts: ' + error)
             throw new Error(error.message, errorsDictionary.ERROR_TO_CREATE);
         }
     }
@@ -100,6 +104,7 @@ class ProductService extends Services {
             console.log(products)
             return products;
         } catch (error) {
+            logger.error('entró en el catch - product.service - getMockingProducts: ' + error)
             throw new Error(error.message, errorsDictionary.ERROR_TO_GET);
         }
     }

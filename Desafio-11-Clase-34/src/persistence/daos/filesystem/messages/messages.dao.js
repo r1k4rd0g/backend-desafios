@@ -1,5 +1,6 @@
 
 import fs from 'fs';
+import logger from '../../../../utils/logger/logger.winston.js'
 
 export default class MessageFSDao {
     constructor(path) {
@@ -17,7 +18,7 @@ export default class MessageFSDao {
             await fs.promises.writeFile(this.path, JSON.stringify(msgFile));
             return msg;
         } catch (error) {
-            console.log(error);
+            logger.error('Entró en catch de fs - messages.dao - createMsg' + error);
         }
     }
 
@@ -40,17 +41,23 @@ export default class MessageFSDao {
                 return []
             }
         } catch (error) {
-            console.log(error);
+            logger.error('Entró en catch de fs - messages.dao - getAll' + error);
+            throw new Error (error)
         }
     }
 
     async getById(id) {
-        const msgsFile = await this.getAll()
-        const msg = msgsFile.find((sms) => sms.id === id)
-        if (msg) {
-            return msg
+        try {
+            const msgsFile = await this.getAll()
+            const msg = msgsFile.find((sms) => sms.id === id)
+            if (msg) {
+                return msg
+            }
+            return false
+        } catch (error) {
+            logger.error('Entró en catch de fs - messages.dao - getById' + error);
+            throw new Error (error)
         }
-        return false
     }
 
     async updateMsg(obj, id) {
@@ -64,23 +71,34 @@ export default class MessageFSDao {
             }
             await fs.promises.writeFile(this.path, JSON.stringify(msgsFile));
         } catch (error) {
-            console.log(error);
+            logger.error('Entró en catch de fs - messages.dao - createMsg' + error);
+            throw new Error (error)
         }
     }
 
     async deleteMsg(id) {
-        const msgsFile = await this.getAll()
-        if (msgsFile.length > 0) {
-            const newArray = msgsFile.filter(m => m.id !== id)
-            await fs.promises.writeFile(this.path, JSON.stringify(newArray))
-        } else {
-            throw new Error(`Msg not found`)
+        try {
+            const msgsFile = await this.getAll()
+            if (msgsFile.length > 0) {
+                const newArray = msgsFile.filter(m => m.id !== id)
+                await fs.promises.writeFile(this.path, JSON.stringify(newArray))
+            } else {
+                throw new Error(`Msg not found`)
+            }
+        } catch (error) {
+            logger.error('Entró en catch de fs - messages.dao - deleteMsg' + error);
+            throw new Error (error)
         }
     }
 
     async deleteMsgs() {
-        if (fs.existsSync(this.path)) {
-            await fs.promises.unlink(this.path)
+        try {
+            if (fs.existsSync(this.path)) {
+                await fs.promises.unlink(this.path)
+            }
+        } catch (error) {
+            logger.error('Entró en catch de fs - messages.dao - deleteMsgs' + error);
+            throw new Error (error)
         }
     }
 }

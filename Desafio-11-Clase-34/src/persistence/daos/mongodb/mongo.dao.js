@@ -1,5 +1,7 @@
 // creamos el CRUD que se utilizará en todas las clases.
 import { errorsDictionary } from "../../../utils/errors.dictionary.js";
+import logger from '../../../utils/logger/logger.winston.js'
+
 export default class MongoDao {
     constructor(model) {
         this.model = model; //la variable this.model, será igual al modelo que llegue por el constructor.
@@ -11,6 +13,7 @@ export default class MongoDao {
             const response = await this.model.find({});
             return response;
         } catch (error) {
+            logger.error('entró en el catch mongodb - mongo.dao - getAll: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_GET);
         }
     }
@@ -21,6 +24,7 @@ export default class MongoDao {
             const response = await this.model.findById(id);
             return response;
         } catch (error) {
+            logger.error('entró en el catch mongodb - mongo.dao - getById: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_FIND);
         }
     }
@@ -31,6 +35,7 @@ export default class MongoDao {
             //console.log('consola create de mongo.dao', response)
             return response;
         } catch (error) {
+            logger.error('entró en el catch mongodb - mongo.dao - create: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_CREATE);
         }
     }
@@ -40,6 +45,7 @@ export default class MongoDao {
             await this.model.updateOne({_id: id}, obj); //actualiza una solo.
             return obj
         } catch (error) {
+            logger.error('entró en el catch mongodb - mongo.dao - update: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_UPDATE);
         }
     }
@@ -49,6 +55,7 @@ export default class MongoDao {
             const response = await this.model.findByIdAndDelete(id);
             return response;
         } catch (error) {
+            logger.error('entró en el catch mongodb - mongo.dao - delete: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_REMOVE);
         }
     }

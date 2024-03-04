@@ -21,6 +21,7 @@ export default class ProductMongoDao extends MongoDao{
             const response = await ProductModel.paginate(filter, options);
             return response;
         } catch (error) {
+            logger.error('entró en el catch mongodb - products.dao - getAllPaginate: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_GET)
         }
     };
@@ -28,6 +29,7 @@ export default class ProductMongoDao extends MongoDao{
         try {
             return await ProductModel.find({});
         } catch (error) {
+            logger.error('entró en el catch mongodb - products.dao - getAllSimple: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_GET)
         }
     }

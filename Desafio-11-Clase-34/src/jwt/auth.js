@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import logger from '../utils/logger/logger.winston.js'
 
 const SECRET_KEY_JWT = process.env.SECRET_KEY_JWT;
 
@@ -13,7 +14,7 @@ export const generateToken = (user) => {
         });
         return token;
     } catch (error) {
-        console.log('error al general token en auth.js', error);
+        logger.error('error al general token en auth.js' + error);
         throw new Error('error al generar token');
     }
 }

@@ -6,6 +6,7 @@ import persistence from '../persistence/daos/factory.js';
 //importamos utils:
 import { createHash, isValidPass } from "../utils.js";
 import { errorsDictionary } from '../utils/errors.dictionary.js';
+import logger from '../utils/logger/logger.winston.js'
 
 
 
@@ -42,6 +43,7 @@ class UserService extends Services {
             //console.log('consola de users.services const createUser:', newUser);
             return newUser;
         } catch (error) {
+            logger.error('entró en el catch - users.service - createUser: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_CREATE);
         }
     }
@@ -64,6 +66,7 @@ class UserService extends Services {
             }
             return false;
         } catch (error) {
+            logger.error('entró en el catch - users.service - login: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_DEFAULT);
         }
     }
@@ -75,6 +78,7 @@ class UserService extends Services {
             //console.log(`usuario no encontrado en user.service con ${email}`);
             else return userSearch
         } catch (error) {
+            logger.error('entró en el catch - users.service - getByEmail: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_GET);
         }
     }

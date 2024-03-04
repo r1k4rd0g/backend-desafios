@@ -2,6 +2,7 @@ import { Strategy as GithubStrategy } from "passport-github2";
 import passport from "passport";
 import usersServices from '../services/users.service.js';
 import config from '../config/config.js';
+import logger from '../utils/logger/logger.winston.js'
 
 
 
@@ -24,45 +25,6 @@ const strategyLogin = {
     callbackURL: "http://localhost:8088/api/users/github-login", //tenemos que tener creado el endpoint de esta url.
 };
 
-/*const registerOrLogin = async (accessToken, refreshToken, profile, done) => {
-    try{
-        //console.log(profile); //nota: de acá veremos los datos que vienen y podremos usar
-        const email = profile._json.email; //este dato se saca de la cuenta de github
-        //console.log(typeof email, 'verifico email')
-        const userExist = await usersServices.getByEmail(email);
-        const fullName = profile._json.name;
-        const nameParts = fullName.split(' ');
-        const firstName = nameParts[0];
-        const lastName = nameParts.slice(1).join(' ');
-        //console.log(typeof firstName)
-        if (userExist){
-            const userData = {
-                email,
-                password: "1234",
-            }
-            const userLogin = await usersServices.login(userData)
-            return done(null, userLogin, {profile, firstName, lastName});
-        }
-        else {
-            const userData = {
-                first_name: firstName,
-                last_name: lastName,
-                email,
-                password: "1234",
-                isGithub: true,
-                //Image: profile._json.avatar_url,
-            }
-            const userCreated = await usersServices.createUser(userData);
-            //console.log('consola de strategy', userCreated);
-            return done(null, userCreated)
-            }
-        }
-    catch (error) {
-        console.error('Error en la autenticación:', error);
-        return done(error);
-    };
-};*/
-
 const registerGithub = async (accessToken, refreshToken, profile, done) => {
     try {
         // Extraer los datos necesarios del perfil de GitHub
@@ -83,7 +45,7 @@ const registerGithub = async (accessToken, refreshToken, profile, done) => {
         const userCreated = await usersServices.createUser(userData);
         return done(null, userCreated);
     } catch (error) {
-        console.error('Error en el registro:', error);
+        logger.error('entró en catch de github-strategy -> registerGithub'+ error);
         return (error);
     }
 };
@@ -95,7 +57,7 @@ const loginGithub = async (accessToken, refreshToken, profile, done)=>{
     const userLogin = await usersServices.login(userData);
     return done(null, userLogin);
     } catch (error) {
-        console.error('Error en el login:', error);
+        logger.error('entró en catch de github-strategy -> loginGithub'+ error);
         return (error);
     }
 }

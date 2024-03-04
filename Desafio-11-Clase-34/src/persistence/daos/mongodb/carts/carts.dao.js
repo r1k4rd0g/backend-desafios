@@ -23,6 +23,7 @@ export default class CartMongoDao extends MongoDao {
             return cart;
             //return await CartModel.findByIdAndUpdate();
         } catch (error) {
+            logger.error('entró en el catch mongodb - carts.dao - saveProductToCart: ' + error)
             throw new Error(error.message, errorsDictionary.ERROR_ADD_TO_CART);
         }
     }
@@ -39,6 +40,7 @@ export default class CartMongoDao extends MongoDao {
             //console.log('Estado del carrito después de eliminar el producto:', updatedCart);
             return updatedCart;
         } catch (error) {
+            logger.error('entró en el catch mongodb - carts.dao - removeProductById: ' + error)
             throw new Error(error.message, errorsDictionary.ERROR_TO_REMOVE);
         }
     }
@@ -61,6 +63,7 @@ export default class CartMongoDao extends MongoDao {
             //console.log('Carrito vaciado:', updatedCart);
             return updatedCart;
         } catch (error) {
+            logger.error('entró en el catch mongodb - carts.dao - clearCart: ' + error)
             throw new Error(error.message, errorsDictionary.ERROR_TO_REMOVE);
         }
     }

@@ -47,16 +47,16 @@ app.use('/', mainRouter.getRouter());
 //app.use('api/sessions', sessionRouter); el endpoint para llamar a las diferentes maneras de login.
 
 const PORT = config.PORT || 8080;
-const httpServer = app.listen(PORT, ()=> console.log(`🚀 Server ok en el puerto ${PORT}`));
+const httpServer = app.listen(PORT, ()=> logger.info(`🚀 Server ok en el puerto ${PORT}`));
 
 const socketServer = new Server(httpServer);
 
 socketServer.on('connection', async (socket)=>{
-    console.log('🟢 ¡New Connection', socket.id);
+    logger.info('🟢 ¡New Connection' + socket.id);
     socket.on('deleteProduct', async (data)=>{
         try {
             const {pid} = data;
-            console.log('consola 1 app.js:', typeof pid);
+            logger.info('consola 1 app.js:' + typeof pid);
             await controllerProducts.remove(pid);
             const products = await controllerProducts.getAllSimple();
             //console.log('consola 3 app.js:', products);

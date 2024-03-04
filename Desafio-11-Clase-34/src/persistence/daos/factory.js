@@ -7,6 +7,7 @@ import CartsDaoFS from './filesystem/carts/carts.dao.js'
 import ProductDaoFS from './filesystem/products/products.dao.js'
 import UserDaoFS from './filesystem/users/users.dao.js';
 import MessageFSDao from './filesystem/messages/messages.dao.js'
+import TicketFSDao from './filesystem/tickets/tickets.dao.js'
 
 /*** importamos los DAO de MongoDB  ****/
 import CartMongoDao from './mongodb/carts/carts.dao.js'
@@ -34,7 +35,7 @@ switch (persistence) {
         productDao = new ProductDaoFS();
         userDao = new  UserDaoFS();
         msgDao = new MessageFSDao();
-        //ticketDao = new TicketFSDao();
+        ticketDao = new TicketFSDao();
         console.log('Persistencia funcionando:', persistence);
         break;
     case "MONGO":

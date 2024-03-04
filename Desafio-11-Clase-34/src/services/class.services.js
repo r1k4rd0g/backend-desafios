@@ -1,4 +1,5 @@
 import { errorsDictionary } from "../utils/errors.dictionary.js";
+import logger from '../utils/logger/logger.winston.js'
 export default class Services {
     constructor(dao){
         this.dao = dao;
@@ -11,6 +12,7 @@ export default class Services {
         try {
             return await this.dao.getAll();
         } catch (error) {
+            logger.error('entró en el catch - class.service - getAll: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_GET);
         }
     };
@@ -23,6 +25,7 @@ export default class Services {
             if(!itemSearch) return false, console.log(`no se encontró item buscado por id ${id}`);
             else return itemSearch;
         } catch (error) {
+            logger.error('entró en el catch - class.service - getById: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_FIND);
         }
     };
@@ -34,6 +37,7 @@ export default class Services {
             //console.log("item no creado, consola create class.service");
             else return newItem;
         } catch (error) {
+            logger.error('entró en el catch - class.service - create: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_CREATE);
         }
     };
@@ -46,6 +50,7 @@ export default class Services {
             //console.log (`item con id: ${id} no encontrado, consola update de class.service`);
             else return itemUpdate = await this.dao.update(id, obj);
         } catch (error) {
+            logger.error('entró en el catch - class.service - update: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_UPDATE);
         }
     };
@@ -57,6 +62,7 @@ export default class Services {
             //console.log(`no se encontró item buscado por id ${id}`);
             else return itemDelete;
         } catch (error) {
+            logger.error('entró en el catch - class.service - delete: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_REMOVE);
         }
     }

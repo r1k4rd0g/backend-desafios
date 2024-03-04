@@ -13,6 +13,7 @@ export default class UserMongoDao extends MongoDao{
             //console.log('consola de users.dao userCreated:', userCreated)
             return userCreated;
         } catch (error) {
+            logger.error('entró en el catch mongodb - users.dao - create: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_CREATE);
         }
     }
@@ -23,6 +24,7 @@ export default class UserMongoDao extends MongoDao{
             //console.log(userFind, 'userFind')
             return userFind;
         } catch (error) {
+            logger.error('entró en el catch mongodb - users.dao - userSearch: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_FIND);
         }
     }
@@ -33,6 +35,7 @@ export default class UserMongoDao extends MongoDao{
             //console.log('consola de users.dao findByEmail: ', userFindByEmail)
             return userFindByEmail
         } catch (error) {
+            logger.error('entró en el catch mongodb - users.dao - searchByEmail: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_FIND);
         }
     }
@@ -40,6 +43,7 @@ export default class UserMongoDao extends MongoDao{
         try {
             return await UserModel.findById(id);
         } catch (error) {
+            logger.error('entró en el catch mongodb - users.dao - searchById: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_FIND);
         }
     }

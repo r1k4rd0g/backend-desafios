@@ -1,5 +1,5 @@
 import persistence from '../persistence/daos/factory.js';
-
+import logger from '../utils/logger/logger.winston.js'
 import Services from './class.services.js';
 import { errorsDictionary } from '../utils/errors.dictionary.js';
 
@@ -22,6 +22,7 @@ class CartService extends Services{
                 //console.log('consola linea 41 cart services', cartUpdate)
             else return cartUpdate
         } catch (error) {
+            logger.error('entró en el catch - carts.service - saveProductToCart: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_ADD_TO_CART);
         }
     };
@@ -33,6 +34,7 @@ class CartService extends Services{
             //console.log(`carrito con id: ${cid}, no encontrado`);
             else return cartRemove;
         } catch (error) {
+            logger.error('entró en el catch - carts.service - removeCartById: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_REMOVE);
         }
     };
@@ -48,6 +50,7 @@ class CartService extends Services{
                 //console.log(`carrito buscado en carts.service con id: ${cid}, no encontrado`);
             else return cartUpdate;
         } catch (error) {
+            logger.error('entró en el catch - carts.service - removeProductById: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_REMOVE);
         }
     }
@@ -59,6 +62,7 @@ class CartService extends Services{
             //console.log(`Carrito con id:${cid}, no encontrado`)
             else return cartToClear
         } catch (error) {
+            logger.error('entró en el catch - carts.service - clearCart: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_DEFAULT);
         }
     }

@@ -1,5 +1,5 @@
 import fs from "fs";
-
+import logger from '../../../../utils/logger/logger.winston.js'
 export default class UserDaoFS {
     constructor(path) {
         this.path = path;
@@ -24,7 +24,8 @@ export default class UserDaoFS {
                 return [];
             }
         } catch (error) {
-            console.log(error);
+            logger.error('Entró en catch de fs - users.dao - getAll' + error);
+            throw new Error (error)
         }
     }
 
@@ -37,7 +38,8 @@ export default class UserDaoFS {
             }
             return false;
         } catch (error) {
-            console.log(error);
+            logger.error('Entró en catch de fs - users.dao - getById' + error);
+            throw new Error (error)
         }
     }
 
@@ -52,7 +54,8 @@ export default class UserDaoFS {
             await fs.promises.writeFile(this.path, JSON.stringify(itemsFile));
             return item;
         } catch (error) {
-            console.log(error);
+            logger.error('Entró en catch de fs - users.dao - create' + error);
+            throw new Error (error)
         }
     }
 
@@ -68,7 +71,8 @@ export default class UserDaoFS {
             }
             await fs.promises.writeFile(this.path, JSON.stringify(itemsFile));
         } catch (error) {
-            console.log(error);
+            logger.error('Entró en catch de fs - users.dao - update' + error);
+            throw new Error (error)
         }
     }
 
@@ -82,7 +86,8 @@ export default class UserDaoFS {
                 throw new Error(`Item id: ${id} not found`);
             }
         } catch (error) {
-            console.log(error);
+            logger.error('Entró en catch de fs - users.dao - delete' + error);
+            throw new Error (error)
         }
     }
     async userSearch({ email, password }) {
@@ -91,7 +96,8 @@ export default class UserDaoFS {
             //console.log(userFind, 'userFind')
             return userFind;
         } catch (error) {
-            throw new Error(`error al buscar el usuario con obj ${email, password}, msg ${error}`);
+            logger.error('Entró en catch de fs - users.dao - userSearch' + error);
+            throw new Error (error)
         }
     }
 
@@ -101,8 +107,8 @@ export default class UserDaoFS {
             //console.log('consola de dao buscando..', userFindByEmail)
             return userFindByEmail
         } catch (error) {
-            console.log(`error al obtener el usuario de email: ${email}, msg: ${error}`);
-            throw new Error(`error al obtener el usuario de email: ${email}, msg: ${error}`)
+            logger.error('Entró en catch de fs - users.dao - searchByEmail' + error);
+            throw new Error (error)
         }
     }
 }

@@ -10,6 +10,7 @@ export default class MsgMongoDao extends MongoDao{
         try {
             return await MsgModel.deleteMany({});
         } catch (error) {
+            logger.error('entró en el catch mongodb - messages.dao - deleteAll: ' + error)
             throw new Error(error.message, errorsDictionary.ERROR_TO_REMOVE);
         }
     }
