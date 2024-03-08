@@ -5,6 +5,7 @@ import productService from "../services/product.service.js";
 import socketServer from '../app.js';
 import httpResponse from "../utils/http.response.js";
 import logger from "../utils/logger/logger.winston.js";
+import productRepository from "../persistence/repository/product.repository.js";
 
 class ProductController extends Controllers {
     constructor() {
@@ -130,28 +131,41 @@ class ProductController extends Controllers {
             next(error);
         }
     }
+    getProductByIdDto = async (req, res, next) =>{
+        try {
+            const {id} = req.params
+            console.log(id)
+            const product = await productRepository.getAllSimpleRepository(id);
+            if (!product) return false;
+            return httpResponse.Ok(res,product)
+        } catch (error) {
+            next(error);
+            }
+        }
     /**generadores faker */
-    createProductsMocking = async (req, res, next) =>{
+    /**generadores faker */
+    /*createProductsMocking = async (req, res, next) =>{
         try {
             const {cant} = req.query
             const response = await productService.createMockingProducts(cant);
             return httpResponse.Ok(res, response)
         } catch (error) {
-            logger.error('Entró al catch en products.controller de createProductsMocking' + error)
             next(error);
         }
-    }
+    }*/
     getProductsMocking = async (req, res, next) =>{
         try {
-            const response = await productService.getMockingProducts();
-            logger.info('products.controller - getProductsMocking response: ' + response)
+            const {cant} = req.body
+            console.log(cant)
+            const response = await productService.getMockingProducts(cant);
+            console.log(response)
             return httpResponse.Ok(res,response)
         } catch (error) {
-            logger.error('Entró al catch en products.controller de getProductsMocking'+ error)
             next (error);
         }
     }
 }
+
 const productController = new ProductController();
 export default productController;
 

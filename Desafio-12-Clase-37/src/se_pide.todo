@@ -1,0 +1,328 @@
+{
+  "todotree": {
+    "tree": [
+      {
+        "key": 1705071602838,
+        "children": [
+          {
+            "key": 1705071659610,
+            "children": [
+              {
+                "key": 1707434175882,
+                "children": [],
+                "todo": {
+                  "content": "Crear vista del views '/products' para visualizar los productos con su respectiva paginación",
+                  "id": 1707434175882,
+                  "level": "default",
+                  "done": false,
+                  "start": 1707434175882
+                }
+              },
+              {
+                "key": 1709849489300,
+                "children": [],
+                "todo": {
+                  "content": "Dtos de productos, aún no se cual",
+                  "id": 1709849489300,
+                  "level": "default",
+                  "done": true,
+                  "start": 1709849489300,
+                  "focus": false,
+                  "end": 1709927934892
+                }
+              },
+              {
+                "key": 1709849516671,
+                "children": [],
+                "todo": {
+                  "content": "Endpoins protegidos por roles",
+                  "id": 1709849516671,
+                  "level": "default",
+                  "done": true,
+                  "start": 1709849516671,
+                  "focus": false,
+                  "end": 1709862142710
+                }
+              },
+              {
+                "key": 1709849529882,
+                "children": [],
+                "todo": {
+                  "content": "mandar un mail cuando se hace el ticket",
+                  "id": 1709849529882,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709849529882
+                }
+              },
+              {
+                "key": 1709849541731,
+                "children": [],
+                "todo": {
+                  "content": "Proteger los carritos",
+                  "id": 1709849541731,
+                  "level": "default",
+                  "done": true,
+                  "start": 1709849541731,
+                  "focus": false,
+                  "end": 1709860031703
+                }
+              },
+              {
+                "key": 1709849549386,
+                "children": [],
+                "todo": {
+                  "content": "sacar del src los json y el node module",
+                  "id": 1709849549386,
+                  "level": "default",
+                  "done": true,
+                  "start": 1709849549386,
+                  "focus": false,
+                  "end": 1709857251339
+                }
+              }
+            ],
+            "todo": {
+              "content": "Me queda por resolver de desafios o entregas pasadas:",
+              "id": 1705071659610,
+              "level": "default",
+              "done": false,
+              "start": 1705071659610
+            }
+          },
+          {
+            "key": 1709754966232,
+            "children": [
+              {
+                "key": 1709754983052,
+                "children": [
+                  {
+                    "key": 1709755009104,
+                    "children": [
+                      {
+                        "key": 1709755059583,
+                        "children": [],
+                        "todo": {
+                          "content": "si expria, debe redirigir a una vista que le permita generar nuevamente el mail, el cual tendrá otro link que expirará en 1 hora",
+                          "id": 1709755059583,
+                          "level": "default",
+                          "done": false,
+                          "start": 1709755059583
+                        }
+                      }
+                    ],
+                    "todo": {
+                      "content": "el link del mail expirará en 1 hora",
+                      "id": 1709755009104,
+                      "level": "default",
+                      "done": false,
+                      "start": 1709755009104
+                    }
+                  },
+                  {
+                    "key": 1709755021120,
+                    "children": [],
+                    "todo": {
+                      "content": "si se escribe la misma contraseña, se debe impedir e indicar que no se puede colocar la misma",
+                      "id": 1709755021120,
+                      "level": "default",
+                      "done": false,
+                      "start": 1709755021120
+                    }
+                  }
+                ],
+                "todo": {
+                  "content": "se debe enviar por mail, y redericcione a una pagina para re establecer la contraseña",
+                  "id": 1709754983052,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709754983052
+                }
+              }
+            ],
+            "todo": {
+              "content": "Sistema de recuperación de contraseña",
+              "id": 1709754966232,
+              "level": "default",
+              "done": false,
+              "start": 1709754966232
+            }
+          },
+          {
+            "key": 1709755100741,
+            "children": [
+              {
+                "key": 1709755128182,
+                "children": [],
+                "todo": {
+                  "content": "tiene derechos a crear productos",
+                  "id": 1709755128182,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709755128182
+                }
+              }
+            ],
+            "todo": {
+              "content": "establecer un nuevo rol en el schema del usuario, llamado premium",
+              "id": 1709755100741,
+              "level": "default",
+              "done": false,
+              "start": 1709755100741
+            }
+          },
+          {
+            "key": 1709755138780,
+            "children": [
+              {
+                "key": 1709755174448,
+                "children": [],
+                "todo": {
+                  "content": "si un producto se crea sin owner, entonces por defecto se coloca el admin",
+                  "id": 1709755174448,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709755174448
+                }
+              },
+              {
+                "key": 1709755193872,
+                "children": [],
+                "todo": {
+                  "content": "el campo owner, solo guardará el mail del usuario y/o el id - solo de usuarios premium",
+                  "id": 1709755193872,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709755193872
+                }
+              }
+            ],
+            "todo": {
+              "content": "el model productos, contará con un campo owner, hace referencia al rol del usuario que lo creó",
+              "id": 1709755138780,
+              "level": "default",
+              "done": false,
+              "start": 1709755138780
+            }
+          },
+          {
+            "key": 1709755266261,
+            "children": [
+              {
+                "key": 1709755280623,
+                "children": [],
+                "todo": {
+                  "content": "un usuario premium, solo borre los productos que le pertenecen",
+                  "id": 1709755280623,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709755280623
+                }
+              },
+              {
+                "key": 1709755302520,
+                "children": [],
+                "todo": {
+                  "content": "el admin puede borrar cualquier producto, hasta el del owner",
+                  "id": 1709755302520,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709755302520
+                }
+              }
+            ],
+            "todo": {
+              "content": "Modificar los permisos de modificación y eliminación de productos para:",
+              "id": 1709755266261,
+              "level": "default",
+              "done": false,
+              "start": 1709755266261
+            }
+          },
+          {
+            "key": 1709755335410,
+            "children": [],
+            "todo": {
+              "content": "Usuario premium, no podrá agregar al carrito, un producto creado por él",
+              "id": 1709755335410,
+              "level": "default",
+              "done": false,
+              "start": 1709755335410
+            }
+          },
+          {
+            "key": 1709755366813,
+            "children": [
+              {
+                "key": 1709755375297,
+                "children": [
+                  {
+                    "key": 1709755392877,
+                    "children": [],
+                    "todo": {
+                      "content": "debe permitir cambiar el rol de usuario a premium o viceversa",
+                      "id": 1709755392877,
+                      "level": "default",
+                      "done": false,
+                      "start": 1709755392877
+                    }
+                  }
+                ],
+                "todo": {
+                  "content": "api/users/premium/:uid",
+                  "id": 1709755375297,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709755375297
+                }
+              }
+            ],
+            "todo": {
+              "content": "Crear una nueva ruta",
+              "id": 1709755366813,
+              "level": "default",
+              "done": false,
+              "start": 1709755366813
+            }
+          }
+        ],
+        "todo": {
+          "content": "Para este nuevo desafio:",
+          "id": 1705071602838,
+          "level": "default",
+          "done": false,
+          "start": 1705071602838,
+          "focus": false,
+          "end": 1708886778086
+        }
+      }
+    ],
+    "expandKeys": [
+      1705071588004,
+      1705071602838,
+      1708618310847,
+      1709414410623,
+      1709754966232,
+      1709754983052,
+      1709755009104,
+      1709755100741,
+      1709755138780,
+      1709755266261,
+      1709755366813,
+      1709755375297,
+      1705071659610
+    ],
+    "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
+    "add_mode": "bottom",
+    "virtual": false,
+    "timelines": [],
+    "showLine": false,
+    "playFontSize": 24,
+    "title": "se_pide",
+    "autoSort": false,
+    "showEndTime": false,
+    "simpleMode": false,
+    "lang": "es",
+    "version": "1709927934993"
+  }
+}

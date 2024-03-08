@@ -3,6 +3,7 @@ import Controllers from "./class.controller.js";
 //importamos Service específico:
 import productService from "../services/product.service.js";
 import socketServer from '../app.js';
+import productRepository from "../persistence/repository/product.repository.js";
 
 class ProductController extends Controllers {
     constructor() {
@@ -124,6 +125,17 @@ class ProductController extends Controllers {
             next(error.message);
         }
     }
+    getProductByIdDto = async (req, res, next) =>{
+        try {
+            const {id} = req.params
+            console.log(id)
+            const product = await productRepository.getAllSimpleRepository(id);
+            if (!product) return false;
+            return res.status(201).json(product);
+        } catch (error) {
+            next(error);
+            }
+        }
 }
 const productController = new ProductController();
 export default productController;

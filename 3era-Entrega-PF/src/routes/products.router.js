@@ -6,15 +6,18 @@ const router = Router();
 
 router.get('/', verifyAdmin, productController.getAllCtr);
 
-router.get('/:id', productController.getById);
+//router.get('/:id', productController.getById);
 
-router.post('/', productController.create);
+//ruta para probar un dto:
+router.get('/dto/:id', productController.getProductByIdDto);
+
+router.post('/', verifyAdmin, productController.create);
 
 //crear los productos desde un file --->
 //router.post('/file', controllerProducts.createFileProductCtr)
 
-router.put('/:id', productController.update);
+router.put('/:id', verifyAdmin, productController.update);
 
-router.delete('/:id', productController.remove);
+router.delete('/:id', verifyAdmin, productController.remove);
 
 export default router;

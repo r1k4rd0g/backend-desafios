@@ -84,27 +84,26 @@ class ProductService extends Services {
         }
     };
     /**generadores faker */
-    createMockingProducts = async (cant = 100) => {
+    createMockingProducts = async (cant) => {
         try {
+            console.log(cant)
             const productsArray = [];
             for (let i = 0; i < cant; i++) {
                 const product = generateProducts();
                 productsArray.push(product);
             }
-            const products = await this.dao.create(productsArray);
-            return products;
+            //const products = await this.dao.create(productsArray);
+            return productsArray;
         } catch (error) {
-            logger.error('entró en el catch - product.service - createMockingProducts: ' + error)
             throw new Error(error.message, errorsDictionary.ERROR_TO_CREATE);
         }
     }
-    getMockingProducts = async () => {
+    getMockingProducts = async (cant) => {
         try {
-            const products = await this.dao.getAllSimple()
+            const products = await this.createMockingProducts(cant)
             console.log(products)
             return products;
         } catch (error) {
-            logger.error('entró en el catch - product.service - getMockingProducts: ' + error)
             throw new Error(error.message, errorsDictionary.ERROR_TO_GET);
         }
     }

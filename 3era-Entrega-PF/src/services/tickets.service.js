@@ -37,7 +37,7 @@ class TicketService extends Services {
             });
             cart.onCart = [];
             cart.save();
-            console.log('ticket creado?:', newTicket)
+            //console.log('ticket creado?:', newTicket)
             return newTicket;
         } catch (error) {
             console.error('Error al generar el ticket:', error);
