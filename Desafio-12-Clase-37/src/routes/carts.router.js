@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import cartController from '../controllers/carts.controller.js';
 import ticketController from '../controllers/tickets.controller.js';
-import { verifyUser } from '../middlewares/verifyRole.js';
+import { verifyUser, verifyRole2 } from '../middlewares/verifyRole.js';
 
 const router = Router();
 
@@ -17,14 +17,14 @@ router.get('/:cid', verifyUser, cartController.getById);
 //crea un carrito:
 //router.post('/', cartController.create); // inhabilitado por no uso
 
-router.post('/:cid/product/:pid', verifyUser, cartController.saveProductToCart);
+router.post('/:cid/product/:pid', cartController.saveProductToCart);
 
 //elimina el carrito por id seleccionado.
 //router.delete('/:cid', cartController.removeCartById);
 
 //router.put('/:cid',cartController.updateCart); //actualizar el carrito con los productos que existen
 //router.put('/:cid/products/:pid', cartController.updateAll)
-router.delete('/:cid/product/:pid', verifyUser, cartController.removeProductById);
+router.delete('/:cid/product/:pid', verifyRole2, cartController.removeProductById);
 
 //vacía el carrito:
 router.delete('/clear/:cid', verifyUser, cartController.clearCart)

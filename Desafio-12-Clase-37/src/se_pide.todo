@@ -51,8 +51,10 @@
                   "content": "mandar un mail cuando se hace el ticket",
                   "id": 1709849529882,
                   "level": "default",
-                  "done": false,
-                  "start": 1709849529882
+                  "done": true,
+                  "start": 1709849529882,
+                  "focus": false,
+                  "end": 1709941117034
                 }
               },
               {
@@ -150,25 +152,15 @@
           },
           {
             "key": 1709755100741,
-            "children": [
-              {
-                "key": 1709755128182,
-                "children": [],
-                "todo": {
-                  "content": "tiene derechos a crear productos",
-                  "id": 1709755128182,
-                  "level": "default",
-                  "done": false,
-                  "start": 1709755128182
-                }
-              }
-            ],
+            "children": [],
             "todo": {
               "content": "establecer un nuevo rol en el schema del usuario, llamado premium",
               "id": 1709755100741,
               "level": "default",
-              "done": false,
-              "start": 1709755100741
+              "done": true,
+              "start": 1709755100741,
+              "focus": false,
+              "end": 1709994831768
             }
           },
           {
@@ -181,8 +173,10 @@
                   "content": "si un producto se crea sin owner, entonces por defecto se coloca el admin",
                   "id": 1709755174448,
                   "level": "default",
-                  "done": false,
-                  "start": 1709755174448
+                  "done": true,
+                  "start": 1709755174448,
+                  "focus": false,
+                  "end": 1709958762334
                 }
               },
               {
@@ -192,8 +186,10 @@
                   "content": "el campo owner, solo guardará el mail del usuario y/o el id - solo de usuarios premium",
                   "id": 1709755193872,
                   "level": "default",
-                  "done": false,
-                  "start": 1709755193872
+                  "done": true,
+                  "start": 1709755193872,
+                  "focus": false,
+                  "end": 1709958762833
                 }
               }
             ],
@@ -201,8 +197,10 @@
               "content": "el model productos, contará con un campo owner, hace referencia al rol del usuario que lo creó",
               "id": 1709755138780,
               "level": "default",
-              "done": false,
-              "start": 1709755138780
+              "done": true,
+              "start": 1709755138780,
+              "focus": false,
+              "end": 1709958761912
             }
           },
           {
@@ -227,7 +225,9 @@
                   "id": 1709755302520,
                   "level": "default",
                   "done": false,
-                  "start": 1709755302520
+                  "start": 1709755302520,
+                  "focus": false,
+                  "end": 1709958746621
                 }
               }
             ],
@@ -237,17 +237,6 @@
               "level": "default",
               "done": false,
               "start": 1709755266261
-            }
-          },
-          {
-            "key": 1709755335410,
-            "children": [],
-            "todo": {
-              "content": "Usuario premium, no podrá agregar al carrito, un producto creado por él",
-              "id": 1709755335410,
-              "level": "default",
-              "done": false,
-              "start": 1709755335410
             }
           },
           {
@@ -263,8 +252,10 @@
                       "content": "debe permitir cambiar el rol de usuario a premium o viceversa",
                       "id": 1709755392877,
                       "level": "default",
-                      "done": false,
-                      "start": 1709755392877
+                      "done": true,
+                      "start": 1709755392877,
+                      "focus": false,
+                      "end": 1709958737835
                     }
                   }
                 ],
@@ -272,8 +263,10 @@
                   "content": "api/users/premium/:uid",
                   "id": 1709755375297,
                   "level": "default",
-                  "done": false,
-                  "start": 1709755375297
+                  "done": true,
+                  "start": 1709755375297,
+                  "focus": false,
+                  "end": 1709958737423
                 }
               }
             ],
@@ -281,8 +274,125 @@
               "content": "Crear una nueva ruta",
               "id": 1709755366813,
               "level": "default",
+              "done": true,
+              "start": 1709755366813,
+              "focus": false,
+              "end": 1709958736172
+            }
+          },
+          {
+            "key": 1709943152297,
+            "children": [
+              {
+                "key": 1709943199078,
+                "children": [],
+                "todo": {
+                  "content": "Si es admin, solo permitir modificar, agregar o eliminar cualquier producto",
+                  "id": 1709943199078,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709943199078
+                }
+              },
+              {
+                "key": 1709943207220,
+                "children": [
+                  {
+                    "key": 1709943532726,
+                    "children": [],
+                    "todo": {
+                      "content": "Crear productos",
+                      "id": 1709943532726,
+                      "level": "default",
+                      "done": true,
+                      "start": 1709943532726,
+                      "focus": false,
+                      "end": 1709943541788
+                    }
+                  },
+                  {
+                    "key": 1709943546186,
+                    "children": [],
+                    "todo": {
+                      "content": "Eliminar los que él creó.",
+                      "id": 1709943546186,
+                      "level": "default",
+                      "done": false,
+                      "start": 1709943546186
+                    }
+                  }
+                ],
+                "todo": {
+                  "content": "Si es premium puede:",
+                  "id": 1709943207220,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709943207220
+                }
+              },
+              {
+                "key": 1709943282026,
+                "children": [],
+                "todo": {
+                  "content": "Si es premium, no puedo agregar al carrito, un producto creado por él.",
+                  "id": 1709943282026,
+                  "level": "default",
+                  "done": false,
+                  "start": 1709943282026
+                }
+              }
+            ],
+            "todo": {
+              "content": "Permisos de roles",
+              "id": 1709943152296,
+              "level": "default",
               "done": false,
-              "start": 1709755366813
+              "start": 1709943152296
+            }
+          },
+          {
+            "key": 1710099642510,
+            "children": [
+              {
+                "key": 1710099649750,
+                "children": [],
+                "todo": {
+                  "content": "Módulo de productos",
+                  "id": 1710099649750,
+                  "level": "default",
+                  "done": false,
+                  "start": 1710099649750
+                }
+              },
+              {
+                "key": 1710099658690,
+                "children": [],
+                "todo": {
+                  "content": "Módulo de carrito",
+                  "id": 1710099658690,
+                  "level": "default",
+                  "done": false,
+                  "start": 1710099658690
+                }
+              },
+              {
+                "key": 1710099669969,
+                "children": [],
+                "todo": {
+                  "content": "Adicional, documentar el módulo de usuarios",
+                  "id": 1710099669969,
+                  "level": "default",
+                  "done": false,
+                  "start": 1710099669969
+                }
+              }
+            ],
+            "todo": {
+              "content": "Documentar:",
+              "id": 1710099642510,
+              "level": "default",
+              "done": false,
+              "start": 1710099642510
             }
           }
         ],
@@ -302,15 +412,15 @@
       1705071602838,
       1708618310847,
       1709414410623,
-      1709754966232,
       1709754983052,
       1709755009104,
       1709755100741,
       1709755138780,
       1709755266261,
-      1709755366813,
       1709755375297,
-      1705071659610
+      1709943152297,
+      1709943207220,
+      1710099642510
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -323,6 +433,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "es",
-    "version": "1709927934993"
+    "version": "1710099681559"
   }
 }

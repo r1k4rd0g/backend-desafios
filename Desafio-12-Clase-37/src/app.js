@@ -14,10 +14,14 @@ import passport from 'passport';
 import config from './config/config.js';
 import {mongoStoreOptions} from './utils.js'
 import logger from './utils/logger/logger.winston.js';
+import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerUiExpress from 'swagger-ui-express';
+import { swaggerOptions } from './docs/info.js';
 
 
 const app = express();
-
+const specs = swaggerJsdoc(swaggerOptions);
+app.use('/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
 
 
 

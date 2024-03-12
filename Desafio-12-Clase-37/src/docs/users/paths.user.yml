@@ -1,0 +1,23 @@
+paths:
+  /api/users:
+    get:
+      summary: Obtiene todos los productos registrados en la BD.
+      tags:
+        - Users
+      responses:
+        200:
+          description: Devuelve en formato json, un listado con opciones de paginación personalizadas.
+        500:
+          description: Error interno del servidor, no se obtuvieron los productos.
+    post:
+      summary: Crea un producto en la BD.
+      tags:
+        - Users
+    put:
+      summary: Actualiza un producto de la BD.
+      tags:
+        - Users
+    delete:
+      summary: Elimina un producto de la BD.
+      tags:
+        - Users

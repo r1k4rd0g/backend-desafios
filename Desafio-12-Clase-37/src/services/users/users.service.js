@@ -16,10 +16,10 @@ class UserService extends Services {
         this.cartDao = persistence.cartDao
     }
     createUser = async (userData) => {
-        try {//console.log('userData services', typeof(userData), userData)
+        try {console.log('userData services', typeof(userData), userData)
             const { first_name, last_name, email, password, role, age, isGithub } = userData;
             const newCart = await this.cartDao.create()
-            //console.log('carrito nuevo al crear usuario', newCart)
+            console.log('carrito nuevo al crear usuario', newCart)
             const cartId = newCart._id;
             //console.log('consola 9', typeof email, typeof password, typeof first_name)
             if (email === 'adminCoder@coder.com' && password === 'adminCoder123') {

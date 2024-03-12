@@ -26,18 +26,18 @@
         <ul>
             {{#each products}}
             <li>
-                <strong>Titulo: </strong>{{this.Title}}<br>
-                <strong>Price: </strong>{{this.Price}}<br>
-                <strong>Description: </strong>{{this.Description}}<br>
-                <strong>Category: </strong>{{this.Category}}<br>
-                {{#if this.Thumbnail}}
-                    {{#each this.Thumbnail}}
+                <strong>Titulo: </strong>{{this.title}}<br>
+                <strong>Price: </strong>{{this.price}}<br>
+                <strong>Description: </strong>{{this.description}}<br>
+                <strong>Category: </strong>{{this.category}}<br>
+                {{#if this.thumbnail}}
+                    {{#each this.thumbnail}}
                     <div class="imgContainer">
-                        <img class="imgProduct" src="{{this}}" alt="{{this.Title}}">
+                        <img class="imgProduct" src="{{this}}" alt="{{this.title}}">
                     </div>
                     {{/each}}
                 {{/if}}
-                <form class="form addToCart" id={{this.Id}}>
+                <form class="form addToCart" id={{this.id}}>
                     <input type="number" name="quantity" value="0" min="0">
                     <button type="submit">Agregar al carrito</button>
                 </form>

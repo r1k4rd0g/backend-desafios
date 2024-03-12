@@ -7,49 +7,40 @@ export const productCollection = 'product';
 
 //requerimientos para crear un producto:
 export const productSchema = new Schema({
-    Title: {
+    title: {
         type: String,
         required: true,
         index: true
     },
-    Description: {
+    description: {
         type: String,
         required: true
     },
-    Code:{
+    code:{
         type :String,
-        require: true,
+        required: true,
         unique: true,
         index: true
     },
-    Price: {
+    price: {
         type: Number,
         required: true}
         ,
-    Stock: {
+    stock: {
         type: Number,
         required: true
     },
-    Category: {
+    category: {
         type: String,
-        require: true
+        required: true
     },
-    Thumbnail:{
+    thumbnail:{
         type: [String] //array de strings
     },
-    Owner:{
-        type: String,
-        require:true,
-        email: {
-            type: String,
-            ref: UserModel,
-            required: true,
-        },
-        userId:{
-            type: Schema.Types.ObjectId,
-            ref: UserModel,
-            required: true,
-        }
+    owner:{
+        default: "admin",
+        required:true,
+        type: String
     }
 });
 //ejecutamos mongoose paginate:

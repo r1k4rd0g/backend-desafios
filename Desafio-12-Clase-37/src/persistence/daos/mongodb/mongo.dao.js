@@ -32,7 +32,7 @@ export default class MongoDao {
     async create(obj) {
         try {//console.log('consola mongo dao create', obj)
             const response = await this.model.create(obj);
-            //console.log('consola create de mongo.dao', response)
+            console.log('consola create de mongo.dao', response)
             return response;
         } catch (error) {
             logger.error('entró en el catch mongodb - mongo.dao - create: ' + error)

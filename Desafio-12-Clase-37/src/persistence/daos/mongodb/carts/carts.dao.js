@@ -1,6 +1,7 @@
 import { CartModel } from "./carts.model.js";
 import MongoDao from "../mongo.dao.js";
 import { errorsDictionary } from "../../../../utils/errors.dictionary.js";
+import logger from "../../../../utils/logger/logger.winston.js";
 
 export default class CartMongoDao extends MongoDao {
     constructor() {
@@ -9,9 +10,10 @@ export default class CartMongoDao extends MongoDao {
 
     async saveProductToCart(cid, pid, quantity) {
         try {
+            logger.info('viene de service, carts.dao - saveProduct - cid ' + cid)
             const cart = await CartModel.findById(cid).populate('onCart.product');
-            //console.log('consola linea 35 cart dao', cart, 'id de product:', pid)
-            if (!cart) throw new error('no existe el carrito');
+            console.log('consola linea 35 cart dao', cart, 'id de product:', pid)
+            if (!cart) logger.info('no existe el carrito');
             const productExist = cart.onCart.find(item => item.product._id.toString() === pid);
             if (productExist) {
                 productExist.quantity += quantity;

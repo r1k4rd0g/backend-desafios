@@ -19,7 +19,7 @@ socket.on('products', (products)=>{
     products.forEach(p=>{
         console.log(JSON.stringify(p))
         infoProducts += `<li>
-        <strong>Titulo: </strong>${p.Title}<br>
+        <strong>Titulo: </strong>${p.title}<br>
         <strong>Price: </strong>${p.price}<br>
         <strong>Description: </strong>${p.description}<br>
         <strong>Category: </strong>${p.category}<br>

@@ -19,7 +19,7 @@ export default class Services {
     //busca un item por id específico:
     getById = async (id)=>{
         try {
-            //console.log('consola getById de class.services que muestra el id que viene desde controllers:', id)
+            //logger.info('consola getById de class.services que muestra el id que viene desde controllers:' + id)
             const itemSearch = await this.dao.getById(id);
             //console.log('itemSearch en class.service', itemSearch);
             if(!itemSearch) return false, console.log(`no se encontró item buscado por id ${id}`);
@@ -45,10 +45,12 @@ export default class Services {
     //actualizar un item:
     update = async (id, obj) =>{
         try {
+            console.log('datos que llegan al class.services - update: ', id, obj)
             const itemSearch = await this.dao.getById(id);
             if(!itemSearch) return false;
             //console.log (`item con id: ${id} no encontrado, consola update de class.service`);
-            else return itemUpdate = await this.dao.update(id, obj);
+            const itemUpdate = await this.dao.update(id, obj);
+            return itemUpdate
         } catch (error) {
             logger.error('entró en el catch - class.service - update: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_UPDATE);

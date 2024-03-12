@@ -2,7 +2,7 @@ import {Router} from 'express';
 import productController from '../controllers/products.controller.js';
 import sessionController from '../controllers/sessions.controller.js';
 import userController from '../controllers/users.controller.js'
-import { verifyAdmin } from '../middlewares/verifyRole.js';
+import { verifyRole } from '../middlewares/verifyRole.js';
 const router = Router();
 
 
@@ -24,7 +24,7 @@ router.get('/register-success', (req, res)=>{
     res.render('registersuccess')
 })
 
-router.get('/realtimeproducts',verifyAdmin, productController.getProductsRealTime);
+router.get('/realtimeproducts',verifyRole, productController.getProductsRealTime);
 
 router.post('/realtimeproducts',productController.createProductsRealTime);
 

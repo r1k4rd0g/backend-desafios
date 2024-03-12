@@ -33,3 +33,44 @@ export const verifyUser = (req, res, next)=>{
     }
 }
 
+export const verifyRole = (req, res, next) => {
+    try {
+        const { role } = req.session.passport.user;
+        switch (role) {
+            case 'admin':
+                logger.info('rol de verifyAdmin' + role);
+                next();
+                break;
+            case 'premium':
+                logger.info('rol de verifyUser' + role);
+                next();
+                break;
+            default:
+                return httpResponse.Unauthorized(res, errorsDictionary.ERROR_VERIFY_ROLE);
+        }
+    } catch (error) {
+        logger.error('Error en verifyRole:', error);
+        throw new Error(errorsDictionary.ERROR_VERIFY_ROLE);
+    }
+};
+
+export const verifyRole2 = (req, res, next) => {
+    try {
+        const { role } = req.session.passport.user;
+        switch (role) {
+            case 'usuario':
+                logger.info('rol de verifyAdmin' + role);
+                next();
+                break;
+            case 'premium':
+                logger.info('rol de verifyUser' + role);
+                next();
+                break;
+            default:
+                return httpResponse.Unauthorized(res, errorsDictionary.ERROR_VERIFY_ROLE);
+        }
+    } catch (error) {
+        logger.error('Error en verifyRole:', error);
+        throw new Error(errorsDictionary.ERROR_VERIFY_ROLE);
+    }
+};

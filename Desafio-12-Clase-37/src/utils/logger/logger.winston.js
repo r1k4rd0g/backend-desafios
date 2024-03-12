@@ -1,5 +1,4 @@
 import winston from 'winston'
-
 import config from '../../config/config.js'
 import { __dirname } from '../../utils.js';
 
@@ -45,7 +44,7 @@ switch (environment) {
             })
         )
         break;
-    default :
+    default:
         console.log("no se reconoce un ambiente")
 }
 
@@ -54,7 +53,7 @@ const logger = winston.createLogger({
     levels: customLevelsOptions.levels,
     transports: myTransports
 })
-
+//console.log('que se genera en logger: ', logger)
 export default logger
 
 

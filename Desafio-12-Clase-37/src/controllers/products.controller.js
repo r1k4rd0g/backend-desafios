@@ -29,7 +29,7 @@ class ProductController extends Controllers {
                 category || '',
                 exist || '',
                 priceFilter);
-            logger.info(typeof(pageSize) + 'console 1: pageSize' + limit)
+            logger.info(typeof (pageSize) + 'console 1: pageSize' + limit)
             //logger.info('console 2:' + searchQuery);
             //logger.info(typeof(sortOrder) + 'console 3:'+ sortOrder);
             const prevPage = response.prevPage;
@@ -79,7 +79,7 @@ class ProductController extends Controllers {
                 return res.status(400).json({ messages: `error al eliminar el producto con id: ${pid}` })
             } else { return res.status(200).json(deletedProduct); }
         } catch (error) {
-            logger.error('Entró al catch en products.controller de remove'+ error)
+            logger.error('Entró al catch en products.controller de remove' + error)
             next(error);
         }
     }
@@ -91,17 +91,16 @@ class ProductController extends Controllers {
             const products = await productService.getAllSimple();
             const productsDetail = products.map(product => {
                 return {
-                    Title: product.Title,
-                    Price: product.Price,
-                    Description: product.Description,
-                    Category: product.Category,
-                    Thumbnail: product.Thumbnail,
-                    Id: product._id
+                    title: product.title,
+                    price: product.price,
+                    description: product.description,
+                    category: product.category,
+                    thumbnail: product.thumbnail,
+                    id: product._id
                 }
             })
             const userLog = req.session.passport.user
             logger.info('userLog de products controller' + userLog)
-            logger.info('consola linea 100' + productsDetail)
             res.render('productlist', { products: productsDetail, user: userLog },)
         } catch (error) {
             logger.error('Entró al catch en products.controller de getAllSimple' + error)
@@ -120,8 +119,14 @@ class ProductController extends Controllers {
     }
     createProductsRealTime = async (req, res, next) => {
         try {
-            const { Title, Description, Code, Price, Stock, Category, Thumbnail } = req.body;
-            const newProduct = { Title, Description, Code, Price, Stock, Category, Thumbnail }
+            //const newProduct = req.body
+            const { title, description, code, price, stock, category, thumbnail } = req.body;
+            logger.info('EJemplo de lo que llega del body' + title)
+            const user = req.session.passport.user;
+            const rol = req.session.passport.user.role;
+            const id = user._id;
+            const owner = rol === 'premium' ? id : 'admin'
+            const newProduct = { title, description, code, price, stock, category, thumbnail, owner }
             const productCreated = await productService.create(newProduct);
             logger.info('productCreated en products.controller: ' + productCreated)
             const allProducts = await productService.getAllSimple()
@@ -132,17 +137,17 @@ class ProductController extends Controllers {
             next(error);
         }
     }
-    getProductByIdDto = async (req, res, next) =>{
+    getProductByIdDto = async (req, res, next) => {
         try {
-            const {id} = req.params
+            const { id } = req.params
             console.log(id)
             const product = await productRepository.getAllSimpleRepository(id);
             if (!product) return false;
-            return httpResponse.Ok(res,product)
+            return httpResponse.Ok(res, product)
         } catch (error) {
             next(error);
-            }
         }
+    }
     /**generadores faker */
     /*createProductsMocking = async (req, res, next) =>{
         try {
@@ -153,17 +158,26 @@ class ProductController extends Controllers {
             next(error);
         }
     }*/
-    getProductsMocking = async (req, res, next) =>{
+    getProductsMocking = async (req, res, next) => {
         try {
-            const {cant} = req.body
+            const { cant } = req.body
             console.log(cant)
             const response = await productService.getMockingProducts(cant);
             console.log(response)
-            return httpResponse.Ok(res,response)
+            return httpResponse.Ok(res, response)
         } catch (error) {
-            next (error);
+            next(error);
         }
     }
+    /*createFileProductCtr = async (req, res, next) => {
+        try {
+            const newProducts = await productService.createFileProduct();
+            if (!newProducts) throw new Error("validation error");
+            return res.status(201).send('Archivo creado correctamente');
+        } catch (error) {
+            next(error)
+        }
+    }*/
 }
 const productController = new ProductController();
 export default productController;

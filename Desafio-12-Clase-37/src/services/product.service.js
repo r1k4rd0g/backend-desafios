@@ -6,6 +6,7 @@ import { errorsDictionary } from '../utils/errors.dictionary.js';
 import { __dirname } from '../utils.js';
 import { generateProducts } from '../utils/faker/products.faker.js';
 import logger from '../utils/logger/logger.winston.js'
+import fs from 'fs'
 
 
 
@@ -38,20 +39,20 @@ class ProductService extends Services {
                 } else {
                     if (searchQuery !== '') {
                         filter['$or'] = [
-                            { 'Title': { $regex: searchQuery, $options: 'i' } },
-                            { 'Description': { $regex: searchQuery, $options: 'i' } },
-                            { 'Code': { $regex: searchQuery, $options: 'i' } },
-                            { 'Category': { $regex: searchQuery, $options: 'i' } }
+                            { 'title': { $regex: searchQuery, $options: 'i' } },
+                            { 'description': { $regex: searchQuery, $options: 'i' } },
+                            { 'code': { $regex: searchQuery, $options: 'i' } },
+                            { 'category': { $regex: searchQuery, $options: 'i' } }
                         ];
                     }
                 }
                 if (category) {
-                    filter['Category'] = { $regex: category, $options: 'i' };
+                    filter['category'] = { $regex: category, $options: 'i' };
                 }
                 if (exist) {
                     if (exist === 'yes') {
-                        filter['Stock'] = { $gt: 0 };
-                    } else if (exist === 'no') { filter['Stock'] = { $lte: 0 } }
+                        filter['stock'] = { $gt: 0 };
+                    } else if (exist === 'no') { filter['stock'] = { $lte: 0 } }
                 }
                 return filter;
             };
@@ -107,6 +108,24 @@ class ProductService extends Services {
             throw new Error(error.message, errorsDictionary.ERROR_TO_GET);
         }
     }
+    /*productsFile = JSON.parse(
+        fs.readFileSync('../persistence/daos/filesystem/data/products.json', 'utf-8')
+    );
+
+    // crea los productos desde el archivo .json:
+    createFileProduct = async () => {
+        try {
+            const createdProducts = [];
+            for (const product of productsFile) {
+                const newProduct = await this.dao.create(product)
+                createdProducts.push(newProduct);
+            }
+            return { message: "productos del archivo cargados" }
+        } catch (error) {
+            throw new Error(error)
+        }
+    }*/
+    //removeById
 }
 const productService = new ProductService(persistence.productDao);
 export default productService;

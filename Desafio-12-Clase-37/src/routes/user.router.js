@@ -1,6 +1,7 @@
 import { Router } from "express";
 import userController from "../controllers/users.controller.js";
 import passport from "passport";
+import { verifyAdmin } from "../middlewares/verifyRole.js";
 
 
 const router = Router();
@@ -33,3 +34,6 @@ router.post("/github-login", passport.authenticate("github-login"), userControll
 
 router.post('/logout', userController.logout);
 export default router;
+
+//ruta para actualizar el role de un usuario:
+router.put('/premium/:id', verifyAdmin, userController.update)

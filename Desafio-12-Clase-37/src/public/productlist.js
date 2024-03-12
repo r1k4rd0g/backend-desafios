@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
                 const productId = form.getAttribute('id')
-                //console.log(productId, 'productId')
+                console.log(productId, 'productId')
                 //const productIdElement = form.querySelector('.productId');
                 //const productId = productIdElement.getAttribute('data-product-id');
             console.log('product id: ', productId, 'cart id:', cartId);
