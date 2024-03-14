@@ -61,8 +61,8 @@ export default class Services {
         try {
             const itemDelete = await this.dao.delete(id);
             if(!itemDelete) return false;
-            //console.log(`no se encontró item buscado por id ${id}`);
-            else return itemDelete;
+            logger.info('no se encontró item buscado por id ' + id)
+            return itemDelete;
         } catch (error) {
             logger.error('entró en el catch - class.service - delete: ' + error)
             throw new Error (error.message, errorsDictionary.ERROR_TO_REMOVE);

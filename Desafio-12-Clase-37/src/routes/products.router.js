@@ -8,7 +8,7 @@ router.get('/', verifyAdmin, productController.getAllCtr);
 
 //router.get('/:id', productController.getById);
 
-router.post('/', productController.create);
+router.post('/', verifyAdmin, productController.create);
 
 //crear los productos desde un file --->
 //router.post('/file', productController.createFileProductCtr)

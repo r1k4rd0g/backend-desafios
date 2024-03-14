@@ -24,18 +24,18 @@ components:
             unique: true
           price:
             type: Number
-            description: Precio del producto, debe ser un número mayor a 0
+            description: Precio del producto, debe ser un número mayor a 0.
           stock:
             type: Number
-            description: Cantidad de unidades disponibles para la comercialización, no puede ser número negativo
+            description: Cantidad de unidades disponibles para la comercialización, no puede ser número negativo.
           category:
             type: String
-            description: Categoría a la que pertence el producto
+            description: Categoría a la que pertence el producto.
           thumbnail:
             type: Array
             items:
               type: String
-            description: Imágenes del producto en formato de URL en formato Https
+            description: Imágenes del producto en formato de URL en formato Https.
         example:
           title: Lapicera Bic
           description: Lapicera Bic Color Azul - La clásica lapicera, económica y versatil..
@@ -63,15 +63,15 @@ components:
             description: Precio del producto, debe ser un número mayor a 0
           stock:
             type: Number
-            description: Cantidad de unidades disponibles para la comercialización, no puede ser número negativo
+            description: Cantidad de unidades disponibles para la comercialización, no puede ser número negativo.
           category:
             type: String
-            description: Categoría a la que pertence el producto
+            description: Categoría a la que pertence el producto.
           thumbnail:
             type: Array
             items:
               type: String
-            description: Imágenes del producto en formato de URL en formato Https
+            description: Imágenes del producto en formato de URL en formato Https.
         example:
           title: Lapicera Bic
           description: Lapicera Bic Color Azul - La clásica lapicera, económica y versatil..

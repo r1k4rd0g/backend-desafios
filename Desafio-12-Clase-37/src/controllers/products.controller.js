@@ -8,6 +8,7 @@ import logger from "../utils/logger/logger.winston.js";
 import productRepository from "../persistence/repository/product.repository.js";
 
 
+
 class ProductController extends Controllers {
     constructor() {
         super(productService)
@@ -39,6 +40,7 @@ class ProductController extends Controllers {
             const status = 'success';
             res.json({
                 status,
+                response,
                 products: response.docs,
                 payload: response.totalDocs,
                 info: {
@@ -57,11 +59,11 @@ class ProductController extends Controllers {
     };
     update = async (req, res, next) => {
         try {
-            const { pid } = req.params;
+            const { id } = req.params;
             const updateValues = req.body;
-            const productUpdate = await productService.update(pid, updateValues);
+            const productUpdate = await productService.update(id, updateValues);
             if (!productUpdate) {
-                return res.status(400).json({ messages: `error al actualizar el producto con id ${pid}` })
+                return res.status(400).json({ messages: `error al actualizar el producto con id ${id}` })
             } else {
                 return res.status(200).json(productUpdate)
             };
@@ -73,10 +75,11 @@ class ProductController extends Controllers {
 
     remove = async (req, res, next) => {
         try {
-            const { pid } = req.params;
-            const deletedProduct = await productService.remove(pid);
+            const { id } = req.params;
+            logger.info( 'id recibido del params ' + id)
+            const deletedProduct = await productService.delete(id);
             if (!deletedProduct) {
-                return res.status(400).json({ messages: `error al eliminar el producto con id: ${pid}` })
+                return res.status(400).json({ messages: `error al eliminar el producto con id: ${id}` })
             } else { return res.status(200).json(deletedProduct); }
         } catch (error) {
             logger.error('Entró al catch en products.controller de remove' + error)
